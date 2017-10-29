@@ -9,6 +9,7 @@ class Project
 
 private:
     ResizableArray<Frame> frames;
+    Frame currentFrame;
 
 public:
     Project(int x, int y, int startframes = 1);
