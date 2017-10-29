@@ -9,5 +9,5 @@ Project::Project(int x, int y)
 
 Project::~Project()
 {
-    for(unsigned i = 0; i < f
+    
 }

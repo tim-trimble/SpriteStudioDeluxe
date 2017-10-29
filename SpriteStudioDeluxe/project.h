@@ -10,11 +10,12 @@ private:
     Frame * frames;
 
 public:
-    Project();
+    Project(int x, int y);
     ~Project();
 
 public slots:
-    void change_pixel();
+    void change_pixels();
+    void add_frame();
 
 signals:
     void update_pixel();
