@@ -1,16 +1,17 @@
 #ifndef MODEL_H
 #define MODEL_H
 #include "frame.h"
+#include "resizablearray.h"
 
 
 class Project
 {
 
 private:
-    Frame * frames;
+    ResizableArray<Frame> frames;
 
 public:
-    Project(int x, int y);
+    Project(int x, int y, int startframes = 1);
     ~Project();
 
 public slots:

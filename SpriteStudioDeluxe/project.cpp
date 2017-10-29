@@ -1,13 +1,16 @@
 #include "project.h"
+#include "resizablearray.h"
 
-Project::Project(int x, int y)
+Project::Project(int x, int y, int startframes = 1)
 {
-    frames = new Frame[];
-    Frame f(x, y);
-    frames->addFrame(f);
+    frames(startframes);
+    for(unsigned i = 0; i < startframes; i++)
+    {
+        frames.additem(Frame(x, y));
+    }
 }
 
 Project::~Project()
 {
-    for(unsigned i = 0; i < f
+
 }

@@ -2,7 +2,7 @@
 #define PIXEL_H
 
 
-class PIXEL
+class Pixel
 {
 
 };
