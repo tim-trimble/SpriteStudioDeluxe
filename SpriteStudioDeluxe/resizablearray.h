@@ -22,7 +22,6 @@ public:
     ResizableArray(const ResizableArray & other);
 
     T operator[](int index) const;
-    T& operator[](int index);
     ResizableArray& operator=(ResizableArray other);
 
     int count();

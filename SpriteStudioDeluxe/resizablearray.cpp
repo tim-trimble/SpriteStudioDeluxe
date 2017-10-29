@@ -1,16 +1,19 @@
 #include"resizablearray.h"
 
+// creates an array with a size of startSize
 ResizableArray::ResizableArray(int startSize)
 {
     length = startSize;
     data = new T[length];
     count = 0;
 }
+
 ResizableArray::~ResizableArray()
 {
     delete [] data;
 }
 
+//creates a copy of other
 ResizableArray::ResizableArray(const ResizableArray &other)
 {
     length = other.length;
@@ -26,11 +29,6 @@ T ResizableArray::operator [](int index) const
     return data[index];
 }
 
-T& ResizableArray::operator [](int index)
-{
-    return data[index];
-}
-
 ResizableArray& ResizableArray::operator =(ResizableArray other)
 {
     swap(length, other.length);
@@ -39,16 +37,19 @@ ResizableArray& ResizableArray::operator =(ResizableArray other)
     return *this;
 }
 
+// returns how many items are currently in the array
 int ResizableArray::count()
 {
     return count;
 }
 
+// returns how many spaces there are in the array
 int ResizableArray::length()
 {
     return length;
 }
 
+// resizes the array while keeping the same underlying values
 void ResizableArray::resize(int newsize)
 {
     T *newdata = T[newsize];
@@ -68,6 +69,7 @@ void ResizableArray::additem(T item)
         resize(length * 2);
     }
     data[count] = item;
+    count++;
 }
 
 void ResizableArray::removeitem(T item)
