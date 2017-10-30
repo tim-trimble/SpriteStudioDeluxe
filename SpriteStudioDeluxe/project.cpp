@@ -1,5 +1,7 @@
 #include "project.h"
 
+//image = new QImage(int width, int height, QImage::Format_ARGB32);
+
 Project::Project(int x, int y)
 {
     frames;
@@ -8,6 +10,30 @@ Project::Project(int x, int y)
 }
 
 Project::~Project(){}
+
+/*How to set a single pixel white
+QColor *color = new QColor(255,255,255,255); (r,g,b,a)
+image->setPixelColor(int x, int y, color);
+*/
+
+/*Shrink or enlarge image
+QImage:scaled(int width, int height, Qt::KeepAspectRatio, Qt::FastTransformation);
+*/
+
+/*90 degree rotation
+QTransform transform;
+transform.translate(centerX,centerY);
+transform.rotate(90);
+*myImage = myImage->transformed(transform,Qt::FastTransformation);
+*/
+
+/*Saving
+bool success = myImage->save(filename,format,quality);
+*/
+
+/*Loading
+bool success = myImage->load(filename,format);
+*/
 
 void Project::add_frame()
 {
