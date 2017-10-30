@@ -32,7 +32,8 @@ HEADERS += \
         mainwindow.h \
     project.h \
     frame.h \
-    pixel.h
+    pixel.h \
+    model.h
 
 FORMS += \
         mainwindow.ui
