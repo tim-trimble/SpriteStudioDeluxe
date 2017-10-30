@@ -27,12 +27,22 @@ transform.rotate(90);
 *myImage = myImage->transformed(transform,Qt::FastTransformation);
 */
 
+/*Mirror
+*myImage = myImage->mirrored(); defaults to x-axis
+mirrored(true,false); y-axis
+mirrored(true,true); both
+*/
+
 /*Saving
 bool success = myImage->save(filename,format,quality);
 */
 
 /*Loading
 bool success = myImage->load(filename,format);
+*/
+
+/*Resize an existing image while maintaining pixel organization
+*myImage = myImage->copy(0,0,newWidth,newHeight);
 */
 
 void Project::add_frame()
