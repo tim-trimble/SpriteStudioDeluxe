@@ -20,7 +20,7 @@ public slots: //View requests that will be sent to model
 
     //shrink/enlarge
 
-    //zoom
+    //zoom - might be handled by view as it is aesthetic only
 
     //save
 
