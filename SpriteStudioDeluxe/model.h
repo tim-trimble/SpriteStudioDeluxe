@@ -14,15 +14,21 @@ public:
 
 public slots: //View requests that will be sent to model
 
-    //Change a pixel
-
     //Change an array of pixels
 
     //Perform a transformation (rotation)
 
-    //Zoom in view
+    //shrink/enlarge
 
-    //Zoom out view
+    //zoom
+
+    //save
+
+    //load
+
+    //new
+
+    //exit - maybe check for unsaved changes?
 
 signals: //Signals with updated information for view
 
