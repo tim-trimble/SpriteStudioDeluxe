@@ -26,15 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    project.cpp \
-    resizablearray.cpp
+    project.cpp
 
 HEADERS += \
         mainwindow.h \
     project.h \
     frame.h \
-    pixel.h \
-    resizablearray.h
+    pixel.h
 
 FORMS += \
         mainwindow.ui
