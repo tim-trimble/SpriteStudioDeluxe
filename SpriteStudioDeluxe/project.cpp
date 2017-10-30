@@ -1,12 +1,66 @@
 #include "project.h"
 
-Project::Project(int x, int y, int startframes)
+Project::Project(int x, int y)
 {
-    for(unsigned i = 0; i < startframes; i++)
-    {
-        frames.push_back(Frame(x, y));
-    }
-    currentFrame = frames[0];
+    frames;
+    frames.push_back(QImage());
+    currentFrame = frames.begin();
 }
 
 Project::~Project(){}
+
+void Project::add_frame()
+{
+    frames.push_back(QImage());
+}
+
+void Project::update_canvas()
+{
+    QPixmap pixmap = QPixmap::fromImage(*currentFrame);
+    emit send_update(pixmap);
+}
+
+void Project::next_frame()
+{
+    if(currentFrame == frames.end())
+    {
+        currentFrame = frames.begin();
+    }
+    else
+    {
+        currentFrame++;
+    }
+    update_canvas();
+}
+
+void Project::previous_frame()
+{
+    if(currentFrame == frames.begin())
+    {
+        currentFrame = frames.end();
+    }
+    else
+    {
+        currentFrame--;
+    }
+    update_canvas();
+}
+
+void Project::swap_frames(int frame1, int frame2)
+{
+    QImage copyFrame = frames[frame1];
+    frames[frame1] = frames[frame2];
+    frames[frame2] = copyFrame;
+}
+
+void Project::get_all_frames()
+{
+    std::vector<QPixmap> tempVec;
+    for(auto iter = frames.begin(); iter != frames.end();
+        iter++)
+    {
+        QPixmap pixmap = QPixmap::fromImage(*iter);
+        tempVec.push_back(pixmap);
+    }
+    emit send_all_frames(tempVec);
+}

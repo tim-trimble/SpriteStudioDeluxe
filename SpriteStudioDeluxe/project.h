@@ -1,31 +1,32 @@
 #ifndef MODEL_H
 #define MODEL_H
-#include "frame.h"
-#include <vector>
 #include <QObject>
+#include <QImage>
+#include <QPixmap>
 
 class Project : public QObject
 {
     Q_OBJECT
 
 private:
-
-    // I removed the resizablearray files because they don't compile right now. I have a local copy of them.
-    // I think the vector would work better anyway, but if you'd like to implement the resizable array, let me know and I can
-    // pass the files back in! -Patrick
-    std::vector<Frame> frames;
-    Frame currentFrame;
+    std::vector<QImage> frames;
+    std::vector<QImage>::iterator currentFrame;
 
 public:
-    Project(int x, int y, int startframes = 1);
+    Project(int x, int y);
     ~Project();
 
 public slots:
-    void change_pixels();
     void add_frame();
+    void update_canvas();
+    void next_frame();
+    void previous_frame();
+    void swap_frames(int frame1, int frame2);
+    void get_all_frames();
 
 signals:
-    void update_pixel();
+    void send_update(QPixmap image);
+    void send_all_frames(std::vector<QPixmap> images);
 };
 
 
