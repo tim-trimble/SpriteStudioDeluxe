@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>949</width>
-    <height>621</height>
+    <width>941</width>
+    <height>627</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -399,7 +399,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>949</width>
+     <width>941</width>
      <height>26</height>
     </rect>
    </property>
@@ -411,7 +411,14 @@
     <addaction name="actionSave_As"/>
     <addaction name="actionExport"/>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionRotate_90"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -435,6 +442,11 @@
   <action name="actionExport">
    <property name="text">
     <string>Export</string>
+   </property>
+  </action>
+  <action name="actionRotate_90">
+   <property name="text">
+    <string>Rotate 90</string>
    </property>
   </action>
  </widget>
