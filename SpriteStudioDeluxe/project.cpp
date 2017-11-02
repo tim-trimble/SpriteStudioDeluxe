@@ -1,37 +1,9 @@
 #include "project.h"
 
-//image = new QImage(int width, int height, QImage::Format_ARGB32);
-
-Project::Project(int x, int y)
-{
-    frames;
-    frames.push_back(QImage());
-    currentFrame = frames.begin();
-}
-
-Project::~Project(){}
-
-/*How to set a single pixel white
-QColor *color = new QColor(255,255,255,255); (r,g,b,a)
-image->setPixelColor(int x, int y, color);
-*/
-
-/*Shrink or enlarge image
-QImage:scaled(int width, int height, Qt::KeepAspectRatio, Qt::FastTransformation);
-*/
-
-/*90 degree rotation
-QTransform transform;
-transform.translate(centerX,centerY);
-transform.rotate(90);
-*myImage = myImage->transformed(transform,Qt::FastTransformation);
-*/
-
-/*Mirror
-*myImage = myImage->mirrored(); defaults to x-axis
-mirrored(true,false); y-axis
-mirrored(true,true); both
-*/
+//save
+//load
+//new
+//exit - maybe check for unsaved changes?
 
 /*Saving
 bool success = myImage->save(filename,format,quality);
@@ -41,9 +13,15 @@ bool success = myImage->save(filename,format,quality);
 bool success = myImage->load(filename,format);
 */
 
-/*Resize an existing image while maintaining pixel organization
-*myImage = myImage->copy(0,0,newWidth,newHeight);
-*/
+Project::Project(int x, int y)
+{
+    frames;
+    frames.push_back(QImage());
+    currentFrame = frames.begin();
+
+}
+
+Project::~Project(){}
 
 void Project::add_frame()
 {
