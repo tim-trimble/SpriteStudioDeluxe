@@ -9,7 +9,9 @@ class Frame {
 private:
     QImage *image;
 public:
+    Frame();
     Frame(int x, int y);
+    Frame(QImage image);
     ~Frame();
 
     void editPixel(int x, int y, QColor color);
@@ -23,6 +25,7 @@ public:
     //mirror
 
     //resize an image while maintaining current pixel organization
+
 };
 
 #endif // FRAME_H

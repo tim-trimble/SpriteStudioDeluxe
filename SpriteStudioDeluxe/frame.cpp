@@ -8,6 +8,16 @@ Frame::~Frame(){
     delete image;
 }
 
+Frame::Frame(QImage img)
+{
+    image = &img;
+}
+
+Frame::Frame()
+{
+
+}
+
 void Frame::editPixel(int x, int y, QColor color){ //new QColor(r,g,b,a)
     image->setPixelColor(x, y, color);
 }
@@ -22,6 +32,7 @@ void Frame::rotateImage(int angle){
 QImage Frame::getImage(){
     return *image;
 }
+
 
 /*Shrink or enlarge image
 QImage:scaled(int width, int height, Qt::KeepAspectRatio, Qt::FastTransformation);

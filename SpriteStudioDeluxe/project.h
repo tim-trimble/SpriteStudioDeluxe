@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QImage>
 #include <QPixmap>
+#include <QFile>
 #include "frame.h"
 
 class Project : public QObject
@@ -10,8 +11,8 @@ class Project : public QObject
     Q_OBJECT
 
 private:
-    std::vector<Frame*> frames;
-    std::vector<Frame*>::iterator currentFrame;
+    QVector<Frame> frames;
+    QVector<Frame>::iterator currentFrame;
 
 public:
     Project(int x, int y);
@@ -24,6 +25,8 @@ public slots:
     void previous_frame();
     void swap_frames(int frame1, int frame2);
     void get_all_frames();
+    void save_project(QString filename);
+    void load_project(QString filename);
 
 signals:
     void send_update(QPixmap image);
