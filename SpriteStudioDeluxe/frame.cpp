@@ -1,22 +1,22 @@
 #include "frame.h"
 
-frame::frame(int width, int height){ //Not sure about a default size
+Frame::Frame(int width, int height){ //Not sure about a default size
     image = new QImage(width, height, QImage::Format_ARGB32);
 }
 
-frame::~frame(){
+Frame::~Frame(){
     delete image;
 }
 
-frame::editPixel(int x, int y, QColor color){ //new QColor(r,g,b,a)
+void Frame::editPixel(int x, int y, QColor color){ //new QColor(r,g,b,a)
     image->setPixelColor(x, y, color);
 }
 
-frame::rotateImage(int angle){
+void Frame::rotateImage(int angle){
     QTransform transform;
     transform.translate(image->width()/2, image->height()/2);
     transform.rotate(angle);
-    image = image->transformed(transform, Qt::FastTransformation);
+    *image = image->transformed(transform, Qt::FastTransformation);
 }
 
 /*Shrink or enlarge image

@@ -15,23 +15,21 @@ bool success = myImage->load(filename,format);
 
 Project::Project(int x, int y)
 {
-    frames;
-    frames.push_back(QImage());
+    frames.push_back(new Frame(x, y));
     currentFrame = frames.begin();
-
 }
 
 Project::~Project(){}
 
-void Project::add_frame()
+void Project::add_frame(int x, int y)
 {
-    frames.push_back(QImage());
+    frames.push_back(new Frame(x, y));
 }
 
 void Project::update_canvas()
 {
-    QPixmap pixmap = QPixmap::fromImage(*currentFrame);
-    emit send_update(pixmap);
+  //  QPixmap pixmap = QPixmap::fromImage(*currentFrame);
+  //  emit send_update(pixmap);
 }
 
 void Project::next_frame()
@@ -62,13 +60,14 @@ void Project::previous_frame()
 
 void Project::swap_frames(int frame1, int frame2)
 {
-    QImage copyFrame = frames[frame1];
-    frames[frame1] = frames[frame2];
-    frames[frame2] = copyFrame;
+   // QImage copyFrame = frames[frame1];
+   // frames[frame1] = frames[frame2];
+   // frames[frame2] = copyFrame;
 }
 
 void Project::get_all_frames()
 {
+    /*
     std::vector<QPixmap> tempVec;
     for(auto iter = frames.begin(); iter != frames.end();
         iter++)
@@ -77,4 +76,5 @@ void Project::get_all_frames()
         tempVec.push_back(pixmap);
     }
     emit send_all_frames(tempVec);
+    */
 }

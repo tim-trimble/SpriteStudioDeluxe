@@ -3,21 +3,22 @@
 #include <QObject>
 #include <QImage>
 #include <QPixmap>
+#include "frame.h"
 
 class Project : public QObject
 {
     Q_OBJECT
 
 private:
-    std::vector<QImage> frames;
-    std::vector<QImage>::iterator currentFrame;
+    std::vector<Frame*> frames;
+    std::vector<Frame*>::iterator currentFrame;
 
 public:
     Project(int x, int y);
     ~Project();
 
 public slots:
-    void add_frame();
+    void add_frame(int x, int y);
     void update_canvas();
     void next_frame();
     void previous_frame();
