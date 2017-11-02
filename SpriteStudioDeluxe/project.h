@@ -30,5 +30,4 @@ signals:
     void send_all_frames(std::vector<QPixmap> images);
 };
 
-
 #endif // MODEL_H

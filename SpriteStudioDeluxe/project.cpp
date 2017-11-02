@@ -1,9 +1,6 @@
 #include "project.h"
 
-//save
-//load
-//new
-//exit - maybe check for unsaved changes?
+//exit button - maybe check for unsaved changes?
 
 /*Saving
 bool success = myImage->save(filename,format,quality);
@@ -28,8 +25,9 @@ void Project::add_frame(int x, int y)
 
 void Project::update_canvas()
 {
-  //  QPixmap pixmap = QPixmap::fromImage(*currentFrame);
-  //  emit send_update(pixmap);
+    Frame frame = **currentFrame;
+    QPixmap pixmap = QPixmap::fromImage(frame.getImage());
+    emit send_update(pixmap);
 }
 
 void Project::next_frame()
@@ -60,9 +58,9 @@ void Project::previous_frame()
 
 void Project::swap_frames(int frame1, int frame2)
 {
-   // QImage copyFrame = frames[frame1];
-   // frames[frame1] = frames[frame2];
-   // frames[frame2] = copyFrame;
+    Frame *copyFrame = frames[frame1];
+    frames[frame1] = frames[frame2];
+    frames[frame2] = copyFrame;
 }
 
 void Project::get_all_frames()

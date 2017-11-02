@@ -19,6 +19,10 @@ void Frame::rotateImage(int angle){
     *image = image->transformed(transform, Qt::FastTransformation);
 }
 
+QImage Frame::getImage(){
+    return *image;
+}
+
 /*Shrink or enlarge image
 QImage:scaled(int width, int height, Qt::KeepAspectRatio, Qt::FastTransformation);
 */

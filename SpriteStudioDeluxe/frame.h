@@ -16,6 +16,8 @@ public:
 
     void rotateImage(int angle);
 
+    QImage getImage();
+
     //shrink/enlarge
 
     //mirror
