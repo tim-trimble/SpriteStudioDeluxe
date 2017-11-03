@@ -78,7 +78,7 @@
      <string>Next Frame</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="CurrentFrameLabel">
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -354,7 +354,7 @@
      <string>Add Frame</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="ZoomInButton">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -367,7 +367,7 @@
      <string>+</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="ZoomOutButton">
     <property name="geometry">
      <rect>
       <x>190</x>
