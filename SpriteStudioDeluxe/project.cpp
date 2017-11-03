@@ -136,3 +136,7 @@ void Project::load_project(QString filename)
         }
     }
 }
+
+void Project::update_pixel(int x, int y, QColor color){
+    currentFrame->editPixel(x, y, color);
+}

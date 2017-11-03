@@ -27,6 +27,7 @@ public slots:
     void get_all_frames();
     void save_project(QString filename);
     void load_project(QString filename);
+    void update_pixel(int x, int y, QColor color);
 
 signals:
     void send_update(QPixmap image);
