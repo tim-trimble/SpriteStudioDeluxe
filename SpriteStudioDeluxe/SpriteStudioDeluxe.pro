@@ -27,13 +27,15 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     project.cpp \
-    frame.cpp
+    frame.cpp \
+    canvas.cpp
 
 HEADERS += \
         mainwindow.h \
     project.h \
     frame.h \
-    frame.h
+    frame.h \
+    canvas.h
 
 FORMS += \
         mainwindow.ui

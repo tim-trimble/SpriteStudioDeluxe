@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "project.h"
+#include <iostream>
 
 namespace Ui {
 class MainWindow;
@@ -37,11 +38,11 @@ signals:
     // HISTORY MENU
     // Intended Reciever: Project Class
     // unsure if Hash is the type we will be using to identify history frames, open to changing this.
-    void HistoryReversionRequested(Hash h);
+    void HistoryReversionRequested();
 
     // PREVIEW MENU
     // Intended Reciever: (???)
-    void PriviewFPSChanged(int fps);
+    void PreviewFPSChanged(int fps);
 
     // ZOOM BUTTONS
     // Not Concern of Model
@@ -53,7 +54,7 @@ signals:
     void MouseMoveWhilePressed(int x, int y);
     void MouseUp(int x, int y);
 
-private slots:
+public slots:
     // CUSTOM SLOTS
     // CANVAS
     void UpdateCanvas(QImage * i);
@@ -65,6 +66,7 @@ private slots:
     // What argument will this take?
     void AddHistoryMenuEntry();
 
+private slots:
     // QT GENERATED SLOTS FOR UI ACTIONS
     void on_PencilToolButton_clicked();
     void on_BrushToolButton_clicked();
