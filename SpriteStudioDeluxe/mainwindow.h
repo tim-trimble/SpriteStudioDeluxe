@@ -16,6 +16,7 @@ public:
     explicit MainWindow(Project& project, QWidget *parent = 0);
     ~MainWindow();
 
+
 signals:
     // TOOL SIGNALS
     // Intended Reciever: Tool Class
@@ -50,9 +51,10 @@ signals:
     void ZoomOutRequested();
 
     // CANVAS
+    void MousePosWhilePressed(int x, int y);
     void MouseDown(int x, int y);
-    void MouseMoveWhilePressed(int x, int y);
     void MouseUp(int x, int y);
+    void MouseLeft();
 
 public slots:
     // CUSTOM SLOTS
@@ -65,6 +67,12 @@ public slots:
     // HISTORY MENU
     // What argument will this take?
     void AddHistoryMenuEntry();
+
+    // FROM CANVAS
+    void Mouse_DownPos();
+    void Mouse_Down();
+    void Mouse_Up();
+    void Mouse_Left();
 
 private slots:
     // QT GENERATED SLOTS FOR UI ACTIONS

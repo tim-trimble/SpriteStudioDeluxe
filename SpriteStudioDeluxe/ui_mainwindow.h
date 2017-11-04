@@ -29,6 +29,7 @@
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QWidget>
+#include <canvas.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -43,10 +44,10 @@ public:
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout;
-    QLabel *Canvas;
+    Canvas *Canvas;
     QPushButton *PreviousFrameButton;
     QPushButton *pushButton_2;
-    QLabel *label;
+    QLabel *CurrentFrameLabel;
     QListWidget *HistoryList;
     QLabel *label_2;
     QPushButton *LoadHistoryButton;
@@ -67,8 +68,8 @@ public:
     QSpinBox *PreviewSpeedSpinBox;
     QLabel *label_5;
     QPushButton *AddFrameButton;
-    QPushButton *pushButton;
-    QPushButton *pushButton_3;
+    QPushButton *ZoomInButton;
+    QPushButton *ZoomOutButton;
     QLabel *label_6;
     QMenuBar *menuBar;
     QMenu *menuFile;
@@ -102,7 +103,7 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        Canvas = new QLabel(scrollAreaWidgetContents);
+        Canvas = new Canvas(scrollAreaWidgetContents);
         Canvas->setObjectName(QStringLiteral("Canvas"));
         Canvas->setFrameShape(QFrame::Box);
         Canvas->setAlignment(Qt::AlignCenter);
@@ -116,9 +117,9 @@ public:
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(650, 500, 111, 51));
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(410, 500, 121, 16));
+        CurrentFrameLabel = new QLabel(centralWidget);
+        CurrentFrameLabel->setObjectName(QStringLiteral("CurrentFrameLabel"));
+        CurrentFrameLabel->setGeometry(QRect(410, 500, 121, 16));
         HistoryList = new QListWidget(centralWidget);
         HistoryList->setObjectName(QStringLiteral("HistoryList"));
         HistoryList->setGeometry(QRect(780, 40, 151, 192));
@@ -185,19 +186,19 @@ public:
         AddFrameButton = new QPushButton(centralWidget);
         AddFrameButton->setObjectName(QStringLiteral("AddFrameButton"));
         AddFrameButton->setGeometry(QRect(650, 20, 111, 51));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(150, 40, 31, 28));
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(190, 40, 31, 28));
+        ZoomInButton = new QPushButton(centralWidget);
+        ZoomInButton->setObjectName(QStringLiteral("ZoomInButton"));
+        ZoomInButton->setGeometry(QRect(150, 40, 31, 28));
+        ZoomOutButton = new QPushButton(centralWidget);
+        ZoomOutButton->setObjectName(QStringLiteral("ZoomOutButton"));
+        ZoomOutButton->setGeometry(QRect(190, 40, 31, 28));
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(170, 20, 31, 16));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 941, 26));
+        menuBar->setGeometry(QRect(0, 0, 941, 20));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuEdit = new QMenu(menuBar);
@@ -232,7 +233,7 @@ public:
         Canvas->setText(QString());
         PreviousFrameButton->setText(QApplication::translate("MainWindow", "Previous Frame", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
-        label->setText(QApplication::translate("MainWindow", "Current Frame: 1/6", Q_NULLPTR));
+        CurrentFrameLabel->setText(QApplication::translate("MainWindow", "Current Frame: 1/6", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "History", Q_NULLPTR));
         LoadHistoryButton->setText(QApplication::translate("MainWindow", "Load Selected History", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "Tools", Q_NULLPTR));
@@ -249,8 +250,8 @@ public:
         PreviewLabel->setText(QString());
         label_5->setText(QApplication::translate("MainWindow", "FPS", Q_NULLPTR));
         AddFrameButton->setText(QApplication::translate("MainWindow", "Add Frame", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));
+        ZoomInButton->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
+        ZoomOutButton->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));
         label_6->setText(QApplication::translate("MainWindow", "Zoom", Q_NULLPTR));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", Q_NULLPTR));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", Q_NULLPTR));

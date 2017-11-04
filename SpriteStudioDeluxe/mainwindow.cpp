@@ -8,11 +8,46 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    //CANVAS CONNECTIONS
+    connect(ui->Canvas, SIGNAL(Mouse_Down()), this, SLOT(Mouse_Down()));
+    connect(ui->Canvas, SIGNAL(Mouse_Up()), this, SLOT(Mouse_Up()));
+    connect(ui->Canvas, SIGNAL(Mouse_DownPos()), this, SLOT(Mouse_DownPos()));
+    connect(ui->Canvas, SIGNAL(Mouse_Left()), this, SLOT(Mouse_Left()));
 }
 
 MainWindow::~MainWindow(){
     delete ui;
 }
+
+void MainWindow::Mouse_DownPos()
+{
+    int x = ui->Canvas->x;
+    int y = ui->Canvas->y;
+    emit MousePosWhilePressed(x, y);
+}
+
+void MainWindow::Mouse_Down()
+{
+    int x = ui->Canvas->x;
+    int y = ui->Canvas->y;
+    emit MouseDown(x, y);
+}
+
+void MainWindow::Mouse_Up()
+{
+    int x = ui->Canvas->x;
+    int y = ui->Canvas->y;
+    emit MouseUp(x, y);
+}
+
+void MainWindow::Mouse_Left()
+{
+    emit MouseLeft();
+}
+
+
+// QT AUTO IMPLEMENTED EVENT HANDLERS
 
 void MainWindow::on_PencilToolButton_clicked()
 {

@@ -15,11 +15,15 @@ void Canvas::PosWhileDownEvent(QMouseEvent *ev)
 
 void Canvas::MouseDownEvent(QMouseEvent *ev)
 {
+    this->x = ev->x();
+    this->y = ev->y();
     emit Mouse_Down();
 }
 
 void Canvas::MouseUpEvent(QMouseEvent *ev)
 {
+    this->x = ev->x();
+    this->y = ev->y();
     emit Mouse_Up();
 }
 
