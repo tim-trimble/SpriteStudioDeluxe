@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Project_t {
-    QByteArrayData data[20];
-    char stringdata0[201];
+    QByteArrayData data[22];
+    char stringdata0[220];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -50,7 +50,9 @@ QT_MOC_LITERAL(15, 144, 6), // "frame2"
 QT_MOC_LITERAL(16, 151, 14), // "get_all_frames"
 QT_MOC_LITERAL(17, 166, 12), // "save_project"
 QT_MOC_LITERAL(18, 179, 8), // "filename"
-QT_MOC_LITERAL(19, 188, 12) // "load_project"
+QT_MOC_LITERAL(19, 188, 12), // "load_project"
+QT_MOC_LITERAL(20, 201, 12), // "update_pixel"
+QT_MOC_LITERAL(21, 214, 5) // "color"
 
     },
     "Project\0send_update\0\0image\0send_all_frames\0"
@@ -58,7 +60,8 @@ QT_MOC_LITERAL(19, 188, 12) // "load_project"
     "x\0y\0update_canvas\0next_frame\0"
     "previous_frame\0swap_frames\0frame1\0"
     "frame2\0get_all_frames\0save_project\0"
-    "filename\0load_project"
+    "filename\0load_project\0update_pixel\0"
+    "color"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,7 +71,7 @@ static const uint qt_meta_data_Project[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -76,18 +79,19 @@ static const uint qt_meta_data_Project[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   64,    2, 0x06 /* Public */,
-       4,    1,   67,    2, 0x06 /* Public */,
+       1,    1,   69,    2, 0x06 /* Public */,
+       4,    1,   72,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    2,   70,    2, 0x0a /* Public */,
-      10,    0,   75,    2, 0x0a /* Public */,
-      11,    0,   76,    2, 0x0a /* Public */,
-      12,    0,   77,    2, 0x0a /* Public */,
-      13,    2,   78,    2, 0x0a /* Public */,
-      16,    0,   83,    2, 0x0a /* Public */,
-      17,    1,   84,    2, 0x0a /* Public */,
-      19,    1,   87,    2, 0x0a /* Public */,
+       7,    2,   75,    2, 0x0a /* Public */,
+      10,    0,   80,    2, 0x0a /* Public */,
+      11,    0,   81,    2, 0x0a /* Public */,
+      12,    0,   82,    2, 0x0a /* Public */,
+      13,    2,   83,    2, 0x0a /* Public */,
+      16,    0,   88,    2, 0x0a /* Public */,
+      17,    1,   89,    2, 0x0a /* Public */,
+      19,    1,   92,    2, 0x0a /* Public */,
+      20,    3,   95,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QPixmap,    3,
@@ -102,6 +106,7 @@ static const uint qt_meta_data_Project[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   18,
     QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::QColor,    8,    9,   21,
 
        0        // eod
 };
@@ -122,6 +127,7 @@ void Project::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 7: _t->get_all_frames(); break;
         case 8: _t->save_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 9: _t->load_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 10: _t->update_pixel((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< QColor(*)>(_a[3]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -169,13 +175,13 @@ int Project::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 11)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }

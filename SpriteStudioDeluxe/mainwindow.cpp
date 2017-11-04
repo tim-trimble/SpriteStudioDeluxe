@@ -3,6 +3,8 @@
 #include <QColorDialog>
 #include <QPixmap>
 #include <iostream>
+#include <QListWidgetItem>
+#include <string>
 
 MainWindow::MainWindow(Project& project, QWidget *parent) :
     QMainWindow(parent),
@@ -21,6 +23,30 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
 
 MainWindow::~MainWindow(){
     delete ui;
+}
+
+void MainWindow::UpdateCanvas(QImage *i)
+{
+    ui->canvas->setPixmap(QPixmap::fromImage(*i));
+}
+
+void MainWindow::UpdatePreview(QImage *i)
+{
+    ui->PreviewLabel->setPixmap(QPixmap::fromImage(*i));
+}
+
+void MainWindow::UpdateCurrentFrameLabel(int currentFrame, int totalFrames)
+{
+    QString s(("Current Frame: " + std::to_string(currentFrame) + "/" + std::to_string(totalFrames)).c_str());
+    ui->CurrentFrameLabel->setText(s);
+}
+
+void MainWindow::AddHistoryMenuEntry(std::string name, std::string hash)
+{
+    QListWidgetItem i;
+    i.setText(name.c_str());
+    i.setToolTip(hash.c_str());
+    ui->HistoryList->addItem(&i);
 }
 
 void MainWindow::Mouse_DownPos()

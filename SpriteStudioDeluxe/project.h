@@ -18,6 +18,7 @@ public:
     Project(int x, int y);
     ~Project();
 
+
 public slots:
     void add_frame(int x, int y);
     void update_canvas();

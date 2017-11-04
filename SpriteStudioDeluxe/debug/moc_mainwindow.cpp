@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[49];
-    char stringdata0[840];
+    QByteArrayData data[52];
+    char stringdata0[862];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -63,23 +63,26 @@ QT_MOC_LITERAL(28, 355, 23), // "UpdateCurrentFrameLabel"
 QT_MOC_LITERAL(29, 379, 12), // "currentFrame"
 QT_MOC_LITERAL(30, 392, 11), // "totalFrames"
 QT_MOC_LITERAL(31, 404, 19), // "AddHistoryMenuEntry"
-QT_MOC_LITERAL(32, 424, 13), // "Mouse_DownPos"
-QT_MOC_LITERAL(33, 438, 10), // "Mouse_Down"
-QT_MOC_LITERAL(34, 449, 8), // "Mouse_Up"
-QT_MOC_LITERAL(35, 458, 10), // "Mouse_Left"
-QT_MOC_LITERAL(36, 469, 27), // "on_PencilToolButton_clicked"
-QT_MOC_LITERAL(37, 497, 26), // "on_BrushToolButton_clicked"
-QT_MOC_LITERAL(38, 524, 25), // "on_LineToolButton_clicked"
-QT_MOC_LITERAL(39, 550, 27), // "on_EraserToolButton_clicked"
-QT_MOC_LITERAL(40, 578, 34), // "on_DiameterSpinBox_editingFin..."
-QT_MOC_LITERAL(41, 613, 28), // "on_ColorSelectButton_clicked"
-QT_MOC_LITERAL(42, 642, 30), // "on_PreviousFrameButton_clicked"
-QT_MOC_LITERAL(43, 673, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(44, 697, 25), // "on_AddFrameButton_clicked"
-QT_MOC_LITERAL(45, 723, 28), // "on_LoadHistoryButton_clicked"
-QT_MOC_LITERAL(46, 752, 38), // "on_PreviewSpeedSpinBox_editin..."
-QT_MOC_LITERAL(47, 791, 23), // "on_ZoomInButton_clicked"
-QT_MOC_LITERAL(48, 815, 24) // "on_ZoomOutButton_clicked"
+QT_MOC_LITERAL(32, 424, 11), // "std::string"
+QT_MOC_LITERAL(33, 436, 4), // "name"
+QT_MOC_LITERAL(34, 441, 4), // "hash"
+QT_MOC_LITERAL(35, 446, 13), // "Mouse_DownPos"
+QT_MOC_LITERAL(36, 460, 10), // "Mouse_Down"
+QT_MOC_LITERAL(37, 471, 8), // "Mouse_Up"
+QT_MOC_LITERAL(38, 480, 10), // "Mouse_Left"
+QT_MOC_LITERAL(39, 491, 27), // "on_PencilToolButton_clicked"
+QT_MOC_LITERAL(40, 519, 26), // "on_BrushToolButton_clicked"
+QT_MOC_LITERAL(41, 546, 25), // "on_LineToolButton_clicked"
+QT_MOC_LITERAL(42, 572, 27), // "on_EraserToolButton_clicked"
+QT_MOC_LITERAL(43, 600, 34), // "on_DiameterSpinBox_editingFin..."
+QT_MOC_LITERAL(44, 635, 28), // "on_ColorSelectButton_clicked"
+QT_MOC_LITERAL(45, 664, 30), // "on_PreviousFrameButton_clicked"
+QT_MOC_LITERAL(46, 695, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(47, 719, 25), // "on_AddFrameButton_clicked"
+QT_MOC_LITERAL(48, 745, 28), // "on_LoadHistoryButton_clicked"
+QT_MOC_LITERAL(49, 774, 38), // "on_PreviewSpeedSpinBox_editin..."
+QT_MOC_LITERAL(50, 813, 23), // "on_ZoomInButton_clicked"
+QT_MOC_LITERAL(51, 837, 24) // "on_ZoomOutButton_clicked"
 
     },
     "MainWindow\0PencilToolSelected\0\0"
@@ -93,8 +96,9 @@ QT_MOC_LITERAL(48, 815, 24) // "on_ZoomOutButton_clicked"
     "MouseUp\0MouseLeft\0UpdateCanvas\0QImage*\0"
     "i\0UpdatePreview\0UpdateCurrentFrameLabel\0"
     "currentFrame\0totalFrames\0AddHistoryMenuEntry\0"
-    "Mouse_DownPos\0Mouse_Down\0Mouse_Up\0"
-    "Mouse_Left\0on_PencilToolButton_clicked\0"
+    "std::string\0name\0hash\0Mouse_DownPos\0"
+    "Mouse_Down\0Mouse_Up\0Mouse_Left\0"
+    "on_PencilToolButton_clicked\0"
     "on_BrushToolButton_clicked\0"
     "on_LineToolButton_clicked\0"
     "on_EraserToolButton_clicked\0"
@@ -146,24 +150,24 @@ static const uint qt_meta_data_MainWindow[] = {
       24,    1,  239,    2, 0x0a /* Public */,
       27,    1,  242,    2, 0x0a /* Public */,
       28,    2,  245,    2, 0x0a /* Public */,
-      31,    0,  250,    2, 0x0a /* Public */,
-      32,    0,  251,    2, 0x0a /* Public */,
-      33,    0,  252,    2, 0x0a /* Public */,
-      34,    0,  253,    2, 0x0a /* Public */,
-      35,    0,  254,    2, 0x0a /* Public */,
-      36,    0,  255,    2, 0x08 /* Private */,
-      37,    0,  256,    2, 0x08 /* Private */,
-      38,    0,  257,    2, 0x08 /* Private */,
-      39,    0,  258,    2, 0x08 /* Private */,
-      40,    0,  259,    2, 0x08 /* Private */,
-      41,    0,  260,    2, 0x08 /* Private */,
-      42,    0,  261,    2, 0x08 /* Private */,
-      43,    0,  262,    2, 0x08 /* Private */,
-      44,    0,  263,    2, 0x08 /* Private */,
-      45,    0,  264,    2, 0x08 /* Private */,
-      46,    0,  265,    2, 0x08 /* Private */,
-      47,    0,  266,    2, 0x08 /* Private */,
-      48,    0,  267,    2, 0x08 /* Private */,
+      31,    2,  250,    2, 0x0a /* Public */,
+      35,    0,  255,    2, 0x0a /* Public */,
+      36,    0,  256,    2, 0x0a /* Public */,
+      37,    0,  257,    2, 0x0a /* Public */,
+      38,    0,  258,    2, 0x0a /* Public */,
+      39,    0,  259,    2, 0x08 /* Private */,
+      40,    0,  260,    2, 0x08 /* Private */,
+      41,    0,  261,    2, 0x08 /* Private */,
+      42,    0,  262,    2, 0x08 /* Private */,
+      43,    0,  263,    2, 0x08 /* Private */,
+      44,    0,  264,    2, 0x08 /* Private */,
+      45,    0,  265,    2, 0x08 /* Private */,
+      46,    0,  266,    2, 0x08 /* Private */,
+      47,    0,  267,    2, 0x08 /* Private */,
+      48,    0,  268,    2, 0x08 /* Private */,
+      49,    0,  269,    2, 0x08 /* Private */,
+      50,    0,  270,    2, 0x08 /* Private */,
+      51,    0,  271,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -188,7 +192,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, 0x80000000 | 25,   26,
     QMetaType::Void, 0x80000000 | 25,   26,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,   29,   30,
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 32, 0x80000000 | 32,   33,   34,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -233,6 +237,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 14: _t->MouseDown((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 15: _t->MouseUp((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 16: _t->MouseLeft(); break;
+        case 17: _t->UpdateCanvas((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
+        case 18: _t->UpdatePreview((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
+        case 19: _t->UpdateCurrentFrameLabel((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 20: _t->AddHistoryMenuEntry((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< std::string(*)>(_a[2]))); break;
         case 21: _t->Mouse_DownPos(); break;
         case 22: _t->Mouse_Down(); break;
         case 23: _t->Mouse_Up(); break;

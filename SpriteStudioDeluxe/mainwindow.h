@@ -66,7 +66,7 @@ public slots:
     void UpdateCurrentFrameLabel(int currentFrame, int totalFrames);
     // HISTORY MENU
     // What argument will this take?
-    void AddHistoryMenuEntry();
+    void AddHistoryMenuEntry(std::string name, std::string hash);
 
     // FROM CANVAS
     void Mouse_DownPos();
