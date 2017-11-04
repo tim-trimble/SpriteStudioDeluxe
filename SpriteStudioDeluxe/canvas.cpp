@@ -1,33 +1,33 @@
 #include "canvas.h"
 
-Canvas::Canvas(QWidget *parent) : QWidget(parent)
+Canvas::Canvas(QWidget *parent) : QLabel(parent)
 {
 
 
 }
 
-void Canvas::PosWhileDownEvent(QMouseEvent *ev)
+void Canvas::mouseMoveEvent(QMouseEvent *ev)
 {
     this->x = ev->x();
     this->y = ev->y();
     emit Mouse_DownPos();
 }
 
-void Canvas::MouseDownEvent(QMouseEvent *ev)
+void Canvas::mousePressEvent(QMouseEvent *ev)
 {
     this->x = ev->x();
     this->y = ev->y();
     emit Mouse_Down();
 }
 
-void Canvas::MouseUpEvent(QMouseEvent *ev)
+void Canvas::mouseReleaseEvent(QMouseEvent *ev)
 {
     this->x = ev->x();
     this->y = ev->y();
     emit Mouse_Up();
 }
 
-void Canvas::LeftCanvasEvent(QEvent *)
+void Canvas::leaveEvent(QEvent *)
 {
     emit Mouse_Left();
 }

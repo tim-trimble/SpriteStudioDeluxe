@@ -422,6 +422,9 @@ release/moc_canvas.cpp: C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QLabel \
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qframe.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/QMouseEvent \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/QEvent \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/QDebug \
@@ -538,6 +541,9 @@ ui_mainwindow.h: mainwindow.ui \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QLabel \
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qframe.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/QMouseEvent \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/QEvent \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/QDebug
@@ -848,6 +854,10 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QToolButton \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qtoolbutton.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QWidget \
+		canvas.h \
+		C:/Qt/5.9.1/mingw53_32/include/QtGui/QMouseEvent \
+		C:/Qt/5.9.1/mingw53_32/include/QtCore/QEvent \
+		C:/Qt/5.9.1/mingw53_32/include/QtCore/QDebug \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QColorDialog \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qcolordialog.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qdialog.h
@@ -1113,6 +1123,9 @@ release/canvas.o: canvas.cpp canvas.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QLabel \
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qframe.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/QMouseEvent \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/QEvent \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/QDebug

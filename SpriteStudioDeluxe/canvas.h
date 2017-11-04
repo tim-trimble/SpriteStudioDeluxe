@@ -2,20 +2,22 @@
 #define CANVAS_H
 
 #include <QWidget>
+#include <QLabel>
 #include <QMouseEvent>
 #include <QEvent>
 #include <QDebug>
 
-class Canvas : public QWidget
+class Canvas : public QLabel
 {
     Q_OBJECT
 public:
     explicit Canvas(QWidget *parent = nullptr);
 
-    void PosWhileDownEvent(QMouseEvent *ev);
-    void MouseDownEvent(QMouseEvent *ev);
-    void MouseUpEvent(QMouseEvent *ev);
-    void LeftCanvasEvent(QEvent *);
+    void mousePressEvent(QMouseEvent *ev);
+    void mouseMoveEvent(QMouseEvent *ev);
+    void leaveEvent(QEvent *ev);
+    void mouseReleaseEvent(QMouseEvent *ev);
+
 
     int x;
     int y;

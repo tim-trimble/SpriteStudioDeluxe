@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QColorDialog>
 #include <QPixmap>
+#include <iostream>
 
 MainWindow::MainWindow(Project& project, QWidget *parent) :
     QMainWindow(parent),
@@ -10,10 +11,12 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     ui->setupUi(this);
 
     //CANVAS CONNECTIONS
-    connect(ui->Canvas, SIGNAL(Mouse_Down()), this, SLOT(Mouse_Down()));
-    connect(ui->Canvas, SIGNAL(Mouse_Up()), this, SLOT(Mouse_Up()));
-    connect(ui->Canvas, SIGNAL(Mouse_DownPos()), this, SLOT(Mouse_DownPos()));
-    connect(ui->Canvas, SIGNAL(Mouse_Left()), this, SLOT(Mouse_Left()));
+    connect(ui->canvas, SIGNAL(Mouse_Down()), this, SLOT(Mouse_Down()));
+    connect(ui->canvas, SIGNAL(Mouse_Up()), this, SLOT(Mouse_Up()));
+    connect(ui->canvas, SIGNAL(Mouse_DownPos()), this, SLOT(Mouse_DownPos()));
+    connect(ui->canvas, SIGNAL(Mouse_Left()), this, SLOT(Mouse_Left()));
+
+    std::cout << "HERE IS THE CONSOLE MOTHER FUCKER" << std::endl;
 }
 
 MainWindow::~MainWindow(){
@@ -22,22 +25,25 @@ MainWindow::~MainWindow(){
 
 void MainWindow::Mouse_DownPos()
 {
-    int x = ui->Canvas->x;
-    int y = ui->Canvas->y;
+    int x = ui->canvas->x;
+    int y = ui->canvas->y;
+    std::cout << x << y << std::endl;
     emit MousePosWhilePressed(x, y);
 }
 
 void MainWindow::Mouse_Down()
 {
-    int x = ui->Canvas->x;
-    int y = ui->Canvas->y;
+    int x = ui->canvas->x;
+    int y = ui->canvas->y;
+    std::cout << x << y << std::endl;
     emit MouseDown(x, y);
 }
 
 void MainWindow::Mouse_Up()
 {
-    int x = ui->Canvas->x;
-    int y = ui->Canvas->y;
+    int x = ui->canvas->x;
+    int y = ui->canvas->y;
+    std::cout << x << y << std::endl;
     emit MouseUp(x, y);
 }
 

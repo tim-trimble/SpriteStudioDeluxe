@@ -44,7 +44,7 @@ public:
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout;
-    Canvas *Canvas;
+    Canvas *canvas;
     QPushButton *PreviousFrameButton;
     QPushButton *pushButton_2;
     QLabel *CurrentFrameLabel;
@@ -103,12 +103,12 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        Canvas = new Canvas(scrollAreaWidgetContents);
-        Canvas->setObjectName(QStringLiteral("Canvas"));
-        Canvas->setFrameShape(QFrame::Box);
-        Canvas->setAlignment(Qt::AlignCenter);
+        canvas = new Canvas(scrollAreaWidgetContents);
+        canvas->setObjectName(QStringLiteral("canvas"));
+        canvas->setFrameShape(QFrame::Box);
+        canvas->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(Canvas, 0, 0, 1, 1);
+        gridLayout->addWidget(canvas, 0, 0, 1, 1);
 
         scrollArea->setWidget(scrollAreaWidgetContents);
         PreviousFrameButton = new QPushButton(centralWidget);
@@ -230,7 +230,7 @@ public:
         actionSave_As->setText(QApplication::translate("MainWindow", "Save As", Q_NULLPTR));
         actionExport->setText(QApplication::translate("MainWindow", "Export", Q_NULLPTR));
         actionRotate_90->setText(QApplication::translate("MainWindow", "Rotate 90", Q_NULLPTR));
-        Canvas->setText(QString());
+        canvas->setText(QString());
         PreviousFrameButton->setText(QApplication::translate("MainWindow", "Previous Frame", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
         CurrentFrameLabel->setText(QApplication::translate("MainWindow", "Current Frame: 1/6", Q_NULLPTR));
