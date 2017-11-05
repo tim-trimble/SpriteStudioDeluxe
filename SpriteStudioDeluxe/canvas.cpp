@@ -6,30 +6,33 @@ Canvas::Canvas(QWidget *parent) : QLabel(parent)
 
 }
 
+
+// QT AUTO GENERATED EVENT HANDLERS
+
 void Canvas::mouseMoveEvent(QMouseEvent *ev)
 {
     this->x = ev->x();
     this->y = ev->y();
-    emit Mouse_DownPos();
+    emit c_mouse_down_pos();
 }
 
 void Canvas::mousePressEvent(QMouseEvent *ev)
 {
     this->x = ev->x();
     this->y = ev->y();
-    emit Mouse_Down();
+    emit c_mouse_down();
 }
 
 void Canvas::mouseReleaseEvent(QMouseEvent *ev)
 {
     this->x = ev->x();
     this->y = ev->y();
-    emit Mouse_Up();
+    emit c_mouse_up();
 }
 
 void Canvas::leaveEvent(QEvent *)
 {
-    emit Mouse_Left();
+    emit c_mouse_left();
 }
 
 

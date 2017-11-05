@@ -13,35 +13,36 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     ui->setupUi(this);
 
     //CANVAS CONNECTIONS
-    connect(ui->canvas, SIGNAL(Mouse_Down()), this, SLOT(Mouse_Down()));
-    connect(ui->canvas, SIGNAL(Mouse_Up()), this, SLOT(Mouse_Up()));
-    connect(ui->canvas, SIGNAL(Mouse_DownPos()), this, SLOT(Mouse_DownPos()));
-    connect(ui->canvas, SIGNAL(Mouse_Left()), this, SLOT(Mouse_Left()));
-
-    std::cout << "HERE IS THE CONSOLE MOTHER FUCKER" << std::endl;
+    connect(ui->canvas, SIGNAL(c_mouse_down()), this, SLOT(c_mouse_down()));
+    connect(ui->canvas, SIGNAL(c_mouse_up()), this, SLOT(c_mouse_up()));
+    connect(ui->canvas, SIGNAL(c_mouse_down_pos()), this, SLOT(c_mouse_down_pos()));
+    connect(ui->canvas, SIGNAL(c_mouse_left()), this, SLOT(c_mouse_left()));
 }
 
 MainWindow::~MainWindow(){
     delete ui;
 }
 
-void MainWindow::UpdateCanvas(QImage *i)
+
+// PROJECT SIGNAL HANDLERS
+
+void MainWindow::update_canvas(QImage *i)
 {
     ui->canvas->setPixmap(QPixmap::fromImage(*i));
 }
 
-void MainWindow::UpdatePreview(QImage *i)
+void MainWindow::update_preview(QImage *i)
 {
     ui->PreviewLabel->setPixmap(QPixmap::fromImage(*i));
 }
 
-void MainWindow::UpdateCurrentFrameLabel(int currentFrame, int totalFrames)
+void MainWindow::update_current_frame_label(int current_frame, int total_frames)
 {
-    QString s(("Current Frame: " + std::to_string(currentFrame) + "/" + std::to_string(totalFrames)).c_str());
+    QString s(("Current Frame: " + std::to_string(current_frame) + "/" + std::to_string(total_frames)).c_str());
     ui->CurrentFrameLabel->setText(s);
 }
 
-void MainWindow::AddHistoryMenuEntry(std::string name, std::string hash)
+void MainWindow::add_history_menu_entry(std::string name, std::string hash)
 {
     QListWidgetItem i;
     i.setText(name.c_str());
@@ -49,62 +50,65 @@ void MainWindow::AddHistoryMenuEntry(std::string name, std::string hash)
     ui->HistoryList->addItem(&i);
 }
 
-void MainWindow::Mouse_DownPos()
+
+// CANVAS SIGNAL HANDLERS
+
+void MainWindow::c_mouse_down_pos()
 {
     int x = ui->canvas->x;
     int y = ui->canvas->y;
     std::cout << x << y << std::endl;
-    emit MousePosWhilePressed(x, y);
+    emit mouse_down_pos(x, y);
 }
 
-void MainWindow::Mouse_Down()
+void MainWindow::c_mouse_down()
 {
     int x = ui->canvas->x;
     int y = ui->canvas->y;
     std::cout << x << y << std::endl;
-    emit MouseDown(x, y);
+    emit mouse_down(x, y);
 }
 
-void MainWindow::Mouse_Up()
+void MainWindow::c_mouse_up()
 {
     int x = ui->canvas->x;
     int y = ui->canvas->y;
     std::cout << x << y << std::endl;
-    emit MouseUp(x, y);
+    emit mouse_up(x, y);
 }
 
-void MainWindow::Mouse_Left()
+void MainWindow::c_mouse_left()
 {
-    emit MouseLeft();
+    emit mouse_left();
 }
 
 
-// QT AUTO IMPLEMENTED EVENT HANDLERS
+// QT AUTO IMPLEMENTED SIGNAL HANDLERS
 
 void MainWindow::on_PencilToolButton_clicked()
 {
-    emit PencilToolSelected();
+    emit pencil_tool_selected();
 }
 
 void MainWindow::on_BrushToolButton_clicked()
 {
-    emit BrushToolSelected();
+    emit brush_tool_selected();
 }
 
 void MainWindow::on_LineToolButton_clicked()
 {
-    emit LineToolSelected();
+    emit line_tool_selected();
 }
 
 void MainWindow::on_EraserToolButton_clicked()
 {
-    emit EraserToolSelected();
+    emit eraser_tool_selected();
 }
 
 void MainWindow::on_DiameterSpinBox_editingFinished()
 {
     int x = ui->DiameterSpinBox->value();
-    emit BrushSizeChanged(x);
+    emit brush_size_changed(x);
 }
 
 void MainWindow::on_ColorSelectButton_clicked()
@@ -119,41 +123,41 @@ void MainWindow::on_ColorSelectButton_clicked()
     ui->CurrentColorLabel->show();
 
     // emit Brush color change event so the model knows
-    emit BrushColorChanged(color);
+    emit brush_color_changed(color);
 }
 
 void MainWindow::on_PreviousFrameButton_clicked()
 {
-    emit PreviousFrameRequested();
+    emit previous_frame_requested();
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    emit NextFrameRequested();
+    emit next_frame_requested();
 }
 
 void MainWindow::on_AddFrameButton_clicked()
 {
-    emit NewFrameRequested();
+    emit new_frame_requested();
 }
 
 void MainWindow::on_LoadHistoryButton_clicked()
 {
-    emit HistoryReversionRequested();
+    emit history_reversion_requested();
 }
 
 void MainWindow::on_PreviewSpeedSpinBox_editingFinished()
 {
     int x = ui->PreviewSpeedSpinBox->value();
-    emit PreviewFPSChanged(x);
+    emit preview_fps_changed(x);
 }
 
 void MainWindow::on_ZoomInButton_clicked()
 {
-    emit ZoomInRequested();
+    emit zoom_in_requested();
 }
 
 void MainWindow::on_ZoomOutButton_clicked()
 {
-    emit ZoomOutRequested();
+    emit zoom_out_requested();
 }

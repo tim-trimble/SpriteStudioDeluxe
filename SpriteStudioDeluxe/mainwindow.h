@@ -20,59 +20,53 @@ public:
 signals:
     // TOOL SIGNALS
     // Intended Reciever: Tool Class
-    void PencilToolSelected();
-    void BrushToolSelected();
-    void LineToolSelected();
-    void EraserToolSelected();
+    void pencil_tool_selected();
+    void brush_tool_selected();
+    void line_tool_selected();
+    void eraser_tool_selected();
 
     // BRUSH SIGNALS
     // Intended Reciever: Tool Class
-    void BrushSizeChanged(int d);
-    void BrushColorChanged(QColor c);
+    void brush_size_changed(int d);
+    void brush_color_changed(QColor c);
 
     // FRAME SIGNALS
     // Intended Reciever: Project Class
-    void NextFrameRequested();
-    void PreviousFrameRequested();
-    void NewFrameRequested();
+    void next_frame_requested();
+    void previous_frame_requested();
+    void new_frame_requested();
 
     // HISTORY MENU
     // Intended Reciever: Project Class
     // unsure if Hash is the type we will be using to identify history frames, open to changing this.
-    void HistoryReversionRequested();
+    void history_reversion_requested();
 
     // PREVIEW MENU
     // Intended Reciever: (???)
-    void PreviewFPSChanged(int fps);
-
-    // ZOOM BUTTONS
-    // Not Concern of Model
-    void ZoomInRequested();
-    void ZoomOutRequested();
+    void preview_fps_changed(int fps);
+    void zoom_in_requested();
+    void zoom_out_requested();
 
     // CANVAS
-    void MousePosWhilePressed(int x, int y);
-    void MouseDown(int x, int y);
-    void MouseUp(int x, int y);
-    void MouseLeft();
+    // Intended Reciever: Tool Class
+    void mouse_down_pos(int x, int y);      // fires when the mouse pos changes while the mouse button is held
+    void mouse_down(int x, int y);          // mouse has been clicked down
+    void mouse_up(int x, int y);            // mouse has been released
+    void mouse_left();                      // indicates the mouse has left the canvas
 
 public slots:
-    // CUSTOM SLOTS
-    // CANVAS
-    void UpdateCanvas(QImage * i);
-    // PREVIEW
-    void UpdatePreview(QImage * i);
-    // FRAME LABEL
-    void UpdateCurrentFrameLabel(int currentFrame, int totalFrames);
-    // HISTORY MENU
-    // What argument will this take?
-    void AddHistoryMenuEntry(std::string name, std::string hash);
+
+    // FROM PROJECT
+    void update_canvas(QImage * i);
+    void update_preview(QImage * i);
+    void update_current_frame_label(int current_frames, int total_frames);
+    void add_history_menu_entry(std::string name, std::string hash);
 
     // FROM CANVAS
-    void Mouse_DownPos();
-    void Mouse_Down();
-    void Mouse_Up();
-    void Mouse_Left();
+    void c_mouse_down_pos();
+    void c_mouse_down();
+    void c_mouse_up();
+    void c_mouse_left();
 
 private slots:
     // QT GENERATED SLOTS FOR UI ACTIONS

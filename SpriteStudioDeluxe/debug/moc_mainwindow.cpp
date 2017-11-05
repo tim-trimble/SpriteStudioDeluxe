@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[52];
-    char stringdata0[862];
+    char stringdata0[905];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,72 +32,73 @@ struct qt_meta_stringdata_MainWindow_t {
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
-QT_MOC_LITERAL(1, 11, 18), // "PencilToolSelected"
-QT_MOC_LITERAL(2, 30, 0), // ""
-QT_MOC_LITERAL(3, 31, 17), // "BrushToolSelected"
-QT_MOC_LITERAL(4, 49, 16), // "LineToolSelected"
-QT_MOC_LITERAL(5, 66, 18), // "EraserToolSelected"
-QT_MOC_LITERAL(6, 85, 16), // "BrushSizeChanged"
-QT_MOC_LITERAL(7, 102, 1), // "d"
-QT_MOC_LITERAL(8, 104, 17), // "BrushColorChanged"
-QT_MOC_LITERAL(9, 122, 1), // "c"
-QT_MOC_LITERAL(10, 124, 18), // "NextFrameRequested"
-QT_MOC_LITERAL(11, 143, 22), // "PreviousFrameRequested"
-QT_MOC_LITERAL(12, 166, 17), // "NewFrameRequested"
-QT_MOC_LITERAL(13, 184, 25), // "HistoryReversionRequested"
-QT_MOC_LITERAL(14, 210, 17), // "PreviewFPSChanged"
-QT_MOC_LITERAL(15, 228, 3), // "fps"
-QT_MOC_LITERAL(16, 232, 15), // "ZoomInRequested"
-QT_MOC_LITERAL(17, 248, 16), // "ZoomOutRequested"
-QT_MOC_LITERAL(18, 265, 20), // "MousePosWhilePressed"
-QT_MOC_LITERAL(19, 286, 1), // "x"
-QT_MOC_LITERAL(20, 288, 1), // "y"
-QT_MOC_LITERAL(21, 290, 9), // "MouseDown"
-QT_MOC_LITERAL(22, 300, 7), // "MouseUp"
-QT_MOC_LITERAL(23, 308, 9), // "MouseLeft"
-QT_MOC_LITERAL(24, 318, 12), // "UpdateCanvas"
-QT_MOC_LITERAL(25, 331, 7), // "QImage*"
-QT_MOC_LITERAL(26, 339, 1), // "i"
-QT_MOC_LITERAL(27, 341, 13), // "UpdatePreview"
-QT_MOC_LITERAL(28, 355, 23), // "UpdateCurrentFrameLabel"
-QT_MOC_LITERAL(29, 379, 12), // "currentFrame"
-QT_MOC_LITERAL(30, 392, 11), // "totalFrames"
-QT_MOC_LITERAL(31, 404, 19), // "AddHistoryMenuEntry"
-QT_MOC_LITERAL(32, 424, 11), // "std::string"
-QT_MOC_LITERAL(33, 436, 4), // "name"
-QT_MOC_LITERAL(34, 441, 4), // "hash"
-QT_MOC_LITERAL(35, 446, 13), // "Mouse_DownPos"
-QT_MOC_LITERAL(36, 460, 10), // "Mouse_Down"
-QT_MOC_LITERAL(37, 471, 8), // "Mouse_Up"
-QT_MOC_LITERAL(38, 480, 10), // "Mouse_Left"
-QT_MOC_LITERAL(39, 491, 27), // "on_PencilToolButton_clicked"
-QT_MOC_LITERAL(40, 519, 26), // "on_BrushToolButton_clicked"
-QT_MOC_LITERAL(41, 546, 25), // "on_LineToolButton_clicked"
-QT_MOC_LITERAL(42, 572, 27), // "on_EraserToolButton_clicked"
-QT_MOC_LITERAL(43, 600, 34), // "on_DiameterSpinBox_editingFin..."
-QT_MOC_LITERAL(44, 635, 28), // "on_ColorSelectButton_clicked"
-QT_MOC_LITERAL(45, 664, 30), // "on_PreviousFrameButton_clicked"
-QT_MOC_LITERAL(46, 695, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(47, 719, 25), // "on_AddFrameButton_clicked"
-QT_MOC_LITERAL(48, 745, 28), // "on_LoadHistoryButton_clicked"
-QT_MOC_LITERAL(49, 774, 38), // "on_PreviewSpeedSpinBox_editin..."
-QT_MOC_LITERAL(50, 813, 23), // "on_ZoomInButton_clicked"
-QT_MOC_LITERAL(51, 837, 24) // "on_ZoomOutButton_clicked"
+QT_MOC_LITERAL(1, 11, 20), // "pencil_tool_selected"
+QT_MOC_LITERAL(2, 32, 0), // ""
+QT_MOC_LITERAL(3, 33, 19), // "brush_tool_selected"
+QT_MOC_LITERAL(4, 53, 18), // "line_tool_selected"
+QT_MOC_LITERAL(5, 72, 20), // "eraser_tool_selected"
+QT_MOC_LITERAL(6, 93, 18), // "brush_size_changed"
+QT_MOC_LITERAL(7, 112, 1), // "d"
+QT_MOC_LITERAL(8, 114, 19), // "brush_color_changed"
+QT_MOC_LITERAL(9, 134, 1), // "c"
+QT_MOC_LITERAL(10, 136, 20), // "next_frame_requested"
+QT_MOC_LITERAL(11, 157, 24), // "previous_frame_requested"
+QT_MOC_LITERAL(12, 182, 19), // "new_frame_requested"
+QT_MOC_LITERAL(13, 202, 27), // "history_reversion_requested"
+QT_MOC_LITERAL(14, 230, 19), // "preview_fps_changed"
+QT_MOC_LITERAL(15, 250, 3), // "fps"
+QT_MOC_LITERAL(16, 254, 17), // "zoom_in_requested"
+QT_MOC_LITERAL(17, 272, 18), // "zoom_out_requested"
+QT_MOC_LITERAL(18, 291, 14), // "mouse_down_pos"
+QT_MOC_LITERAL(19, 306, 1), // "x"
+QT_MOC_LITERAL(20, 308, 1), // "y"
+QT_MOC_LITERAL(21, 310, 10), // "mouse_down"
+QT_MOC_LITERAL(22, 321, 8), // "mouse_up"
+QT_MOC_LITERAL(23, 330, 10), // "mouse_left"
+QT_MOC_LITERAL(24, 341, 13), // "update_canvas"
+QT_MOC_LITERAL(25, 355, 7), // "QImage*"
+QT_MOC_LITERAL(26, 363, 1), // "i"
+QT_MOC_LITERAL(27, 365, 14), // "update_preview"
+QT_MOC_LITERAL(28, 380, 26), // "update_current_frame_label"
+QT_MOC_LITERAL(29, 407, 14), // "current_frames"
+QT_MOC_LITERAL(30, 422, 12), // "total_frames"
+QT_MOC_LITERAL(31, 435, 22), // "add_history_menu_entry"
+QT_MOC_LITERAL(32, 458, 11), // "std::string"
+QT_MOC_LITERAL(33, 470, 4), // "name"
+QT_MOC_LITERAL(34, 475, 4), // "hash"
+QT_MOC_LITERAL(35, 480, 16), // "c_mouse_down_pos"
+QT_MOC_LITERAL(36, 497, 12), // "c_mouse_down"
+QT_MOC_LITERAL(37, 510, 10), // "c_mouse_up"
+QT_MOC_LITERAL(38, 521, 12), // "c_mouse_left"
+QT_MOC_LITERAL(39, 534, 27), // "on_PencilToolButton_clicked"
+QT_MOC_LITERAL(40, 562, 26), // "on_BrushToolButton_clicked"
+QT_MOC_LITERAL(41, 589, 25), // "on_LineToolButton_clicked"
+QT_MOC_LITERAL(42, 615, 27), // "on_EraserToolButton_clicked"
+QT_MOC_LITERAL(43, 643, 34), // "on_DiameterSpinBox_editingFin..."
+QT_MOC_LITERAL(44, 678, 28), // "on_ColorSelectButton_clicked"
+QT_MOC_LITERAL(45, 707, 30), // "on_PreviousFrameButton_clicked"
+QT_MOC_LITERAL(46, 738, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(47, 762, 25), // "on_AddFrameButton_clicked"
+QT_MOC_LITERAL(48, 788, 28), // "on_LoadHistoryButton_clicked"
+QT_MOC_LITERAL(49, 817, 38), // "on_PreviewSpeedSpinBox_editin..."
+QT_MOC_LITERAL(50, 856, 23), // "on_ZoomInButton_clicked"
+QT_MOC_LITERAL(51, 880, 24) // "on_ZoomOutButton_clicked"
 
     },
-    "MainWindow\0PencilToolSelected\0\0"
-    "BrushToolSelected\0LineToolSelected\0"
-    "EraserToolSelected\0BrushSizeChanged\0"
-    "d\0BrushColorChanged\0c\0NextFrameRequested\0"
-    "PreviousFrameRequested\0NewFrameRequested\0"
-    "HistoryReversionRequested\0PreviewFPSChanged\0"
-    "fps\0ZoomInRequested\0ZoomOutRequested\0"
-    "MousePosWhilePressed\0x\0y\0MouseDown\0"
-    "MouseUp\0MouseLeft\0UpdateCanvas\0QImage*\0"
-    "i\0UpdatePreview\0UpdateCurrentFrameLabel\0"
-    "currentFrame\0totalFrames\0AddHistoryMenuEntry\0"
-    "std::string\0name\0hash\0Mouse_DownPos\0"
-    "Mouse_Down\0Mouse_Up\0Mouse_Left\0"
+    "MainWindow\0pencil_tool_selected\0\0"
+    "brush_tool_selected\0line_tool_selected\0"
+    "eraser_tool_selected\0brush_size_changed\0"
+    "d\0brush_color_changed\0c\0next_frame_requested\0"
+    "previous_frame_requested\0new_frame_requested\0"
+    "history_reversion_requested\0"
+    "preview_fps_changed\0fps\0zoom_in_requested\0"
+    "zoom_out_requested\0mouse_down_pos\0x\0"
+    "y\0mouse_down\0mouse_up\0mouse_left\0"
+    "update_canvas\0QImage*\0i\0update_preview\0"
+    "update_current_frame_label\0current_frames\0"
+    "total_frames\0add_history_menu_entry\0"
+    "std::string\0name\0hash\0c_mouse_down_pos\0"
+    "c_mouse_down\0c_mouse_up\0c_mouse_left\0"
     "on_PencilToolButton_clicked\0"
     "on_BrushToolButton_clicked\0"
     "on_LineToolButton_clicked\0"
@@ -220,31 +221,31 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->PencilToolSelected(); break;
-        case 1: _t->BrushToolSelected(); break;
-        case 2: _t->LineToolSelected(); break;
-        case 3: _t->EraserToolSelected(); break;
-        case 4: _t->BrushSizeChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 5: _t->BrushColorChanged((*reinterpret_cast< QColor(*)>(_a[1]))); break;
-        case 6: _t->NextFrameRequested(); break;
-        case 7: _t->PreviousFrameRequested(); break;
-        case 8: _t->NewFrameRequested(); break;
-        case 9: _t->HistoryReversionRequested(); break;
-        case 10: _t->PreviewFPSChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 11: _t->ZoomInRequested(); break;
-        case 12: _t->ZoomOutRequested(); break;
-        case 13: _t->MousePosWhilePressed((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 14: _t->MouseDown((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 15: _t->MouseUp((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 16: _t->MouseLeft(); break;
-        case 17: _t->UpdateCanvas((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
-        case 18: _t->UpdatePreview((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
-        case 19: _t->UpdateCurrentFrameLabel((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 20: _t->AddHistoryMenuEntry((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< std::string(*)>(_a[2]))); break;
-        case 21: _t->Mouse_DownPos(); break;
-        case 22: _t->Mouse_Down(); break;
-        case 23: _t->Mouse_Up(); break;
-        case 24: _t->Mouse_Left(); break;
+        case 0: _t->pencil_tool_selected(); break;
+        case 1: _t->brush_tool_selected(); break;
+        case 2: _t->line_tool_selected(); break;
+        case 3: _t->eraser_tool_selected(); break;
+        case 4: _t->brush_size_changed((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 5: _t->brush_color_changed((*reinterpret_cast< QColor(*)>(_a[1]))); break;
+        case 6: _t->next_frame_requested(); break;
+        case 7: _t->previous_frame_requested(); break;
+        case 8: _t->new_frame_requested(); break;
+        case 9: _t->history_reversion_requested(); break;
+        case 10: _t->preview_fps_changed((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 11: _t->zoom_in_requested(); break;
+        case 12: _t->zoom_out_requested(); break;
+        case 13: _t->mouse_down_pos((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 14: _t->mouse_down((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 15: _t->mouse_up((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 16: _t->mouse_left(); break;
+        case 17: _t->update_canvas((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
+        case 18: _t->update_preview((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
+        case 19: _t->update_current_frame_label((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 20: _t->add_history_menu_entry((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< std::string(*)>(_a[2]))); break;
+        case 21: _t->c_mouse_down_pos(); break;
+        case 22: _t->c_mouse_down(); break;
+        case 23: _t->c_mouse_up(); break;
+        case 24: _t->c_mouse_left(); break;
         case 25: _t->on_PencilToolButton_clicked(); break;
         case 26: _t->on_BrushToolButton_clicked(); break;
         case 27: _t->on_LineToolButton_clicked(); break;
@@ -265,119 +266,119 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         void **func = reinterpret_cast<void **>(_a[1]);
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::PencilToolSelected)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::pencil_tool_selected)) {
                 *result = 0;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::BrushToolSelected)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::brush_tool_selected)) {
                 *result = 1;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::LineToolSelected)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::line_tool_selected)) {
                 *result = 2;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::EraserToolSelected)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::eraser_tool_selected)) {
                 *result = 3;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)(int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::BrushSizeChanged)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::brush_size_changed)) {
                 *result = 4;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)(QColor );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::BrushColorChanged)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::brush_color_changed)) {
                 *result = 5;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::NextFrameRequested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::next_frame_requested)) {
                 *result = 6;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::PreviousFrameRequested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::previous_frame_requested)) {
                 *result = 7;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::NewFrameRequested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::new_frame_requested)) {
                 *result = 8;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::HistoryReversionRequested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::history_reversion_requested)) {
                 *result = 9;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)(int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::PreviewFPSChanged)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::preview_fps_changed)) {
                 *result = 10;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::ZoomInRequested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::zoom_in_requested)) {
                 *result = 11;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::ZoomOutRequested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::zoom_out_requested)) {
                 *result = 12;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)(int , int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::MousePosWhilePressed)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::mouse_down_pos)) {
                 *result = 13;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)(int , int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::MouseDown)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::mouse_down)) {
                 *result = 14;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)(int , int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::MouseUp)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::mouse_up)) {
                 *result = 15;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::MouseLeft)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::mouse_left)) {
                 *result = 16;
                 return;
             }
@@ -422,109 +423,109 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MainWindow::PencilToolSelected()
+void MainWindow::pencil_tool_selected()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 
 // SIGNAL 1
-void MainWindow::BrushToolSelected()
+void MainWindow::brush_tool_selected()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 
 // SIGNAL 2
-void MainWindow::LineToolSelected()
+void MainWindow::line_tool_selected()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 
 // SIGNAL 3
-void MainWindow::EraserToolSelected()
+void MainWindow::eraser_tool_selected()
 {
     QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
 }
 
 // SIGNAL 4
-void MainWindow::BrushSizeChanged(int _t1)
+void MainWindow::brush_size_changed(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 4, _a);
 }
 
 // SIGNAL 5
-void MainWindow::BrushColorChanged(QColor _t1)
+void MainWindow::brush_color_changed(QColor _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 5, _a);
 }
 
 // SIGNAL 6
-void MainWindow::NextFrameRequested()
+void MainWindow::next_frame_requested()
 {
     QMetaObject::activate(this, &staticMetaObject, 6, nullptr);
 }
 
 // SIGNAL 7
-void MainWindow::PreviousFrameRequested()
+void MainWindow::previous_frame_requested()
 {
     QMetaObject::activate(this, &staticMetaObject, 7, nullptr);
 }
 
 // SIGNAL 8
-void MainWindow::NewFrameRequested()
+void MainWindow::new_frame_requested()
 {
     QMetaObject::activate(this, &staticMetaObject, 8, nullptr);
 }
 
 // SIGNAL 9
-void MainWindow::HistoryReversionRequested()
+void MainWindow::history_reversion_requested()
 {
     QMetaObject::activate(this, &staticMetaObject, 9, nullptr);
 }
 
 // SIGNAL 10
-void MainWindow::PreviewFPSChanged(int _t1)
+void MainWindow::preview_fps_changed(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 10, _a);
 }
 
 // SIGNAL 11
-void MainWindow::ZoomInRequested()
+void MainWindow::zoom_in_requested()
 {
     QMetaObject::activate(this, &staticMetaObject, 11, nullptr);
 }
 
 // SIGNAL 12
-void MainWindow::ZoomOutRequested()
+void MainWindow::zoom_out_requested()
 {
     QMetaObject::activate(this, &staticMetaObject, 12, nullptr);
 }
 
 // SIGNAL 13
-void MainWindow::MousePosWhilePressed(int _t1, int _t2)
+void MainWindow::mouse_down_pos(int _t1, int _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 13, _a);
 }
 
 // SIGNAL 14
-void MainWindow::MouseDown(int _t1, int _t2)
+void MainWindow::mouse_down(int _t1, int _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 14, _a);
 }
 
 // SIGNAL 15
-void MainWindow::MouseUp(int _t1, int _t2)
+void MainWindow::mouse_up(int _t1, int _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 15, _a);
 }
 
 // SIGNAL 16
-void MainWindow::MouseLeft()
+void MainWindow::mouse_left()
 {
     QMetaObject::activate(this, &staticMetaObject, 16, nullptr);
 }
