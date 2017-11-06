@@ -8,11 +8,15 @@
 class Frame {
 private:
     QImage *image;
+
 public:
     Frame();
     Frame(int x, int y);
     Frame(QImage image);
     ~Frame();
+
+    int getX();
+    int getY();
 
     void editPixel(int x, int y, QColor color);
 

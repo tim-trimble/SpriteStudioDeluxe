@@ -1,5 +1,6 @@
 #include "project.h"
 #include "frame.h"
+#include <iostream>
 
 //exit button - maybe check for unsaved changes?
 
@@ -14,7 +15,7 @@ bool success = myImage->load(filename,format);
 Project::Project(int x, int y)
 {
     frames = new QVector<Frame*>();
-    frames->push_back(new Frame(x,y));
+    frames->append(new Frame(x, y));
     currentFrame = frames->at(0);
     //currentFrame = frames.begin();
 }
@@ -31,7 +32,7 @@ void Project::update_canvas()
 
 void Project::mouse_down_pos(int x, int y)
 {
-    currentFrame->editPixel(x ,y, currentColor);
+    currentFrame->editPixel(x , y, currentColor);
     update_canvas();
 }
 
@@ -39,9 +40,12 @@ void Project::change_color(QColor c){
     currentColor = c;
 }
 
-void Project::add_frame(int x, int y)
+void Project::add_frame()
 {
-    //void Project::add_frame(int x, int y)
+    std::cout << "project: add frame" << std::endl;
+    frames->append(new Frame(frames->at(0)->getX(), frames->at(0)->getY()));
+    int current = 1; //TODO: this int reflective of current frame
+    emit update_frame_label(current, frames->size());
 }
 
 void Project::next_frame()

@@ -88,7 +88,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Current Frame: 1/6</string>
+     <string>Current Frame Label</string>
     </property>
    </widget>
    <widget class="QListWidget" name="HistoryList">
@@ -400,7 +400,7 @@
      <x>0</x>
      <y>0</y>
      <width>941</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

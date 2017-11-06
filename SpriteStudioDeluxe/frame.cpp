@@ -18,6 +18,14 @@ Frame::Frame()
 
 }
 
+int Frame::getX(){
+    return image->width();
+}
+
+int Frame::getY(){
+    return image->height();
+}
+
 void Frame::editPixel(int x, int y, QColor color){ //new QColor(r,g,b,a)
     image->setPixelColor(x, y, color);
 }

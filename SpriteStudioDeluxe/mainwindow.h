@@ -59,7 +59,7 @@ public slots:
     // FROM PROJECT
     void update_canvas(QImage * i);
     void update_preview(QImage * i);
-    void update_current_frame_label(int current_frames, int total_frames);
+    void update_current_frame_label(int current_frame, int total_frames);
     void add_history_menu_entry(std::string name, std::string hash);
 
     // FROM CANVAS

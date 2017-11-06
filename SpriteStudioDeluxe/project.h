@@ -25,7 +25,7 @@ public slots:
     void mouse_down_pos(int x, int y);
     void change_color(QColor c);
 
-    void add_frame(int x, int y);
+    void add_frame();
     void next_frame();
     void previous_frame();
     void swap_frames(int frame1, int frame2);
@@ -36,7 +36,9 @@ public slots:
 
 signals:
     void send_update(QImage *image);
+
     void send_all_frames(std::vector<QPixmap> images);
+    void update_frame_label(int current, int total);
 };
 
 #endif // MODEL_H

@@ -20,7 +20,13 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), this, SLOT(c_mouse_down_pos()));
     connect(ui->canvas, SIGNAL(c_mouse_left()), this, SLOT(c_mouse_left()));
     connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), &project, SLOT(mouse_down_pos(int, int)));
+
     connect(this, SIGNAL(brush_color_changed(QColor)), &project, SLOT(change_color(QColor)));
+
+    connect(this, SIGNAL(new_frame_requested()), &project, SLOT(add_frame()));
+
+    //PROJECT SIGNALS
+    connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
     connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
 
     project.update_canvas();
@@ -146,6 +152,7 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_AddFrameButton_clicked()
 {
+    std::cout << "add frame" << std::endl;
     emit new_frame_requested();
 }
 
