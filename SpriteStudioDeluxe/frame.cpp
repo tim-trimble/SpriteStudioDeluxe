@@ -33,10 +33,10 @@ QImage* Frame::getImage(){
     return image;
 }
 
-
 /*Shrink or enlarge image
 QImage:scaled(int width, int height, Qt::KeepAspectRatio, Qt::FastTransformation);
 */
+
 
 /*Mirror
 *myImage = myImage->mirrored(); defaults to x-axis

@@ -19,8 +19,8 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     connect(ui->canvas, SIGNAL(c_mouse_up()), this, SLOT(c_mouse_up()));
     connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), this, SLOT(c_mouse_down_pos()));
     connect(ui->canvas, SIGNAL(c_mouse_left()), this, SLOT(c_mouse_left()));
-
     connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), &project, SLOT(mouse_down_pos(int, int)));
+    connect(this, SIGNAL(brush_color_changed(QColor)), &project, SLOT(change_color(QColor)));
     connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
 
     project.update_canvas();

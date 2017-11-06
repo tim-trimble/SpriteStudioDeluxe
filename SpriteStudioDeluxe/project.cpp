@@ -13,7 +13,6 @@ bool success = myImage->load(filename,format);
 
 Project::Project(int x, int y)
 {
-    currentColor = new QColor(255,255,255,255);
     frames = new QVector<Frame*>();
     frames->push_back(new Frame(x,y));
     currentFrame = frames->at(0);
@@ -32,8 +31,12 @@ void Project::update_canvas()
 
 void Project::mouse_down_pos(int x, int y)
 {
-    currentFrame->editPixel(x ,y, *currentColor);
+    currentFrame->editPixel(x ,y, currentColor);
     update_canvas();
+}
+
+void Project::change_color(QColor c){
+    currentColor = c;
 }
 
 void Project::add_frame(int x, int y)
