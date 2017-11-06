@@ -29,11 +29,13 @@ MainWindow::~MainWindow(){
 void MainWindow::update_canvas(QImage *i)
 {
     ui->canvas->setPixmap(QPixmap::fromImage(*i));
+    ui->canvas->show();
 }
 
 void MainWindow::update_preview(QImage *i)
 {
     ui->PreviewLabel->setPixmap(QPixmap::fromImage(*i));
+    ui->PreviewLabel->show();
 }
 
 void MainWindow::update_current_frame_label(int current_frame, int total_frames)
