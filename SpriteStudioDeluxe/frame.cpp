@@ -29,8 +29,8 @@ void Frame::rotateImage(int angle){
     *image = image->transformed(transform, Qt::FastTransformation);
 }
 
-QImage Frame::getImage(){
-    return *image;
+QImage* Frame::getImage(){
+    return image;
 }
 
 

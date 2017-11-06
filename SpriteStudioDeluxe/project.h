@@ -31,7 +31,8 @@ public slots:
     void update_pixel(int x, int y, QColor color);
 
 signals:
-    void send_update(QPixmap image);
+    void send_update(QImage *image);
+   // void send_update(QPixmap image);
     void send_all_frames(std::vector<QPixmap> images);
 };
 

@@ -26,9 +26,9 @@ void Project::add_frame(int x, int y)
 
 void Project::update_canvas()
 {
-    Frame frame = *currentFrame;
-    QPixmap pixmap = QPixmap::fromImage(frame.getImage());
-    emit send_update(pixmap);
+    //Frame frame = *currentFrame;
+    //QPixmap pixmap = QPixmap::fromImage(frame.getImage());
+    emit send_update(currentFrame->getImage());
 }
 
 void Project::next_frame()
@@ -98,8 +98,8 @@ void Project::save_project(QString filename)
             out.setVersion(QDataStream::Qt_5_9);
             for(auto iter=frames.begin();iter!=frames.end();iter++)
             {
-                image = iter->getImage();
-                out << image;
+                //image = iter->getImage();
+                //out << image;
             }
             file.close();
         }
