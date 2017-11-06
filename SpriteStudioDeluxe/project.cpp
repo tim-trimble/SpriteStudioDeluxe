@@ -61,6 +61,15 @@ void Project::next_frame()
     }
     update_canvas();
     */
+
+    if(frames->size() == currentIndex + 1){
+        currentIndex = 0;
+        currentFrame = frames->at(currentIndex);
+    } else {
+        currentIndex += 1;
+        currentFrame = frames->at(currentIndex);
+    }
+    update_canvas();
 }
 
 void Project::previous_frame()
@@ -76,6 +85,15 @@ void Project::previous_frame()
     }
     update_canvas();
     */
+
+    if(currentIndex = 0){
+        currentIndex = frames->size() - 1;
+        currentFrame = frames->at(currentIndex);
+    } else {
+        currentIndex -= 1;
+        currentFrame = frames->at(currentIndex);
+    }
+    update_canvas();
 }
 
 void Project::swap_frames(int frame1, int frame2)
