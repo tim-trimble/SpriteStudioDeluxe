@@ -14,6 +14,7 @@ private:
     QVector<Frame*>* frames;
     //QVector<Frame*>::iterator currentFrame;
     Frame* currentFrame;
+    QColor* currentColor;
 
 public:
     Project(int x, int y);
@@ -28,7 +29,7 @@ public slots:
     void get_all_frames();
     void save_project(QString filename);
     void load_project(QString filename);
-    void update_pixel(int x, int y, QColor color);
+    void mouse_down_pos(int x, int y);
 
 signals:
     void send_update(QImage *image);

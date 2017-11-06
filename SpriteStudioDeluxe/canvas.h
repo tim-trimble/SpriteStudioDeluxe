@@ -25,7 +25,7 @@ public:
     int y;
 
 signals:
-    void c_mouse_down_pos();
+    void c_mouse_down_pos(int x, int y);
     void c_mouse_down();
     void c_mouse_up();
     void c_mouse_left();

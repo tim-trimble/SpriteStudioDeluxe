@@ -13,7 +13,7 @@ void Canvas::mouseMoveEvent(QMouseEvent *ev)
 {
     this->x = ev->x();
     this->y = ev->y();
-    emit c_mouse_down_pos();
+    emit c_mouse_down_pos(x, y);
 }
 
 void Canvas::mousePressEvent(QMouseEvent *ev)
