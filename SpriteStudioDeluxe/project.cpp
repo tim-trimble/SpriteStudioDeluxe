@@ -17,6 +17,7 @@ Project::Project(int x, int y)
     frames = new QVector<Frame*>();
     frames->append(new Frame(x, y));
     currentFrame = frames->at(0);
+    currentIndex = 0;
     //currentFrame = frames.begin();
 }
 
@@ -44,8 +45,7 @@ void Project::add_frame()
 {
     std::cout << "project: add frame" << std::endl;
     frames->append(new Frame(frames->at(0)->getX(), frames->at(0)->getY()));
-    int current = 1; //TODO: this int reflective of current frame
-    emit update_frame_label(current, frames->size());
+    emit update_frame_label(currentIndex + 1, frames->size());
 }
 
 void Project::next_frame()

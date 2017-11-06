@@ -30,6 +30,7 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
 
     project.update_canvas();
+    project.update_frame_label(1,1);
 }
 
 MainWindow::~MainWindow(){

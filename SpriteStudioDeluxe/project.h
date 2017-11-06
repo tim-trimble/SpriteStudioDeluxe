@@ -12,6 +12,7 @@ class Project : public QObject
 
 private:
     QVector<Frame*>* frames;
+    int currentIndex;
     //QVector<Frame*>::iterator currentFrame;
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255); //default black
