@@ -17,16 +17,14 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     connect(ui->canvas, SIGNAL(c_mouse_up()), this, SLOT(c_mouse_up()));
     connect(ui->canvas, SIGNAL(c_mouse_down_pos()), this, SLOT(c_mouse_down_pos()));
     connect(ui->canvas, SIGNAL(c_mouse_left()), this, SLOT(c_mouse_left()));
-    //connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
+    connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
 
-    QImage* testImage = new QImage(300,300,QImage::Format_ARGB32);
-    update_canvas(testImage);
+    project.update_canvas();
 }
 
 MainWindow::~MainWindow(){
     delete ui;
 }
-
 
 // PROJECT SIGNAL HANDLERS
 

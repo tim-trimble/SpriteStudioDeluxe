@@ -13,26 +13,34 @@ bool success = myImage->load(filename,format);
 
 Project::Project(int x, int y)
 {
-    frames.append(Frame(x, y));
-    currentFrame = frames.begin();
+    frames = new QVector<Frame*>();
+    frames->push_back(new Frame(x,y));
+    currentFrame = frames->at(0);
+    //currentFrame = frames.begin();
 }
 
-Project::~Project(){}
-
-void Project::add_frame(int x, int y)
+Project::~Project()
 {
-    frames.append(Frame(x, y));
+    delete frames;
 }
 
 void Project::update_canvas()
 {
-    //Frame frame = *currentFrame;
-    //QPixmap pixmap = QPixmap::fromImage(frame.getImage());
     emit send_update(currentFrame->getImage());
+}
+
+void Project::update_pixel(int x, int y, QColor color)
+{
+    currentFrame->editPixel(x, y, color);
+}
+
+void Project::add_frame(int x, int y){
+    //void Project::add_frame(int x, int y)
 }
 
 void Project::next_frame()
 {
+    /*
     if(currentFrame == frames.end())
     {
         currentFrame = frames.begin();
@@ -42,10 +50,12 @@ void Project::next_frame()
         currentFrame++;
     }
     update_canvas();
+    */
 }
 
 void Project::previous_frame()
 {
+    /*
     if(currentFrame == frames.begin())
     {
         currentFrame = frames.end();
@@ -55,13 +65,16 @@ void Project::previous_frame()
         currentFrame--;
     }
     update_canvas();
+    */
 }
 
 void Project::swap_frames(int frame1, int frame2)
 {
+    /*
     Frame copyFrame = frames[frame1];
     frames[frame1] = frames[frame2];
     frames[frame2] = copyFrame;
+    */
 }
 
 void Project::get_all_frames()
@@ -80,6 +93,7 @@ void Project::get_all_frames()
 
 void Project::save_project(QString filename)
 {
+    /*
     if(filename.isEmpty())
     {
         return;
@@ -104,10 +118,12 @@ void Project::save_project(QString filename)
             file.close();
         }
     }
+    */
 }
 
 void Project::load_project(QString filename)
 {
+    /*
     if(filename.isEmpty())
     {
         return;
@@ -135,8 +151,7 @@ void Project::load_project(QString filename)
             }
         }
     }
+    */
 }
 
-void Project::update_pixel(int x, int y, QColor color){
-    currentFrame->editPixel(x, y, color);
-}
+

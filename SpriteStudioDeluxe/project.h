@@ -11,13 +11,13 @@ class Project : public QObject
     Q_OBJECT
 
 private:
-    QVector<Frame> frames;
-    QVector<Frame>::iterator currentFrame;
+    QVector<Frame*>* frames;
+    //QVector<Frame*>::iterator currentFrame;
+    Frame* currentFrame;
 
 public:
     Project(int x, int y);
     ~Project();
-
 
 public slots:
     void add_frame(int x, int y);
@@ -32,7 +32,6 @@ public slots:
 
 signals:
     void send_update(QImage *image);
-   // void send_update(QPixmap image);
     void send_all_frames(std::vector<QPixmap> images);
 };
 
