@@ -11,6 +11,8 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->canvas->setAlignment(Qt::AlignTop);
+    ui->canvas->setAlignment(Qt::AlignLeft);
 
     //CANVAS CONNECTIONS
     connect(ui->canvas, SIGNAL(c_mouse_down()), this, SLOT(c_mouse_down()));
