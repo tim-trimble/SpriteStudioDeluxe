@@ -26,7 +26,7 @@ int Frame::getY(){
     return image->height();
 }
 
-void Frame::editPixel(int x, int y, QColor color){ //new QColor(r,g,b,a)
+void Frame::editPixel(int x, int y, QColor color){
     image->setPixelColor(x, y, color);
 }
 
@@ -41,19 +41,16 @@ QImage* Frame::getImage(){
     return image;
 }
 
-/*Shrink or enlarge image
-QImage:scaled(int width, int height, Qt::KeepAspectRatio, Qt::FastTransformation);
-*/
+void Frame::scaleImage(int x, int y){
+    image = &image->scaled(x, y, Qt::KeepAspectRatio, Qt::FastTransformation);
+}
 
+void Frame::resizeWorkspace(int x, int y){
+    image = &image->copy(0, 0, x, y);
+}
 
 /*Mirror
 *myImage = myImage->mirrored(); defaults to x-axis
 mirrored(true,false); y-axis
 mirrored(true,true); both
 */
-
-/*Resize an existing image while maintaining pixel organization
-*myImage = myImage->copy(0,0,newWidth,newHeight);
-*/
-
-
