@@ -42,6 +42,8 @@ MainWindow::~MainWindow(){
 void MainWindow::update_canvas(QImage *i)
 {
     ui->canvas->setPixmap(QPixmap::fromImage(*i));
+    ui->canvas->setMaximumSize(i->size());
+    ui->canvas->setMinimumSize(i->size());
     ui->canvas->show();
 }
 
