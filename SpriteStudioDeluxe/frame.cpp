@@ -42,11 +42,11 @@ QImage* Frame::getImage(){
 }
 
 void Frame::scaleImage(int x, int y){
-    image = &image->scaled(x, y, Qt::KeepAspectRatio, Qt::FastTransformation);
+    *image = image->scaled(x, y, Qt::KeepAspectRatio, Qt::FastTransformation);
 }
 
 void Frame::resizeWorkspace(int x, int y){
-    image = &image->copy(0, 0, x, y);
+    *image = image->copy(0, 0, x, y);
 }
 
 /*Mirror
