@@ -50,18 +50,6 @@ void Project::add_frame()
 
 void Project::next_frame()
 {
-    /*
-    if(currentFrame == frames.end())
-    {
-        currentFrame = frames.begin();
-    }
-    else
-    {
-        currentFrame++;
-    }
-    update_canvas();
-    */
-
     if(frames->size() == currentIndex + 1){
         currentIndex = 0;
         currentFrame = frames->at(currentIndex);
@@ -69,30 +57,22 @@ void Project::next_frame()
         currentIndex += 1;
         currentFrame = frames->at(currentIndex);
     }
+
+    emit update_frame_label(currentIndex + 1, frames->size());
     update_canvas();
 }
 
 void Project::previous_frame()
 {
-    /*
-    if(currentFrame == frames.begin())
-    {
-        currentFrame = frames.end();
-    }
-    else
-    {
-        currentFrame--;
-    }
-    update_canvas();
-    */
-
-    if(currentIndex = 0){
+    if(currentIndex == 0){
         currentIndex = frames->size() - 1;
         currentFrame = frames->at(currentIndex);
     } else {
         currentIndex -= 1;
         currentFrame = frames->at(currentIndex);
     }
+
+    emit update_frame_label(currentIndex + 1, frames->size());
     update_canvas();
 }
 
