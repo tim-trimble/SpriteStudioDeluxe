@@ -1,6 +1,7 @@
 #include "project.h"
 #include "frame.h"
 #include <iostream>
+#include "QtGifImage-master/src/gifimage/qgifimage.h"
 
 //exit button - maybe check for unsaved changes?
 

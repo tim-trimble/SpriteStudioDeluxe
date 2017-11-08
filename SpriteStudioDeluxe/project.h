@@ -34,7 +34,7 @@ public slots:
 
     void save_project(QString filename);
     void load_project(QString filename);
-
+    void export_project(QString export_type);
 signals:
     void send_update(QImage *image);
 
