@@ -29,7 +29,6 @@ public:
     void resizeWorkspace(int x, int y);
 
     //mirror
-
 };
 
 #endif // FRAME_H

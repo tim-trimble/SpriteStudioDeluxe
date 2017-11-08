@@ -5,6 +5,9 @@
 #include <QPixmap>
 #include <QFile>
 #include "frame.h"
+#include <QThread>
+
+//model for mainwindow
 
 class Project : public QObject
 {
@@ -15,8 +18,10 @@ private:
     int currentIndex;
     //QVector<Frame*>::iterator currentFrame;
     Frame* currentFrame;
-    QColor currentColor = QColor(0,0,0,255); //default black
+    QColor currentColor = QColor(0,0,0,255);
+    QThread previewThread;
 
+    void run_preview();
 public:
     Project(int x, int y);
     ~Project();
@@ -39,6 +44,7 @@ signals:
     void send_update(QImage *image);
 
     void send_all_frames(std::vector<QPixmap> images);
+
     void update_frame_label(int current, int total);
 };
 

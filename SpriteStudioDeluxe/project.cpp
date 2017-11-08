@@ -19,11 +19,23 @@ Project::Project(int x, int y)
     currentFrame = frames->at(0);
     currentIndex = 0;
     //currentFrame = frames.begin();
+
+    //run_preview();
 }
 
 Project::~Project()
 {
     delete frames;
+}
+
+void Project::run_preview(){
+    //previewThread.start();
+    //moveToThread(&previewThread);
+    //for(int i = 0; i < frames->size(); i++){
+        QThread::sleep(1);
+        std::cout << "thread" << std::endl;
+    //}
+    //run_preview();
 }
 
 void Project::update_canvas()
@@ -43,7 +55,6 @@ void Project::change_color(QColor c){
 
 void Project::add_frame()
 {
-    std::cout << "project: add frame" << std::endl;
     frames->append(new Frame(frames->at(0)->getX(), frames->at(0)->getY()));
     emit update_frame_label(currentIndex + 1, frames->size());
 }
@@ -78,11 +89,9 @@ void Project::previous_frame()
 
 void Project::swap_frames(int frame1, int frame2)
 {
-    /*
-    Frame copyFrame = frames[frame1];
-    frames[frame1] = frames[frame2];
-    frames[frame2] = copyFrame;
-    */
+    //Frame copyFrame = frames[frame1];
+    //frames[frame1] = frames[frame2];
+    //frames[frame2] = copyFrame;
 }
 
 void Project::get_all_frames()

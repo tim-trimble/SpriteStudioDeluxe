@@ -1,6 +1,6 @@
 #include "frame.h"
 
-Frame::Frame(int width, int height){ //Not sure about a default size
+Frame::Frame(int width, int height){
     image = new QImage(width, height, QImage::Format_ARGB32);
 }
 
@@ -8,13 +8,11 @@ Frame::~Frame(){
     delete image;
 }
 
-Frame::Frame(QImage img)
-{
+Frame::Frame(QImage img){
     image = &img;
 }
 
-Frame::Frame()
-{
+Frame::Frame(){
 
 }
 
@@ -34,7 +32,10 @@ void Frame::rotateImage(int angle){
     QTransform transform;
     transform.translate(image->width()/2, image->height()/2);
     transform.rotate(angle);
-    *image = image->transformed(transform, Qt::FastTransformation);
+
+    QImage* temp = image;
+    image = new QImage(image->transformed(transform, Qt::FastTransformation));
+    delete temp;
 }
 
 QImage* Frame::getImage(){
