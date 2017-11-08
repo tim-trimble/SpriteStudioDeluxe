@@ -24,12 +24,11 @@ public:
 
     QImage* getImage();
 
-    //shrink/enlarge
+    void scaleImage(int x, int y);
+
+    void resizeWorkspace(int x, int y);
 
     //mirror
-
-    //resize an image while maintaining current pixel organization
-
 };
 
 #endif // FRAME_H

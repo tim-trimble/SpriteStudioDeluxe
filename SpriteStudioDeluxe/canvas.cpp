@@ -3,7 +3,6 @@
 Canvas::Canvas(QWidget *parent) : QLabel(parent)
 {
 
-
 }
 
 

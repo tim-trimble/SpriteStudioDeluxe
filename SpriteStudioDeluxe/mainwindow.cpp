@@ -21,9 +21,11 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     connect(ui->canvas, SIGNAL(c_mouse_left()), this, SLOT(c_mouse_left()));
     connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), &project, SLOT(mouse_down_pos(int, int)));
 
+    //MAINWINDOW CONNECTIONS
     connect(this, SIGNAL(brush_color_changed(QColor)), &project, SLOT(change_color(QColor)));
-
     connect(this, SIGNAL(new_frame_requested()), &project, SLOT(add_frame()));
+    connect(this, SIGNAL(next_frame_requested()), &project, SLOT(next_frame()));
+    connect(this, SIGNAL(previous_frame_requested()), &project, SLOT(previous_frame()));
 
     //PROJECT SIGNALS
     connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
