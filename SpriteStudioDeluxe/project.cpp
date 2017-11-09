@@ -22,6 +22,11 @@ Project::Project(int x, int y)
     currentIndex = 0;
     //currentFrame = frames.begin();
 
+    preview.moveToThread(&previewThread);
+    //connect(&previewThread, SIGNAL(started()), &preview, SLOT(thread_start()));
+    //connect(&preview, SIGNAL(fetch_frame()), this, SLOT(fetch_preview_frame));
+    previewThread.start();
+
     //run_preview();
 }
 
@@ -108,6 +113,11 @@ void Project::get_all_frames()
     }
     emit send_all_frames(tempVec);
     */
+}
+
+void Project::fetch_preview_frame(){
+    std::cout << "end fetch" << std::endl;
+    emit send_preview_frame(currentFrame->getImage());
 }
 
 void Project::save_project(QString filename)

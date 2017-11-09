@@ -38,6 +38,7 @@ public slots:
     void previous_frame();
     void swap_frames(int frame1, int frame2);
     void get_all_frames();
+    void fetch_preview_frame();
 
     void save_project(QString filename);
     void load_project(QString filename);
@@ -46,6 +47,7 @@ signals:
     void send_update(QImage *image);
 
     void send_all_frames(std::vector<QPixmap> images);
+    void send_preview_frame(QImage *image);
 
     void update_frame_label(int current, int total);
 };
