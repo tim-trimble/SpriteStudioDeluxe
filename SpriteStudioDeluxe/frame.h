@@ -1,9 +1,10 @@
 #ifndef FRAME_H
 #define FRAME_H
+
 #include <QImage>
 #include <QColor>
 
-//frame will contain our methods of manipulating QImages in this project
+//frame contains our methods of manipulating QImages in this project
 
 class Frame {
 private:

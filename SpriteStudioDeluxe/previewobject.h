@@ -16,7 +16,7 @@ public:
     explicit PreviewObject(QImage* image, QObject *parent = Q_NULLPTR);
 
 signals:
-    void update_preview(QImage *image);
+    //sent to project AND mainwindow
     void thread_end(QImage *image);
 
 public slots:

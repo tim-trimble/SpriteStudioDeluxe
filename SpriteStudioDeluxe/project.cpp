@@ -1,5 +1,6 @@
 #include "project.h"
 #include "QtGifImage-master/src/gifimage/qgifimage.h"
+#include <iostream>
 
 Project::Project(int x, int y)
 {
@@ -11,6 +12,7 @@ Project::Project(int x, int y)
 
     previewThread = new QThread();
     preview = new PreviewObject(currentFrame->getImage());
+    previewIndex = 0;
     preview->moveToThread(previewThread);
     connect(this, SIGNAL(send_preview_frame(QImage*)), preview, SLOT(thread_start()));
     connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
@@ -24,17 +26,19 @@ Project::~Project()
     delete frames;
 }
 
-void Project::run_preview(){
+void Project::run_preview()
+{
     emit send_preview_frame(currentFrame->getImage());
-
-    //for(int i = 0; i < frames->size(); i++){
-        //QThread::sleep(1);
-        //std::cout << "thread" << std::endl;
-    //}
 }
 
-void Project::thread_end(){
-    preview->image = currentFrame->getImage();
+void Project::thread_end()
+{
+    if(previewIndex == frames->size() - 1){
+        previewIndex = 0;
+    } else{
+        previewIndex += 1;
+    }
+    preview->image = frames->at(previewIndex)->getImage();
     run_preview();
 }
 
@@ -49,7 +53,8 @@ void Project::mouse_down_pos(int x, int y)
     update_canvas();
 }
 
-void Project::change_color(QColor c){
+void Project::change_color(QColor c)
+{
     currentColor = c;
 }
 
