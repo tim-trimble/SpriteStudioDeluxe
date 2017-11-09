@@ -2,6 +2,7 @@
 #include "frame.h"
 #include <iostream>
 #include "QtGifImage-master/src/gifimage/qgifimage.h"
+#include "previewobject.h"
 
 //exit button - maybe check for unsaved changes?
 
@@ -172,4 +173,8 @@ void Project::load_project(QString filename)
     */
 }
 
+void Project::export_project(QString export_type)
+{
+
+};
 

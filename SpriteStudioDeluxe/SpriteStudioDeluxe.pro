@@ -28,14 +28,16 @@ SOURCES += \
         mainwindow.cpp \
     project.cpp \
     frame.cpp \
-    canvas.cpp
+    canvas.cpp \
+    previewobject.cpp
 
 HEADERS += \
         mainwindow.h \
     project.h \
     frame.h \
     frame.h \
-    canvas.h
+    canvas.h \
+    previewobject.h
 
 FORMS += \
         mainwindow.ui

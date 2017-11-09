@@ -6,6 +6,7 @@
 #include <QFile>
 #include "frame.h"
 #include <QThread>
+#include "previewobject.h"
 
 //model for mainwindow
 
@@ -20,6 +21,7 @@ private:
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
     QThread previewThread;
+    PreviewObject preview;
 
     void run_preview();
 public:
