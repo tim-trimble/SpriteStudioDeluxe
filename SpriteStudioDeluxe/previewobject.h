@@ -3,20 +3,22 @@
 
 #include <QObject>
 #include <QImage>
+#include <QThread>
 
 class PreviewObject : public QObject {
     Q_OBJECT
+private:
+
 public:
-    explicit PreviewObject(QObject *parent = Q_NULLPTR);
+    QImage* image;
+    explicit PreviewObject(QImage* image, QObject *parent = Q_NULLPTR);
 
 signals:
-    void object_preview_update();
-    void fetch_frame();
     void update_preview(QImage *image);
+    void thread_end(QImage *image);
 
 public slots:
     void thread_start();
-    void receive_frame(QImage *image);
 };
 
 #endif // PREVIEWOBJECT_H

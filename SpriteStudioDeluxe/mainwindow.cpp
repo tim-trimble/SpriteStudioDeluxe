@@ -31,8 +31,12 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
     connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
 
+    //PREVIEW
+    connect(project.preview, SIGNAL(thread_end(QImage*)), this, SLOT(update_preview(QImage*)));
+
     project.update_canvas();
     project.update_frame_label(1,1);
+
 }
 
 MainWindow::~MainWindow(){
@@ -181,3 +185,5 @@ void MainWindow::on_ZoomOutButton_clicked()
 {
     emit zoom_out_requested();
 }
+
+

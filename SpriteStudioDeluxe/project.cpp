@@ -19,15 +19,17 @@ Project::Project(int x, int y)
     frames = new QVector<Frame*>();
     frames->append(new Frame(x, y));
     currentFrame = frames->at(0);
-    currentIndex = 0;
     //currentFrame = frames.begin();
+    currentIndex = 0;
 
-    preview.moveToThread(&previewThread);
-    //connect(&previewThread, SIGNAL(started()), &preview, SLOT(thread_start()));
-    //connect(&preview, SIGNAL(fetch_frame()), this, SLOT(fetch_preview_frame));
-    previewThread.start();
+    previewThread = new QThread();
+    preview = new PreviewObject(currentFrame->getImage());
+    preview->moveToThread(previewThread);
+    connect(this, SIGNAL(send_preview_frame(QImage*)), preview, SLOT(thread_start()));
+    connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
+    previewThread->start();
 
-    //run_preview();
+    run_preview();
 }
 
 Project::~Project()
@@ -36,13 +38,29 @@ Project::~Project()
 }
 
 void Project::run_preview(){
-    //previewThread.start();
-    //moveToThread(&previewThread);
+    //previewThread = new QThread();
+    //preview = new PreviewObject(currentFrame->getImage());
+    //preview->moveToThread(previewThread);
+    //connect(previewThread, SIGNAL(started()), preview, SLOT(thread_start()));
+    //connect(preview, SIGNAL(thread_end()), previewThread, SLOT(quit()));
+    //connect(this, SIGNAL(send_preview_frame(QImage*)), preview, SLOT(thread_start()));
+    //connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
+    //connect(previewThread, SIGNAL(finished()), this, SLOT(thread_end()));
+    //previewThread->start();
+    emit send_preview_frame(currentFrame->getImage());
+
     //for(int i = 0; i < frames->size(); i++){
-        QThread::sleep(1);
-        std::cout << "thread" << std::endl;
+        //QThread::sleep(1);
+        //std::cout << "thread" << std::endl;
     //}
     //run_preview();
+}
+
+void Project::thread_end(){
+    //previewThread->exit();
+    preview->image = currentFrame->getImage();
+    std::cout << "thread end" << std::endl;
+    run_preview();
 }
 
 void Project::update_canvas()
@@ -115,11 +133,6 @@ void Project::get_all_frames()
     */
 }
 
-void Project::fetch_preview_frame(){
-    std::cout << "end fetch" << std::endl;
-    emit send_preview_frame(currentFrame->getImage());
-}
-
 void Project::save_project(QString filename)
 {
     /*
@@ -187,4 +200,5 @@ void Project::export_project(QString export_type)
 {
 
 };
+
 
