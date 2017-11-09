@@ -8,7 +8,7 @@
 #include <QThread>
 #include "previewobject.h"
 
-//model for mainwindow
+//model for mainwindow editor
 
 class Project : public QObject
 {

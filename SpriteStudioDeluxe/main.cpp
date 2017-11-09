@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Project p(256,256); //Not sure on default size
+    Project p(256,256);
     MainWindow w(p);
     w.show();
 

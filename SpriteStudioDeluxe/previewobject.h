@@ -5,6 +5,8 @@
 #include <QImage>
 #include <QThread>
 
+//project puts this on a different thread to run preview animation
+
 class PreviewObject : public QObject {
     Q_OBJECT
 private:

@@ -31,17 +31,18 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
     connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
 
-    //PREVIEW
+    //PREVIEW SIGNALS
     connect(project.preview, SIGNAL(thread_end(QImage*)), this, SLOT(update_preview(QImage*)));
 
+    //STARTING CONDITIONS
     project.update_canvas();
     project.update_frame_label(1,1);
-
 }
 
 MainWindow::~MainWindow(){
     delete ui;
 }
+
 
 // PROJECT SIGNAL HANDLERS
 

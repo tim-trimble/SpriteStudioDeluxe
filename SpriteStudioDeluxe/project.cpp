@@ -1,18 +1,5 @@
 #include "project.h"
-#include "frame.h"
-#include <iostream>
 #include "QtGifImage-master/src/gifimage/qgifimage.h"
-#include "previewobject.h"
-
-//exit button - maybe check for unsaved changes?
-
-/*Saving
-bool success = myImage->save(filename,format,quality);
-*/
-
-/*Loading
-bool success = myImage->load(filename,format);
-*/
 
 Project::Project(int x, int y)
 {
@@ -38,28 +25,16 @@ Project::~Project()
 }
 
 void Project::run_preview(){
-    //previewThread = new QThread();
-    //preview = new PreviewObject(currentFrame->getImage());
-    //preview->moveToThread(previewThread);
-    //connect(previewThread, SIGNAL(started()), preview, SLOT(thread_start()));
-    //connect(preview, SIGNAL(thread_end()), previewThread, SLOT(quit()));
-    //connect(this, SIGNAL(send_preview_frame(QImage*)), preview, SLOT(thread_start()));
-    //connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
-    //connect(previewThread, SIGNAL(finished()), this, SLOT(thread_end()));
-    //previewThread->start();
     emit send_preview_frame(currentFrame->getImage());
 
     //for(int i = 0; i < frames->size(); i++){
         //QThread::sleep(1);
         //std::cout << "thread" << std::endl;
     //}
-    //run_preview();
 }
 
 void Project::thread_end(){
-    //previewThread->exit();
     preview->image = currentFrame->getImage();
-    std::cout << "thread end" << std::endl;
     run_preview();
 }
 
@@ -199,6 +174,6 @@ void Project::load_project(QString filename)
 void Project::export_project(QString export_type)
 {
 
-};
+}
 
 
