@@ -6,7 +6,6 @@ Project::Project(int x, int y)
     frames = new QVector<Frame*>();
     frames->append(new Frame(x, y));
     currentFrame = frames->at(0);
-    //currentFrame = frames.begin();
     currentIndex = 0;
 
     previewThread = new QThread();
@@ -26,15 +25,15 @@ Project::Project(int x, int y)
 
 Project::~Project()
 {
+    previewThread->terminate();
+    previewThread->wait();
+    delete previewThread;
+    delete preview;
+
     for(int i = 0; i < frames->size(); i++){
         delete frames->at(i);
     }
     delete frames;
-
-    delete preview;
-
-    previewThread->quit();
-    delete previewThread;
 }
 
 void Project::run_preview()
@@ -52,14 +51,6 @@ void Project::thread_end()
     preview->image = frames->at(previewIndex)->getImage();
     run_preview();
 }
-/*
-void Project::thread_end(){
-    //previewThread->exit();
-    preview->image = currentFrame->getImage();
-    std::cout << "thread end" << std::endl;
-    run_preview();
-}
-*/
 
 void Project::update_canvas()
 {

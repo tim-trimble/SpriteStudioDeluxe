@@ -23,7 +23,6 @@ private:
 
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
-    //QThread* previewThread;
 
     void run_preview();
 public:
@@ -41,6 +40,7 @@ public slots:
     void change_color(QColor c);
 
     void add_frame();
+    Frame* get_frame();
     void next_frame();
     void previous_frame();
     void get_all_frames();
@@ -48,8 +48,6 @@ public slots:
     void save_project(QString filename);
     void load_project(QString filename);
     void export_project(QString export_type);
-
-    Frame* get_frame();
 
 signals:
     void send_update(QImage *image);
