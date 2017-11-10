@@ -8,6 +8,7 @@
 #include "frame.h"
 #include <QThread>
 #include "previewobject.h"
+#include "QtGifImage-master/src/gifimage/qgifimage.h"
 
 //model for mainwindow editor
 
@@ -19,14 +20,13 @@ private:
     QVector<Frame*> *frames;
     int currentIndex;
     int previewIndex;
-    //QVector<Frame*>::iterator currentFrame;
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
+    QThread* previewThread;
 
     void run_preview();
 public:
     PreviewObject *preview;
-    QThread* previewThread;
 
     Project(int x, int y);
     ~Project();
@@ -41,7 +41,6 @@ public slots:
     void add_frame();
     void next_frame();
     void previous_frame();
-    void swap_frames(int frame1, int frame2);
     void get_all_frames();
 
     void save_project(QString filename);
@@ -50,7 +49,6 @@ public slots:
 signals:
     void send_update(QImage *image);
 
-    void send_all_frames(std::vector<QPixmap> images);
     void send_preview_frame(QImage *image);
 
     void update_frame_label(int current, int total);
