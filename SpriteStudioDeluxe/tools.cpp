@@ -66,11 +66,20 @@ void Tools::edit_pixel(int x, int y)
         pen.setColor(temp_color);
     }
     else if(tool_number == 4) {
+        painter.setCompositionMode (QPainter::CompositionMode_Source);
         pen.setWidth(brush_size * 8);
         //pen.setColor(eraser);
         //pen.setStyle(Qt::SolidLine);
         //painter.drawPoint(x, y);
         pen.setColor(Qt::transparent);
+        painter.setPen(pen);
+        painter.scale(.125, .125);
+
+        painter.drawPoint(x, y);
+        painter.setCompositionMode (QPainter::CompositionMode_SourceOver);
+        painter.end();
+        emit update_can(current_image);
+        return;
     }
     painter.setPen(pen);
     painter.scale(.125, .125);
