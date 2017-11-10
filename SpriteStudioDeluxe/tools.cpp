@@ -7,7 +7,7 @@ Tools::Tools(Frame* initial_frame)
     brush_size = 1;
     tool_number = 1;
     eraser_active = false;
-    eraser = QColor(0,0,0,0);
+    eraser = QColor(255, 255, 255);
     current_color = QColor(Qt::black);
     temp_color = QColor(Qt::black);
     current_image = active_frame->getImage();
@@ -53,18 +53,30 @@ void Tools::on_mouse_up(int x, int y)
 
 void Tools::edit_pixel(int x, int y)
 {
-    int col = x - ((brush_size / 2) / .125);
-    int row = y - ((brush_size / 2) / .125);
-
-
-    for (int i = row; i < row + brush_size / .125; i++)
-    {
-        for (int j = col; j < col + brush_size / .125; j++)
-        {
-            if (j<256 && j>0 && i<256 && i>0)
-                current_image->setPixelColor(j*.125, i*.125, current_color);
-        }
+    QPainter painter(current_image);
+    QPen pen;
+    pen.setStyle(Qt::SolidLine);
+    if (tool_number == 1) {
+        pen.setWidth(8);
+        pen.setColor(temp_color);
+        //pen.setStyle(Qt::SolidLine);
     }
+    else if(tool_number == 2) {
+        pen.setWidth(brush_size * 8);
+        pen.setColor(temp_color);
+    }
+    else if(tool_number == 4) {
+        pen.setWidth(brush_size * 8);
+        //pen.setColor(eraser);
+        //pen.setStyle(Qt::SolidLine);
+        //painter.drawPoint(x, y);
+        pen.setColor(Qt::transparent);
+    }
+    painter.setPen(pen);
+    painter.scale(.125, .125);
+    std::cout << "Draw Point " << x << " " << y << std::endl;
+    painter.drawPoint(x, y);
+    painter.end();
     emit update_can(current_image);
 }
 

@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QImage>
 #include <QColor>
+#include <QPainter>
+#include <QPen>
 
 class Tools : public QObject
 {
