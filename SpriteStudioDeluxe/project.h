@@ -1,5 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
+
 #include <QObject>
 #include <QImage>
 #include <QPixmap>
@@ -7,8 +8,9 @@
 #include "frame.h"
 #include <QThread>
 #include "previewobject.h"
+#include "QtGifImage-master/src/gifimage/qgifimage.h"
 
-//model for mainwindow
+//model for mainwindow editor
 
 class Project : public QObject
 {
@@ -18,9 +20,10 @@ private:
     QVector<Frame*> *frames;
     int currentIndex;
     int previewIndex;
-    //QVector<Frame*>::iterator currentFrame;
+
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
+    //QThread* previewThread;
 
     void run_preview();
 public:
@@ -40,7 +43,6 @@ public slots:
     void add_frame();
     void next_frame();
     void previous_frame();
-    void swap_frames(int frame1, int frame2);
     void get_all_frames();
 
     void save_project(QString filename);
@@ -53,12 +55,9 @@ signals:
     void send_update(QImage *image);
 
     void send_all_frames(std::vector<QPixmap> images);
-<<<<<<< HEAD
     void frame_changed(Frame*);
-=======
     void send_preview_frame(QImage *image);
 
->>>>>>> 38e9cb71335d46c7e5bac0ecf785e6867f9bacca
     void update_frame_label(int current, int total);
 };
 

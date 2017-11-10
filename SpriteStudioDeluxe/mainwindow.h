@@ -4,11 +4,9 @@
 #include <QMainWindow>
 #include "project.h"
 #include <iostream>
-<<<<<<< HEAD
 #include "tools.h"
-=======
+
 #include <previewobject.h>
->>>>>>> 38e9cb71335d46c7e5bac0ecf785e6867f9bacca
 
 namespace Ui {
 class MainWindow;

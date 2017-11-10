@@ -1,21 +1,8 @@
 #include "project.h"
-#include "frame.h"
-#include <iostream>
-#include "QtGifImage-master/src/gifimage/qgifimage.h"
-#include "previewobject.h"
-
-//exit button - maybe check for unsaved changes?
-
-/*Saving
-bool success = myImage->save(filename,format,quality);
-*/
-
-/*Loading
-bool success = myImage->load(filename,format);
-*/
 
 Project::Project(int x, int y)
 {
+    //INIT PROJECT
     frames = new QVector<Frame*>();
     frames->append(new Frame(x, y));
     currentFrame = frames->at(0);
@@ -24,44 +11,55 @@ Project::Project(int x, int y)
 
     previewThread = new QThread();
     preview = new PreviewObject(currentFrame->getImage());
+    currentIndex = 0;
+
+    //INIT PREVIEW ANIMATION
+    previewThread = new QThread();
+    preview = new PreviewObject(currentFrame->getImage());
+    previewIndex = 0;
     preview->moveToThread(previewThread);
     connect(this, SIGNAL(send_preview_frame(QImage*)), preview, SLOT(thread_start()));
     connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
     previewThread->start();
-
     run_preview();
 }
 
 Project::~Project()
 {
+    for(int i = 0; i < frames->size(); i++){
+        delete frames->at(i);
+    }
     delete frames;
+
+    delete preview;
+
+    previewThread->quit();
+    delete previewThread;
 }
 
-void Project::run_preview(){
-    //previewThread = new QThread();
-    //preview = new PreviewObject(currentFrame->getImage());
-    //preview->moveToThread(previewThread);
-    //connect(previewThread, SIGNAL(started()), preview, SLOT(thread_start()));
-    //connect(preview, SIGNAL(thread_end()), previewThread, SLOT(quit()));
-    //connect(this, SIGNAL(send_preview_frame(QImage*)), preview, SLOT(thread_start()));
-    //connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
-    //connect(previewThread, SIGNAL(finished()), this, SLOT(thread_end()));
-    //previewThread->start();
+void Project::run_preview()
+{
     emit send_preview_frame(currentFrame->getImage());
-
-    //for(int i = 0; i < frames->size(); i++){
-        //QThread::sleep(1);
-        //std::cout << "thread" << std::endl;
-    //}
-    //run_preview();
 }
 
+void Project::thread_end()
+{
+    if(previewIndex == frames->size() - 1){
+        previewIndex = 0;
+    } else{
+        previewIndex += 1;
+    }
+    preview->image = frames->at(previewIndex)->getImage();
+    run_preview();
+}
+/*
 void Project::thread_end(){
     //previewThread->exit();
     preview->image = currentFrame->getImage();
     std::cout << "thread end" << std::endl;
     run_preview();
 }
+*/
 
 void Project::update_canvas()
 {
@@ -70,11 +68,12 @@ void Project::update_canvas()
 
 void Project::mouse_down_pos(int x, int y)
 {
-    currentFrame->editPixel(x , y, currentColor);
+    currentFrame->editPixel(x, y, currentColor);
     update_canvas();
 }
 
-void Project::change_color(QColor c){
+void Project::change_color(QColor c)
+{
     currentColor = c;
 }
 
@@ -110,13 +109,6 @@ void Project::previous_frame()
     emit frame_changed(currentFrame);
     emit update_frame_label(currentIndex + 1, frames->size());
     update_canvas();
-}
-
-void Project::swap_frames(int frame1, int frame2)
-{
-    //Frame copyFrame = frames[frame1];
-    //frames[frame1] = frames[frame2];
-    //frames[frame2] = copyFrame;
 }
 
 void Project::get_all_frames()
@@ -199,12 +191,9 @@ void Project::load_project(QString filename)
 void Project::export_project(QString export_type)
 {
 
-};
+}
 
-<<<<<<< HEAD
+
 Frame* Project::get_frame(){
     return currentFrame;
 }
-=======
-
->>>>>>> 38e9cb71335d46c7e5bac0ecf785e6867f9bacca
