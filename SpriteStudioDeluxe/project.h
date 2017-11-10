@@ -24,7 +24,6 @@ private:
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
 
-    void run_preview();
 public:
     PreviewObject *preview;
     QThread* previewThread;

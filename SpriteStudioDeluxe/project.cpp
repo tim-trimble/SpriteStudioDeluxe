@@ -20,7 +20,7 @@ Project::Project(int x, int y)
     connect(this, SIGNAL(send_preview_frame(QImage*)), preview, SLOT(thread_start()));
     connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
     previewThread->start();
-    run_preview();
+    emit send_preview_frame(currentFrame->getImage());
 }
 
 Project::~Project()
@@ -36,11 +36,6 @@ Project::~Project()
     delete frames;
 }
 
-void Project::run_preview()
-{
-    emit send_preview_frame(currentFrame->getImage());
-}
-
 void Project::thread_end()
 {
     if(previewIndex == frames->size() - 1){
@@ -49,7 +44,7 @@ void Project::thread_end()
         previewIndex += 1;
     }
     preview->image = frames->at(previewIndex)->getImage();
-    run_preview();
+    emit send_preview_frame(currentFrame->getImage());
 }
 
 void Project::update_canvas()
@@ -72,6 +67,10 @@ void Project::add_frame()
 {
     frames->append(new Frame(frames->at(0)->getX(), frames->at(0)->getY()));
     emit update_frame_label(currentIndex + 1, frames->size());
+}
+
+Frame* Project::get_frame(){
+    return currentFrame;
 }
 
 void Project::next_frame()
@@ -182,9 +181,4 @@ void Project::load_project(QString filename)
 void Project::export_project(QString export_type)
 {
 
-}
-
-
-Frame* Project::get_frame(){
-    return currentFrame;
 }
