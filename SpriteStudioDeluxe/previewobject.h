@@ -10,6 +10,7 @@
 class PreviewObject : public QObject {
     Q_OBJECT
 private:
+    double sleepTime;
 
 public:
     QImage* image;
@@ -21,6 +22,7 @@ signals:
 
 public slots:
     void thread_start();
+    void set_speed(int fps);
 };
 
 #endif // PREVIEWOBJECT_H
