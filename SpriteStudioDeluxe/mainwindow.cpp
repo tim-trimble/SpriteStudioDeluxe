@@ -5,8 +5,9 @@
 #include <iostream>
 #include <QListWidgetItem>
 #include <string>
+#include "tools.h"
 
-MainWindow::MainWindow(Project& project, QWidget *parent) :
+MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -14,25 +15,42 @@ MainWindow::MainWindow(Project& project, QWidget *parent) :
     ui->canvas->setAlignment(Qt::AlignTop);
     ui->canvas->setAlignment(Qt::AlignLeft);
 
+    //Tools tools(project.get_frame());
+
     //CANVAS CONNECTIONS
     connect(ui->canvas, SIGNAL(c_mouse_down()), this, SLOT(c_mouse_down()));
     connect(ui->canvas, SIGNAL(c_mouse_up()), this, SLOT(c_mouse_up()));
     connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), this, SLOT(c_mouse_down_pos()));
     connect(ui->canvas, SIGNAL(c_mouse_left()), this, SLOT(c_mouse_left()));
-    connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), &project, SLOT(mouse_down_pos(int, int)));
+    //connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), &project, SLOT(mouse_down_pos(int, int)));
+    connect(this, SIGNAL(mouse_down_pos(int, int)), &tools, SLOT(on_mouse_drag(int,int)));
+    connect(this, SIGNAL(mouse_down(int, int)), &tools, SLOT(on_mouse_down(int,int)));
+    connect(this, SIGNAL(mouse_up(int, int)), &tools, SLOT(on_mouse_up(int,int)));
+    connect(&project, SIGNAL(frame_changed(Frame*)), &tools, SLOT(frame_changed(Frame*)));
 
     //MAINWINDOW CONNECTIONS
-    connect(this, SIGNAL(brush_color_changed(QColor)), &project, SLOT(change_color(QColor)));
+    connect(this, SIGNAL(brush_color_changed(QColor)), &tools, SLOT(change_color(QColor)));
     connect(this, SIGNAL(new_frame_requested()), &project, SLOT(add_frame()));
     connect(this, SIGNAL(next_frame_requested()), &project, SLOT(next_frame()));
     connect(this, SIGNAL(previous_frame_requested()), &project, SLOT(previous_frame()));
+    connect(&tools, SIGNAL(update_can(QImage*)), this, SLOT(update_canvas(QImage*)));
+    connect(this, SIGNAL(tool_changed(int)), &tools, SLOT(tool_selected(int)));
+    connect(this, SIGNAL(brush_size_changed(int)), &tools, SLOT(brush_size_changed(int)));
 
     //PROJECT SIGNALS
     connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
     connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
 
+    //PREVIEW
+    connect(project.preview, SIGNAL(thread_end(QImage*)), this, SLOT(update_preview(QImage*)));
+
     project.update_canvas();
     project.update_frame_label(1,1);
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 38e9cb71335d46c7e5bac0ecf785e6867f9bacca
 }
 
 MainWindow::~MainWindow(){
@@ -76,7 +94,6 @@ void MainWindow::c_mouse_down_pos()
 {
     int x = ui->canvas->x;
     int y = ui->canvas->y;
-    std::cout << x << y << std::endl;
     emit mouse_down_pos(x, y);
 }
 
@@ -84,7 +101,6 @@ void MainWindow::c_mouse_down()
 {
     int x = ui->canvas->x;
     int y = ui->canvas->y;
-    std::cout << x << y << std::endl;
     emit mouse_down(x, y);
 }
 
@@ -92,7 +108,6 @@ void MainWindow::c_mouse_up()
 {
     int x = ui->canvas->x;
     int y = ui->canvas->y;
-    std::cout << x << y << std::endl;
     emit mouse_up(x, y);
 }
 
@@ -106,26 +121,31 @@ void MainWindow::c_mouse_left()
 
 void MainWindow::on_PencilToolButton_clicked()
 {
-    emit pencil_tool_selected();
+    std::cout << "pencil" << std::endl;
+    emit tool_changed(1);
 }
 
 void MainWindow::on_BrushToolButton_clicked()
 {
-    emit brush_tool_selected();
+    std::cout << "brush" << std::endl;
+    emit tool_changed(2);
 }
 
 void MainWindow::on_LineToolButton_clicked()
 {
-    emit line_tool_selected();
+    std::cout << "line" << std::endl;
+    emit tool_changed(3);
 }
 
 void MainWindow::on_EraserToolButton_clicked()
 {
-    emit eraser_tool_selected();
+    std::cout << "eraser" << std::endl;
+    emit tool_changed(4);
 }
 
 void MainWindow::on_DiameterSpinBox_editingFinished()
 {
+    std::cout << "spinbox" << std::endl;
     int x = ui->DiameterSpinBox->value();
     emit brush_size_changed(x);
 }
@@ -181,3 +201,5 @@ void MainWindow::on_ZoomOutButton_clicked()
 {
     emit zoom_out_requested();
 }
+
+

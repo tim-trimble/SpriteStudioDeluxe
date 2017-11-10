@@ -29,7 +29,8 @@ SOURCES += \
     project.cpp \
     frame.cpp \
     canvas.cpp \
-    previewobject.cpp
+    previewobject.cpp \
+    tools.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -37,7 +38,8 @@ HEADERS += \
     frame.h \
     frame.h \
     canvas.h \
-    previewobject.h
+    previewobject.h \
+    tools.h
 
 FORMS += \
         mainwindow.ui

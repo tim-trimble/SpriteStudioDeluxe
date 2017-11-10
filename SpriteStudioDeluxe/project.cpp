@@ -19,10 +19,17 @@ Project::Project(int x, int y)
     frames = new QVector<Frame*>();
     frames->append(new Frame(x, y));
     currentFrame = frames->at(0);
-    currentIndex = 0;
     //currentFrame = frames.begin();
+    currentIndex = 0;
 
-    //run_preview();
+    previewThread = new QThread();
+    preview = new PreviewObject(currentFrame->getImage());
+    preview->moveToThread(previewThread);
+    connect(this, SIGNAL(send_preview_frame(QImage*)), preview, SLOT(thread_start()));
+    connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
+    previewThread->start();
+
+    run_preview();
 }
 
 Project::~Project()
@@ -31,13 +38,29 @@ Project::~Project()
 }
 
 void Project::run_preview(){
-    //previewThread.start();
-    //moveToThread(&previewThread);
+    //previewThread = new QThread();
+    //preview = new PreviewObject(currentFrame->getImage());
+    //preview->moveToThread(previewThread);
+    //connect(previewThread, SIGNAL(started()), preview, SLOT(thread_start()));
+    //connect(preview, SIGNAL(thread_end()), previewThread, SLOT(quit()));
+    //connect(this, SIGNAL(send_preview_frame(QImage*)), preview, SLOT(thread_start()));
+    //connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
+    //connect(previewThread, SIGNAL(finished()), this, SLOT(thread_end()));
+    //previewThread->start();
+    emit send_preview_frame(currentFrame->getImage());
+
     //for(int i = 0; i < frames->size(); i++){
-        QThread::sleep(1);
-        std::cout << "thread" << std::endl;
+        //QThread::sleep(1);
+        //std::cout << "thread" << std::endl;
     //}
     //run_preview();
+}
+
+void Project::thread_end(){
+    //previewThread->exit();
+    preview->image = currentFrame->getImage();
+    std::cout << "thread end" << std::endl;
+    run_preview();
 }
 
 void Project::update_canvas()
@@ -70,7 +93,7 @@ void Project::next_frame()
         currentIndex += 1;
         currentFrame = frames->at(currentIndex);
     }
-
+    emit frame_changed(currentFrame);
     emit update_frame_label(currentIndex + 1, frames->size());
     update_canvas();
 }
@@ -84,7 +107,7 @@ void Project::previous_frame()
         currentIndex -= 1;
         currentFrame = frames->at(currentIndex);
     }
-
+    emit frame_changed(currentFrame);
     emit update_frame_label(currentIndex + 1, frames->size());
     update_canvas();
 }
@@ -178,3 +201,10 @@ void Project::export_project(QString export_type)
 
 };
 
+<<<<<<< HEAD
+Frame* Project::get_frame(){
+    return currentFrame;
+}
+=======
+
+>>>>>>> 38e9cb71335d46c7e5bac0ecf785e6867f9bacca

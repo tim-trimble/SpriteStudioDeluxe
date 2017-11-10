@@ -15,20 +15,24 @@ class Project : public QObject
     Q_OBJECT
 
 private:
-    QVector<Frame*>* frames;
+    QVector<Frame*> *frames;
     int currentIndex;
+    int previewIndex;
     //QVector<Frame*>::iterator currentFrame;
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
-    QThread previewThread;
-    PreviewObject preview;
 
     void run_preview();
 public:
+    PreviewObject *preview;
+    QThread* previewThread;
+
     Project(int x, int y);
     ~Project();
 
 public slots:
+    void thread_end();
+
     void update_canvas();
     void mouse_down_pos(int x, int y);
     void change_color(QColor c);
@@ -42,11 +46,19 @@ public slots:
     void save_project(QString filename);
     void load_project(QString filename);
     void export_project(QString export_type);
+
+    Frame* get_frame();
+
 signals:
     void send_update(QImage *image);
 
     void send_all_frames(std::vector<QPixmap> images);
+<<<<<<< HEAD
+    void frame_changed(Frame*);
+=======
+    void send_preview_frame(QImage *image);
 
+>>>>>>> 38e9cb71335d46c7e5bac0ecf785e6867f9bacca
     void update_frame_label(int current, int total);
 };
 

@@ -4,6 +4,11 @@
 #include <QMainWindow>
 #include "project.h"
 #include <iostream>
+<<<<<<< HEAD
+#include "tools.h"
+=======
+#include <previewobject.h>
+>>>>>>> 38e9cb71335d46c7e5bac0ecf785e6867f9bacca
 
 namespace Ui {
 class MainWindow;
@@ -13,13 +18,14 @@ class MainWindow : public QMainWindow{
     Q_OBJECT
 
 public:
-    explicit MainWindow(Project& project, QWidget *parent = 0);
+    explicit MainWindow(Project& project, Tools& tools, QWidget *parent = 0);
     ~MainWindow();
 
 
 signals:
     // TOOL SIGNALS
     // Intended Reciever: Tool Class
+    void tool_changed(int);
     void pencil_tool_selected();
     void brush_tool_selected();
     void line_tool_selected();
