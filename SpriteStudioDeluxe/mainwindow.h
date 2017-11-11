@@ -42,7 +42,6 @@ signals:
 
     // HISTORY MENU
     // Intended Reciever: Project Class
-    // unsure if Hash is the type we will be using to identify history frames, open to changing this.
     void history_reversion_requested();
 
     // PREVIEW MENU
@@ -64,7 +63,6 @@ public slots:
     void update_canvas(QImage * i);
     void update_preview(QImage * i);
     void update_current_frame_label(int current_frame, int total_frames);
-    void add_history_menu_entry(std::string name, std::string hash);
 
     // FROM CANVAS
     void c_mouse_down_pos();
@@ -85,10 +83,11 @@ private slots:
     void on_PreviousFrameButton_clicked();
     void on_pushButton_2_clicked();
     void on_AddFrameButton_clicked();
-    void on_LoadHistoryButton_clicked();
     void on_PreviewSpeedSpinBox_editingFinished();
     void on_ZoomInButton_clicked();
     void on_ZoomOutButton_clicked();
+
+    void on_StepBackButton_clicked();
 
 private:
     Ui::MainWindow *ui;

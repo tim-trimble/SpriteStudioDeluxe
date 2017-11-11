@@ -79,14 +79,6 @@ void MainWindow::update_current_frame_label(int current_frame, int total_frames)
     ui->CurrentFrameLabel->setText(s);
 }
 
-void MainWindow::add_history_menu_entry(std::string name, std::string hash)
-{
-    QListWidgetItem i;
-    i.setText(name.c_str());
-    i.setToolTip(hash.c_str());
-    ui->HistoryList->addItem(&i);
-}
-
 
 // CANVAS SIGNAL HANDLERS
 
@@ -192,11 +184,6 @@ void MainWindow::on_AddFrameButton_clicked()
     emit new_frame_requested();
 }
 
-void MainWindow::on_LoadHistoryButton_clicked()
-{
-    emit history_reversion_requested();
-}
-
 void MainWindow::on_PreviewSpeedSpinBox_editingFinished()
 {
     int x = ui->PreviewSpeedSpinBox->value();
@@ -213,4 +200,7 @@ void MainWindow::on_ZoomOutButton_clicked()
     emit zoom_out_requested();
 }
 
-
+void MainWindow::on_StepBackButton_clicked()
+{
+    emit history_reversion_requested();
+}

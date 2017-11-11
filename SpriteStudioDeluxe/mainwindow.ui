@@ -91,16 +91,6 @@
      <string>Current Frame Label</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="HistoryList">
-    <property name="geometry">
-     <rect>
-      <x>780</x>
-      <y>40</y>
-      <width>151</width>
-      <height>192</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
@@ -112,19 +102,6 @@
     </property>
     <property name="text">
      <string>History</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="LoadHistoryButton">
-    <property name="geometry">
-     <rect>
-      <x>780</x>
-      <y>240</y>
-      <width>151</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Load Selected History</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
@@ -419,6 +396,19 @@
      <string>Zoom</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="StepBackButton">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>70</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Step Back</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -426,7 +416,7 @@
      <x>0</x>
      <y>0</y>
      <width>941</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

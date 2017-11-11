@@ -18,7 +18,6 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -48,9 +47,7 @@ public:
     QPushButton *PreviousFrameButton;
     QPushButton *pushButton_2;
     QLabel *CurrentFrameLabel;
-    QListWidget *HistoryList;
     QLabel *label_2;
-    QPushButton *LoadHistoryButton;
     QGroupBox *groupBox;
     QToolButton *PencilToolButton;
     QToolButton *EraserToolButton;
@@ -73,6 +70,7 @@ public:
     QPushButton *ZoomInButton;
     QPushButton *ZoomOutButton;
     QLabel *label_6;
+    QPushButton *StepBackButton;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -122,15 +120,9 @@ public:
         CurrentFrameLabel = new QLabel(centralWidget);
         CurrentFrameLabel->setObjectName(QStringLiteral("CurrentFrameLabel"));
         CurrentFrameLabel->setGeometry(QRect(410, 500, 121, 16));
-        HistoryList = new QListWidget(centralWidget);
-        HistoryList->setObjectName(QStringLiteral("HistoryList"));
-        HistoryList->setGeometry(QRect(780, 40, 151, 192));
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(780, 20, 55, 16));
-        LoadHistoryButton = new QPushButton(centralWidget);
-        LoadHistoryButton->setObjectName(QStringLiteral("LoadHistoryButton"));
-        LoadHistoryButton->setGeometry(QRect(780, 240, 151, 28));
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setGeometry(QRect(10, 70, 131, 201));
@@ -203,10 +195,13 @@ public:
         label_6 = new QLabel(centralWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
         label_6->setGeometry(QRect(170, 20, 31, 16));
+        StepBackButton = new QPushButton(centralWidget);
+        StepBackButton->setObjectName(QStringLiteral("StepBackButton"));
+        StepBackButton->setGeometry(QRect(780, 70, 93, 28));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 941, 22));
+        menuBar->setGeometry(QRect(0, 0, 941, 26));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuEdit = new QMenu(menuBar);
@@ -243,7 +238,6 @@ public:
         pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
         CurrentFrameLabel->setText(QApplication::translate("MainWindow", "Current Frame Label", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "History", Q_NULLPTR));
-        LoadHistoryButton->setText(QApplication::translate("MainWindow", "Load Selected History", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "Tools", Q_NULLPTR));
         PencilToolButton->setText(QApplication::translate("MainWindow", "Pencil", Q_NULLPTR));
         EraserToolButton->setText(QApplication::translate("MainWindow", "Eraser", Q_NULLPTR));
@@ -263,6 +257,7 @@ public:
         ZoomInButton->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
         ZoomOutButton->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));
         label_6->setText(QApplication::translate("MainWindow", "Zoom", Q_NULLPTR));
+        StepBackButton->setText(QApplication::translate("MainWindow", "Step Back", Q_NULLPTR));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", Q_NULLPTR));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", Q_NULLPTR));
     } // retranslateUi
