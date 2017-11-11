@@ -1,4 +1,5 @@
 #include "project.h"
+#include <iostream>
 
 Project::Project(int x, int y)
 {
@@ -179,6 +180,12 @@ void Project::load_project(QString filename)
 }
 
 void Project::export_project(QString export_type)
+{
+
+}
+
+// called when the UI requests to go back one frame of history
+void Project::historyStepBack()
 {
 
 }

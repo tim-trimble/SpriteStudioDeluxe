@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Project_t {
-    QByteArrayData data[31];
-    char stringdata0[334];
+    QByteArrayData data[32];
+    char stringdata0[350];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -61,7 +61,8 @@ QT_MOC_LITERAL(26, 272, 12), // "save_project"
 QT_MOC_LITERAL(27, 285, 8), // "filename"
 QT_MOC_LITERAL(28, 294, 12), // "load_project"
 QT_MOC_LITERAL(29, 307, 14), // "export_project"
-QT_MOC_LITERAL(30, 322, 11) // "export_type"
+QT_MOC_LITERAL(30, 322, 11), // "export_type"
+QT_MOC_LITERAL(31, 334, 15) // "historyStepBack"
 
     },
     "Project\0send_update\0\0QImage*\0image\0"
@@ -73,7 +74,7 @@ QT_MOC_LITERAL(30, 322, 11) // "export_type"
     "add_frame\0get_frame\0next_frame\0"
     "previous_frame\0get_all_frames\0"
     "save_project\0filename\0load_project\0"
-    "export_project\0export_type"
+    "export_project\0export_type\0historyStepBack"
 };
 #undef QT_MOC_LITERAL
 
@@ -83,7 +84,7 @@ static const uint qt_meta_data_Project[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      17,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -91,25 +92,26 @@ static const uint qt_meta_data_Project[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   99,    2, 0x06 /* Public */,
-       5,    1,  102,    2, 0x06 /* Public */,
-       8,    1,  105,    2, 0x06 /* Public */,
-      10,    1,  108,    2, 0x06 /* Public */,
-      11,    2,  111,    2, 0x06 /* Public */,
+       1,    1,  104,    2, 0x06 /* Public */,
+       5,    1,  107,    2, 0x06 /* Public */,
+       8,    1,  110,    2, 0x06 /* Public */,
+      10,    1,  113,    2, 0x06 /* Public */,
+      11,    2,  116,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      14,    0,  116,    2, 0x0a /* Public */,
-      15,    0,  117,    2, 0x0a /* Public */,
-      16,    2,  118,    2, 0x0a /* Public */,
-      19,    1,  123,    2, 0x0a /* Public */,
-      21,    0,  126,    2, 0x0a /* Public */,
-      22,    0,  127,    2, 0x0a /* Public */,
-      23,    0,  128,    2, 0x0a /* Public */,
-      24,    0,  129,    2, 0x0a /* Public */,
-      25,    0,  130,    2, 0x0a /* Public */,
-      26,    1,  131,    2, 0x0a /* Public */,
-      28,    1,  134,    2, 0x0a /* Public */,
-      29,    1,  137,    2, 0x0a /* Public */,
+      14,    0,  121,    2, 0x0a /* Public */,
+      15,    0,  122,    2, 0x0a /* Public */,
+      16,    2,  123,    2, 0x0a /* Public */,
+      19,    1,  128,    2, 0x0a /* Public */,
+      21,    0,  131,    2, 0x0a /* Public */,
+      22,    0,  132,    2, 0x0a /* Public */,
+      23,    0,  133,    2, 0x0a /* Public */,
+      24,    0,  134,    2, 0x0a /* Public */,
+      25,    0,  135,    2, 0x0a /* Public */,
+      26,    1,  136,    2, 0x0a /* Public */,
+      28,    1,  139,    2, 0x0a /* Public */,
+      29,    1,  142,    2, 0x0a /* Public */,
+      31,    0,  145,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -131,6 +133,7 @@ static const uint qt_meta_data_Project[] = {
     QMetaType::Void, QMetaType::QString,   27,
     QMetaType::Void, QMetaType::QString,   27,
     QMetaType::Void, QMetaType::QString,   30,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -159,6 +162,7 @@ void Project::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 14: _t->save_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 15: _t->load_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 16: _t->export_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 17: _t->historyStepBack(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -227,13 +231,13 @@ int Project::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 17)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 17;
+        _id -= 18;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 17)
+        if (_id < 18)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 17;
+        _id -= 18;
     }
     return _id;
 }

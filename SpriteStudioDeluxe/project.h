@@ -48,6 +48,8 @@ public slots:
     void load_project(QString filename);
     void export_project(QString export_type);
 
+    void historyStepBack();
+
 signals:
     void send_update(QImage *image);
 
