@@ -48,7 +48,13 @@ void Tools::change_color(QColor color)
 
 void Tools::on_mouse_up(int x, int y)
 {
-    emit update_can(current_image);
+    line_endx = x;
+    line_endy = y;
+    edit_pixel(x, y);
+    std::cout << "Saving Image" << std::endl;
+    QImage* new_image(current_image);
+    undo_stack.push(new_image);
+    //emit update_can(current_image);
 }
 
 void Tools::edit_pixel(int x, int y)
@@ -81,6 +87,36 @@ void Tools::edit_pixel(int x, int y)
         emit update_can(current_image);
         return;
     }
+    else if(tool_number == 3) {
+        pen.setColor(temp_color);
+        pen.setWidth(brush_size * 8);
+        painter.setPen(pen);
+        painter.scale(.125, .125);
+        painter.drawLine(line_startx, line_starty, line_endx, line_endy);
+        line_startx = 0;
+        line_starty = 0;
+        line_endx = 0;
+        line_endy = 0;
+        painter.end();
+        emit update_can(current_image);
+        return;
+    }
+    else if(tool_number == 5 || tool_number == 6) {
+       pen.setColor(temp_color);
+       pen.setWidth(brush_size * 8);
+       painter.setPen(pen);
+       painter.scale(.125, .125);
+       painter.drawPoint(x, y);
+       if(tool_number == 5) {
+            painter.drawPoint(current_image->width() - x - 1, y);
+       }
+       else {
+            painter.drawPoint(x, current_image->height() - y - 1);
+       }
+       painter.end();
+       emit update_can(current_image);
+       return;
+    }
     painter.setPen(pen);
     painter.scale(.125, .125);
     std::cout << "Draw Point " << x << " " << y << std::endl;
@@ -91,13 +127,18 @@ void Tools::edit_pixel(int x, int y)
 
 void Tools::on_mouse_down(int x, int y)
 {
-    edit_pixel(x, y);
-    emit update_can(current_image);
+    line_startx = x;
+    line_starty = y;
+    if(tool_number != 3) {
+        edit_pixel(x, y);
+    }
 }
 
 void Tools::on_mouse_drag(int x, int y)
 {
-    edit_pixel(x, y);
+    if(tool_number != 3) {
+        edit_pixel(x, y);
+    }
     emit update_can(current_image);
 }
 

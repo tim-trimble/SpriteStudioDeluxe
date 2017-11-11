@@ -56,6 +56,8 @@ public:
     QToolButton *EraserToolButton;
     QToolButton *LineToolButton;
     QToolButton *BrushToolButton;
+    QToolButton *MirrorXToolButton;
+    QToolButton *MirrorYToolButton;
     QGroupBox *groupBox_2;
     QLabel *label_3;
     QSpinBox *DiameterSpinBox;
@@ -144,6 +146,12 @@ public:
         BrushToolButton = new QToolButton(groupBox);
         BrushToolButton->setObjectName(QStringLiteral("BrushToolButton"));
         BrushToolButton->setGeometry(QRect(70, 30, 51, 41));
+        MirrorXToolButton = new QToolButton(groupBox);
+        MirrorXToolButton->setObjectName(QStringLiteral("MirrorXToolButton"));
+        MirrorXToolButton->setGeometry(QRect(10, 130, 51, 41));
+        MirrorYToolButton = new QToolButton(groupBox);
+        MirrorYToolButton->setObjectName(QStringLiteral("MirrorYToolButton"));
+        MirrorYToolButton->setGeometry(QRect(70, 130, 51, 41));
         groupBox_2 = new QGroupBox(centralWidget);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
         groupBox_2->setGeometry(QRect(10, 290, 131, 201));
@@ -198,7 +206,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 941, 20));
+        menuBar->setGeometry(QRect(0, 0, 941, 22));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuEdit = new QMenu(menuBar);
@@ -233,7 +241,7 @@ public:
         canvas->setText(QString());
         PreviousFrameButton->setText(QApplication::translate("MainWindow", "Previous Frame", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
-        CurrentFrameLabel->setText(QApplication::translate("MainWindow", "Current Frame: 1/6", Q_NULLPTR));
+        CurrentFrameLabel->setText(QApplication::translate("MainWindow", "Current Frame Label", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "History", Q_NULLPTR));
         LoadHistoryButton->setText(QApplication::translate("MainWindow", "Load Selected History", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "Tools", Q_NULLPTR));
@@ -241,6 +249,8 @@ public:
         EraserToolButton->setText(QApplication::translate("MainWindow", "Eraser", Q_NULLPTR));
         LineToolButton->setText(QApplication::translate("MainWindow", "Line", Q_NULLPTR));
         BrushToolButton->setText(QApplication::translate("MainWindow", "Brush", Q_NULLPTR));
+        MirrorXToolButton->setText(QApplication::translate("MainWindow", "Mirror X", Q_NULLPTR));
+        MirrorYToolButton->setText(QApplication::translate("MainWindow", "Mirror Y", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("MainWindow", "Brush Settings", Q_NULLPTR));
         label_3->setText(QApplication::translate("MainWindow", "Diameter", Q_NULLPTR));
         ColorSelectButton->setText(QApplication::translate("MainWindow", "Color Select", Q_NULLPTR));

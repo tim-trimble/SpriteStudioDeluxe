@@ -6,6 +6,7 @@
 #include <QColor>
 #include <QPainter>
 #include <QPen>
+#include <stack>
 
 class Tools : public QObject
 {
@@ -20,6 +21,11 @@ private:
     QColor current_color;
     QColor eraser;
     QColor temp_color;
+    std::stack<QImage*> undo_stack;
+    int line_startx;
+    int line_starty;
+    int line_endx;
+    int line_endy;
 
     void edit_pixel(int, int);
 
@@ -38,7 +44,6 @@ public slots:
     void on_mouse_drag(int, int);
     void on_mouse_up(int, int);
     void change_color(QColor);
-
 
 };
 

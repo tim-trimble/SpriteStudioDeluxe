@@ -191,6 +191,32 @@
       <string>Brush</string>
      </property>
     </widget>
+    <widget class="QToolButton" name="MirrorXToolButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Mirror X</string>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="MirrorYToolButton">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>130</y>
+       <width>51</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Mirror Y</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
@@ -400,7 +426,7 @@
      <x>0</x>
      <y>0</y>
      <width>941</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

@@ -143,6 +143,17 @@ void MainWindow::on_EraserToolButton_clicked()
     emit tool_changed(4);
 }
 
+void MainWindow::on_MirrorXToolButton_clicked()
+{
+    std::cout << "mirrorx" << std::endl;
+    emit tool_changed(5);
+}
+void MainWindow::on_MirrorYToolButton_clicked()
+{
+    std::cout << "mirrory" << std::endl;
+    emit tool_changed(6);
+}
+
 void MainWindow::on_DiameterSpinBox_editingFinished()
 {
     std::cout << "spinbox" << std::endl;
