@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'canvas.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'canvas.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.1. It"
+#error "This file was generated using the moc from 5.9.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Canvas_t {
-    QByteArrayData data[6];
-    char stringdata0[62];
+    QByteArrayData data[8];
+    char stringdata0[66];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,12 +34,14 @@ static const qt_meta_stringdata_Canvas_t qt_meta_stringdata_Canvas = {
 QT_MOC_LITERAL(0, 0, 6), // "Canvas"
 QT_MOC_LITERAL(1, 7, 16), // "c_mouse_down_pos"
 QT_MOC_LITERAL(2, 24, 0), // ""
-QT_MOC_LITERAL(3, 25, 12), // "c_mouse_down"
-QT_MOC_LITERAL(4, 38, 10), // "c_mouse_up"
-QT_MOC_LITERAL(5, 49, 12) // "c_mouse_left"
+QT_MOC_LITERAL(3, 25, 1), // "x"
+QT_MOC_LITERAL(4, 27, 1), // "y"
+QT_MOC_LITERAL(5, 29, 12), // "c_mouse_down"
+QT_MOC_LITERAL(6, 42, 10), // "c_mouse_up"
+QT_MOC_LITERAL(7, 53, 12) // "c_mouse_left"
 
     },
-    "Canvas\0c_mouse_down_pos\0\0c_mouse_down\0"
+    "Canvas\0c_mouse_down_pos\0\0x\0y\0c_mouse_down\0"
     "c_mouse_up\0c_mouse_left"
 };
 #undef QT_MOC_LITERAL
@@ -58,13 +60,13 @@ static const uint qt_meta_data_Canvas[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   34,    2, 0x06 /* Public */,
-       3,    0,   35,    2, 0x06 /* Public */,
-       4,    0,   36,    2, 0x06 /* Public */,
-       5,    0,   37,    2, 0x06 /* Public */,
+       1,    2,   34,    2, 0x06 /* Public */,
+       5,    0,   39,    2, 0x06 /* Public */,
+       6,    0,   40,    2, 0x06 /* Public */,
+       7,    0,   41,    2, 0x06 /* Public */,
 
  // signals: parameters
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,    4,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -78,7 +80,7 @@ void Canvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         Canvas *_t = static_cast<Canvas *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->c_mouse_down_pos(); break;
+        case 0: _t->c_mouse_down_pos((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 1: _t->c_mouse_down(); break;
         case 2: _t->c_mouse_up(); break;
         case 3: _t->c_mouse_left(); break;
@@ -88,7 +90,7 @@ void Canvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (Canvas::*_t)();
+            typedef void (Canvas::*_t)(int , int );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Canvas::c_mouse_down_pos)) {
                 *result = 0;
                 return;
@@ -116,7 +118,6 @@ void Canvas::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
             }
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject Canvas::staticMetaObject = {
@@ -134,7 +135,7 @@ void *Canvas::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Canvas.stringdata0))
-        return static_cast<void*>(const_cast< Canvas*>(this));
+        return static_cast<void*>(this);
     return QLabel::qt_metacast(_clname);
 }
 
@@ -156,9 +157,10 @@ int Canvas::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Canvas::c_mouse_down_pos()
+void Canvas::c_mouse_down_pos(int _t1, int _t2)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1

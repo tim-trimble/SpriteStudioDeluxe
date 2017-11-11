@@ -8,7 +8,7 @@
 #include "frame.h"
 #include <QThread>
 #include "previewobject.h"
-#include "QtGifImage-master/src/gifimage/qgifimage.h"
+//#include "QtGifImage-master/src/gifimage/qgifimage.h"
 
 //model for mainwindow editor
 
