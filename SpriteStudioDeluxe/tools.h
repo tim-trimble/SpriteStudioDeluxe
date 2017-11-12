@@ -1,6 +1,7 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 #include "frame.h"
+#include "project.h"
 #include <QObject>
 #include <QImage>
 #include <QColor>
@@ -21,7 +22,6 @@ private:
     QColor current_color;
     QColor eraser;
     QColor temp_color;
-    std::stack<QImage*> undo_stack;
     int line_startx;
     int line_starty;
     int line_endx;

@@ -1,6 +1,9 @@
 #include "tools.h"
 #include <iostream>
 
+int Project::currentIndex;
+QVector<std::stack<QImage*>> Project::history;
+
 Tools::Tools(Frame* initial_frame)
 {
     active_frame = initial_frame;
@@ -51,10 +54,6 @@ void Tools::on_mouse_up(int x, int y)
     line_endx = x;
     line_endy = y;
     edit_pixel(x, y);
-    std::cout << "Saving Image" << std::endl;
-    QImage* new_image(current_image);
-    undo_stack.push(new_image);
-    //emit update_can(current_image);
 }
 
 void Tools::edit_pixel(int x, int y)
@@ -127,6 +126,7 @@ void Tools::edit_pixel(int x, int y)
 
 void Tools::on_mouse_down(int x, int y)
 {
+    Project::history[Project::currentIndex].push(current_image);
     line_startx = x;
     line_starty = y;
     if(tool_number != 3) {

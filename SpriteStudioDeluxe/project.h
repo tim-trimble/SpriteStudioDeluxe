@@ -19,14 +19,15 @@ class Project : public QObject
 
 private:
     QVector<Frame*> *frames;
-    int currentIndex;
+    //int currentIndex;
     int previewIndex;
 
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
 
 public:
-    QVector<std::stack<QImage*>> history;
+    static QVector<std::stack<QImage*>> history;
+    static int currentIndex;
     int maxHistorySize = 50;
 
     PreviewObject *preview;
