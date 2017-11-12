@@ -46,7 +46,6 @@ QImage* Frame::getImage(){
 
 void Frame::setImage(QImage * newImage)
 {
-    delete image;
     image = newImage;
 }
 

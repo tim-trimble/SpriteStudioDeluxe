@@ -126,7 +126,9 @@ void Tools::edit_pixel(int x, int y)
 
 void Tools::on_mouse_down(int x, int y)
 {
-    Project::history[Project::currentIndex].push(current_image);
+    QImage * copy = new QImage(*current_image);
+    Project::history[Project::currentIndex].push(copy);
+
     line_startx = x;
     line_starty = y;
     if(tool_number != 3) {

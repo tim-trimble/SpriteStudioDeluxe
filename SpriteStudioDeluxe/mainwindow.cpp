@@ -36,8 +36,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(&tools, SIGNAL(update_can(QImage*)), this, SLOT(update_canvas(QImage*)));
     connect(this, SIGNAL(tool_changed(int)), &tools, SLOT(tool_selected(int)));
     connect(this, SIGNAL(brush_size_changed(int)), &tools, SLOT(brush_size_changed(int)));
-
-    connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(historyStepBack()));
+    connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(history_step_back()));
 
     //PROJECT SIGNALS
     connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));

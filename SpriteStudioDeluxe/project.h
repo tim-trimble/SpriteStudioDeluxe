@@ -19,7 +19,6 @@ class Project : public QObject
 
 private:
     QVector<Frame*> *frames;
-    //int currentIndex;
     int previewIndex;
 
     Frame* currentFrame;
@@ -52,8 +51,7 @@ public slots:
     void save_project(QString filename);
     void load_project(QString filename);
     void export_project(QString export_type);
-
-    void historyStepBack();
+    void history_step_back();
 
 signals:
     void send_update(QImage *image);
