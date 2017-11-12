@@ -1,5 +1,6 @@
 #include "project.h"
 #include <iostream>
+#include <stack>
 
 Project::Project(int x, int y)
 {
@@ -22,6 +23,11 @@ Project::Project(int x, int y)
     connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
     previewThread->start();
     emit send_preview_frame(currentFrame->getImage());
+
+    // HISTORY
+    history = * new QVector<std::stack<QImage*>>(100);
+    history[0] = * new std::stack<QImage*>;
+    history[0].push(currentFrame->getImage());
 }
 
 Project::~Project()
@@ -67,6 +73,7 @@ void Project::change_color(QColor c)
 void Project::add_frame()
 {
     frames->append(new Frame(frames->at(0)->getX(), frames->at(0)->getY()));
+    history[currentIndex+1] = * new std::stack<QImage*>;
     emit update_frame_label(currentIndex + 1, frames->size());
 }
 
@@ -187,5 +194,17 @@ void Project::export_project(QString export_type)
 // called when the UI requests to go back one frame of history
 void Project::historyStepBack()
 {
+    if (history[currentIndex].size() == 0)
+    {
+        std::cout << "You have no history to revert to on this frame" << std::endl;
+        return;
+    }
 
+    // retreive history frame from history stack vector
+    QImage * oldFrame = history[currentIndex].top();
+    history[currentIndex].pop();
+    // update the current QImage to the retrieved QImage
+    currentFrame->setImage(oldFrame);
+    // Send a signal to the View to update the QImage displayed
+    update_canvas();
 }

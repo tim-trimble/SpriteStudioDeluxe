@@ -25,6 +25,8 @@ public:
 
     QImage* getImage();
 
+    void setImage(QImage * newImage);
+
     void scaleImage(int x, int y);
 
     void resizeWorkspace(int x, int y);

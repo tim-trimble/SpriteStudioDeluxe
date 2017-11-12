@@ -44,6 +44,12 @@ QImage* Frame::getImage(){
     return image;
 }
 
+void Frame::setImage(QImage * newImage)
+{
+    delete image;
+    image = newImage;
+}
+
 void Frame::scaleImage(int x, int y){
     QImage* temp = image;
     image = new QImage(image->scaled(x, y, Qt::KeepAspectRatio, Qt::FastTransformation));

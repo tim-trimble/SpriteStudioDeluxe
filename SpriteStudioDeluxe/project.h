@@ -8,6 +8,7 @@
 #include "frame.h"
 #include <QThread>
 #include "previewobject.h"
+#include <stack>
 //#include "QtGifImage-master/src/gifimage/qgifimage.h"
 
 //model for mainwindow editor
@@ -25,6 +26,9 @@ private:
     QColor currentColor = QColor(0,0,0,255);
 
 public:
+    QVector<std::stack<QImage*>> history;
+    int maxHistorySize = 50;
+
     PreviewObject *preview;
     QThread* previewThread;
 
