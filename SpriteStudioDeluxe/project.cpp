@@ -65,16 +65,22 @@ void Project::change_color(QColor c)
     currentColor = c;
 }
 
-void Project::new_frames(int x, int y){
-    //for(int i = 0; i < frames->size(); i++){
-        //delete frames->at(i);
-    //}
-    //delete frames;
+void Project::menu_action(){
+    std::cout << "menu" << std::endl;
+}
 
-    //frames = new QVector<Frame*>();
-    //frames->append(new Frame(x, y));
-    //currentFrame = frames->at(0);
-    //currentIndex = 0;
+void Project::new_frames(int x, int y){
+    for(int i = 0; i < frames->size(); i++){
+        //delete frames->at(i);
+    }
+    delete frames;
+
+    frames = new QVector<Frame*>();
+    frames->append(new Frame(x, y));
+    currentFrame = frames->at(0);
+    currentIndex = 0;
+
+    emit update_frame_label(1, 1);
 }
 
 void Project::add_frame()

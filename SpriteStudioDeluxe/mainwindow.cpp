@@ -15,14 +15,16 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     ui->setupUi(this);
     ui->canvas->setAlignment(Qt::AlignTop);
     ui->canvas->setAlignment(Qt::AlignLeft);
-    project.update_canvas();
-    project.update_frame_label(1,1);
     ui->CurrentColorLabel->setStyleSheet("QLabel { background-color : black; color : black; }");
+    project.update_frame_label(1,1);
+    project.update_canvas();
 
     // QIMAGE UPDATE CONNECTIONS
     connect(&tools, SIGNAL(update_can(QImage*)), this, SLOT(update_canvas(QImage*)));
     connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
     connect(project.preview, SIGNAL(thread_end(QImage*)), this, SLOT(update_preview(QImage*)));
+
+    connect(ui->menuBar, SIGNAL(triggered(QAction*)), &project, SLOT(menu_action()));
 
     //MOUSE ACTION CONNECTIONS
     connect(ui->canvas, SIGNAL(c_mouse_down()), this, SLOT(c_mouse_down()));
