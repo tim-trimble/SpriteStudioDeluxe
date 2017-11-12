@@ -21,7 +21,6 @@ private:
     QColor current_color;
     QColor eraser;
     QColor temp_color;
-    std::stack<QImage*> undo_stack;
     int line_startx;
     int line_starty;
     int line_endx;

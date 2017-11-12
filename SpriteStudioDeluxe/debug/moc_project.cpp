@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'project.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.2)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'project.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.2. It"
+#error "This file was generated using the moc from 5.9.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Project_t {
     QByteArrayData data[32];
-    char stringdata0[350];
+    char stringdata0[352];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -62,7 +62,7 @@ QT_MOC_LITERAL(27, 285, 8), // "filename"
 QT_MOC_LITERAL(28, 294, 12), // "load_project"
 QT_MOC_LITERAL(29, 307, 14), // "export_project"
 QT_MOC_LITERAL(30, 322, 11), // "export_type"
-QT_MOC_LITERAL(31, 334, 15) // "historyStepBack"
+QT_MOC_LITERAL(31, 334, 17) // "history_step_back"
 
     },
     "Project\0send_update\0\0QImage*\0image\0"
@@ -74,7 +74,7 @@ QT_MOC_LITERAL(31, 334, 15) // "historyStepBack"
     "add_frame\0get_frame\0next_frame\0"
     "previous_frame\0get_all_frames\0"
     "save_project\0filename\0load_project\0"
-    "export_project\0export_type\0historyStepBack"
+    "export_project\0export_type\0history_step_back"
 };
 #undef QT_MOC_LITERAL
 
@@ -162,7 +162,7 @@ void Project::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 14: _t->save_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 15: _t->load_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 16: _t->export_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 17: _t->historyStepBack(); break;
+        case 17: _t->history_step_back(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -221,7 +221,7 @@ void *Project::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Project.stringdata0))
-        return static_cast<void*>(this);
+        return static_cast<void*>(const_cast< Project*>(this));
     return QObject::qt_metacast(_clname);
 }
 

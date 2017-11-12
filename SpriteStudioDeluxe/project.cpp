@@ -10,10 +10,6 @@ Project::Project(int x, int y)
     currentFrame = frames->at(0);
     currentIndex = 0;
 
-    previewThread = new QThread();
-    preview = new PreviewObject(currentFrame->getImage());
-    currentIndex = 0;
-
     //INIT PREVIEW ANIMATION
     previewThread = new QThread();
     preview = new PreviewObject(currentFrame->getImage());
@@ -27,7 +23,6 @@ Project::Project(int x, int y)
     // HISTORY
     history = * new QVector<std::stack<QImage*>>(100);
     history[0] = * new std::stack<QImage*>;
-    history[0].push(currentFrame->getImage());
 }
 
 Project::~Project()
@@ -192,7 +187,7 @@ void Project::export_project(QString export_type)
 }
 
 // called when the UI requests to go back one frame of history
-void Project::historyStepBack()
+void Project::history_step_back()
 {
     if (history[currentIndex].size() == 0)
     {
@@ -200,11 +195,8 @@ void Project::historyStepBack()
         return;
     }
 
-    // retreive history frame from history stack vector
-    QImage * oldFrame = history[currentIndex].top();
+    currentFrame->setImage(history[currentIndex].top());
     history[currentIndex].pop();
-    // update the current QImage to the retrieved QImage
-    currentFrame->setImage(oldFrame);
-    // Send a signal to the View to update the QImage displayed
     update_canvas();
+    emit frame_changed(currentFrame);
 }

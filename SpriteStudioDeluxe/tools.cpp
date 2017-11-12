@@ -1,5 +1,9 @@
 #include "tools.h"
+#include "project.h"
 #include <iostream>
+
+QVector<std::stack<QImage*>> Project::history;
+int Project::currentIndex;
 
 Tools::Tools(Frame* initial_frame)
 {
@@ -51,10 +55,6 @@ void Tools::on_mouse_up(int x, int y)
     line_endx = x;
     line_endy = y;
     edit_pixel(x, y);
-    std::cout << "Saving Image" << std::endl;
-    QImage* new_image(current_image);
-    undo_stack.push(new_image);
-    //emit update_can(current_image);
 }
 
 void Tools::edit_pixel(int x, int y)
@@ -155,10 +155,14 @@ void Tools::edit_pixel(int x, int y)
 
 void Tools::on_mouse_down(int x, int y)
 {
+    //archive the current frame in history
+    QImage * archived_image = new QImage(*current_image);
+    Project::history[Project::currentIndex].push(archived_image);
+
     line_startx = x;
     line_starty = y;
     if(tool_number != 3 && tool_number != 7 && tool_number != 8) {
-        edit_pixel(x, y);
+        edit_pixel(x, y);       
     }
 }
 
@@ -170,7 +174,11 @@ void Tools::on_mouse_drag(int x, int y)
     emit update_can(current_image);
 }
 void Tools::clear_canvas()
-{
+{   
+    //archive the current frame in history
+    QImage * archived_image = new QImage(*current_image);
+    Project::history[Project::currentIndex].push(archived_image);
+
     current_image->fill(Qt::transparent);
     std::cout << "Clear" << std::endl;
     emit update_can(current_image);
@@ -178,6 +186,10 @@ void Tools::clear_canvas()
 
 void Tools::fill_canvas()
 {
+    //archive the current frame in history
+    QImage * archived_image = new QImage(*current_image);
+    Project::history[Project::currentIndex].push(archived_image);
+
     current_image->fill(temp_color);
     std::cout << "fill" << std::endl;
     emit update_can(current_image);

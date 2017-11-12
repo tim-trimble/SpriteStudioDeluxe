@@ -54,7 +54,7 @@ signals:
 
     // CANVAS
     // Intended Reciever: Tool Class
-    void mouse_down_pos(int x, int y);      // fires when the mouse pos changes while the mouse button is held
+    void mouse_drag(int x, int y);          // fires when the mouse pos changes while the mouse button is held
     void mouse_down(int x, int y);          // mouse has been clicked down
     void mouse_up(int x, int y);            // mouse has been released
     void mouse_left();                      // indicates the mouse has left the canvas

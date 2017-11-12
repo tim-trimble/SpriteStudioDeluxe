@@ -11,50 +11,45 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    // STARTING CONDITIONS
     ui->setupUi(this);
     ui->canvas->setAlignment(Qt::AlignTop);
     ui->canvas->setAlignment(Qt::AlignLeft);
+    project.update_canvas();
+    project.update_frame_label(1,1);
     ui->CurrentColorLabel->setStyleSheet("QLabel { background-color : black; color : black; }");
 
-    //Tools tools(project.get_frame());
 
-    //CANVAS CONNECTIONS
+    // QIMAGE UPDATE CONNECTIONS
+    connect(&tools, SIGNAL(update_can(QImage*)), this, SLOT(update_canvas(QImage*)));
+    connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
+    connect(project.preview, SIGNAL(thread_end(QImage*)), this, SLOT(update_preview(QImage*)));
+
+    //MOUSE ACTION CONNECTIONS
     connect(ui->canvas, SIGNAL(c_mouse_down()), this, SLOT(c_mouse_down()));
     connect(ui->canvas, SIGNAL(c_mouse_up()), this, SLOT(c_mouse_up()));
     connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), this, SLOT(c_mouse_down_pos()));
     connect(ui->canvas, SIGNAL(c_mouse_left()), this, SLOT(c_mouse_left()));
-    //connect(ui->canvas, SIGNAL(c_mouse_down_pos(int, int)), &project, SLOT(mouse_down_pos(int, int)));
-    connect(this, SIGNAL(mouse_down_pos(int, int)), &tools, SLOT(on_mouse_drag(int,int)));
+    connect(this, SIGNAL(mouse_drag(int, int)), &tools, SLOT(on_mouse_drag(int,int)));
     connect(this, SIGNAL(mouse_down(int, int)), &tools, SLOT(on_mouse_down(int,int)));
     connect(this, SIGNAL(mouse_up(int, int)), &tools, SLOT(on_mouse_up(int,int)));
-    connect(&project, SIGNAL(frame_changed(Frame*)), &tools, SLOT(frame_changed(Frame*)));
 
-    //MAINWINDOW CONNECTIONS
-    connect(this, SIGNAL(brush_color_changed(QColor)), &tools, SLOT(change_color(QColor)));
+    //FRAME CONNECTIONS
     connect(this, SIGNAL(new_frame_requested()), &project, SLOT(add_frame()));
     connect(this, SIGNAL(next_frame_requested()), &project, SLOT(next_frame()));
     connect(this, SIGNAL(previous_frame_requested()), &project, SLOT(previous_frame()));
-    connect(&tools, SIGNAL(update_can(QImage*)), this, SLOT(update_canvas(QImage*)));
+    connect(&project, SIGNAL(frame_changed(Frame*)), &tools, SLOT(frame_changed(Frame*)));
+    connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
+
+    // TOOL CHANGE CONNECTIONS
     connect(this, SIGNAL(tool_changed(int)), &tools, SLOT(tool_selected(int)));
     connect(this, SIGNAL(brush_size_changed(int)), &tools, SLOT(brush_size_changed(int)));
+    connect(this, SIGNAL(brush_color_changed(QColor)), &tools, SLOT(change_color(QColor)));
     connect(this, SIGNAL(clear_canvas()), &tools, SLOT(clear_canvas()));
     connect(this, SIGNAL(fill_canvas()), &tools, SLOT(fill_canvas()));
-    //connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(historyStepBack()));
-
     connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(history_step_back()));
-
-    //PROJECT SIGNALS
-    connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
-    connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
-
-
-    //PREVIEW SIGNALS
-    connect(project.preview, SIGNAL(thread_end(QImage*)), this, SLOT(update_preview(QImage*)));
-
-    //STARTING CONDITIONS
-    project.update_canvas();
-    project.update_frame_label(1,1);
-
+    connect(this, SIGNAL(clear_canvas()), &tools, SLOT(clear_canvas()));
+    connect(this, SIGNAL(fill_canvas()), &tools, SLOT(fill_canvas()));
 
 }
 
@@ -92,7 +87,7 @@ void MainWindow::c_mouse_down_pos()
 {
     int x = ui->canvas->x;
     int y = ui->canvas->y;
-    emit mouse_down_pos(x, y);
+    emit mouse_drag(x, y);
 }
 
 void MainWindow::c_mouse_down()

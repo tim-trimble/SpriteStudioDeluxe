@@ -19,14 +19,14 @@ class Project : public QObject
 
 private:
     QVector<Frame*> *frames;
-    int currentIndex;
     int previewIndex;
 
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
 
 public:
-    QVector<std::stack<QImage*>> history;
+    static QVector<std::stack<QImage*>> history;
+    static int currentIndex;
     int maxHistorySize = 50;
 
     PreviewObject *preview;
@@ -52,7 +52,7 @@ public slots:
     void load_project(QString filename);
     void export_project(QString export_type);
 
-    void historyStepBack();
+    void history_step_back();
 
 signals:
     void send_update(QImage *image);
