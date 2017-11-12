@@ -42,6 +42,7 @@ public slots:
     void mouse_down_pos(int x, int y);
     void change_color(QColor c);
 
+    void new_frames(int x, int y);
     void add_frame();
     Frame* get_frame();
     void next_frame();
