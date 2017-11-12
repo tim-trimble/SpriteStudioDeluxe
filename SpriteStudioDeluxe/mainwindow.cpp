@@ -39,7 +39,9 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(this, SIGNAL(brush_size_changed(int)), &tools, SLOT(brush_size_changed(int)));
     connect(this, SIGNAL(clear_canvas()), &tools, SLOT(clear_canvas()));
     connect(this, SIGNAL(fill_canvas()), &tools, SLOT(fill_canvas()));
-    connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(historyStepBack()));
+    //connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(historyStepBack()));
+
+    connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(history_step_back()));
 
     //PROJECT SIGNALS
     connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
