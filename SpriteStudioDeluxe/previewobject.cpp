@@ -1,4 +1,5 @@
 #include "previewobject.h"
+#include <iostream>
 
 PreviewObject::PreviewObject(QImage *i, QObject *parent) : QObject(parent)
 {
@@ -14,5 +15,7 @@ void PreviewObject::thread_start()
 
 void PreviewObject::set_speed(int fps)
 {
-    sleepTime = 1/fps;
+    //std::cout << "set speed" << fps << std::endl;
+    //sleepTime = 1/fps;
+    //std::cout << "sleep time" << sleepTime << std::endl;
 }

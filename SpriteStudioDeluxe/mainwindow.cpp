@@ -18,7 +18,9 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     project.update_canvas();
     project.update_frame_label(1,1);
     ui->CurrentColorLabel->setStyleSheet("QLabel { background-color : black; color : black; }");
-
+    ui->PreviewSpeedSpinBox->setValue(1);
+    ui->PreviewSpeedSpinBox->setMinimum(1);
+    ui->PreviewSpeedSpinBox->setMaximum(5);
 
     // QIMAGE UPDATE CONNECTIONS
     connect(&tools, SIGNAL(update_can(QImage*)), this, SLOT(update_canvas(QImage*)));
@@ -40,6 +42,9 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(this, SIGNAL(previous_frame_requested()), &project, SLOT(previous_frame()));
     connect(&project, SIGNAL(frame_changed(Frame*)), &tools, SLOT(frame_changed(Frame*)));
     connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
+
+    //PREVIEW CONNECTIONS
+    connect(ui->PreviewSpeedSpinBox, SIGNAL(valueChanged(int)), project.preview, SLOT(set_speed(int)));
 
     // TOOL CHANGE CONNECTIONS
     connect(this, SIGNAL(tool_changed(int)), &tools, SLOT(tool_selected(int)));
@@ -71,6 +76,7 @@ void MainWindow::update_canvas(QImage *i)
 void MainWindow::update_preview(QImage *i)
 {
     ui->PreviewLabel->setPixmap(QPixmap::fromImage(*i));
+    ui->PreviewLabel->setScaledContents(true);
     ui->PreviewLabel->show();
 }
 
