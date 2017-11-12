@@ -14,6 +14,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     ui->setupUi(this);
     ui->canvas->setAlignment(Qt::AlignTop);
     ui->canvas->setAlignment(Qt::AlignLeft);
+    ui->CurrentColorLabel->setStyleSheet("QLabel { background-color : black; color : black; }");
 
     //Tools tools(project.get_frame());
 
@@ -36,7 +37,8 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(&tools, SIGNAL(update_can(QImage*)), this, SLOT(update_canvas(QImage*)));
     connect(this, SIGNAL(tool_changed(int)), &tools, SLOT(tool_selected(int)));
     connect(this, SIGNAL(brush_size_changed(int)), &tools, SLOT(brush_size_changed(int)));
-
+    connect(this, SIGNAL(clear_canvas()), &tools, SLOT(clear_canvas()));
+    connect(this, SIGNAL(fill_canvas()), &tools, SLOT(fill_canvas()));
     connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(historyStepBack()));
 
     //PROJECT SIGNALS
@@ -205,4 +207,24 @@ void MainWindow::on_ZoomOutButton_clicked()
 void MainWindow::on_StepBackButton_clicked()
 {
     emit history_reversion_requested();
+}
+
+void MainWindow::on_RectangleToolButton_clicked()
+{
+    emit tool_changed(7);
+}
+
+void MainWindow::on_FilledRectangleButton_clicked()
+{
+    emit tool_changed(8);
+}
+
+void MainWindow::on_ClearCanvasButton_clicked()
+{
+    emit clear_canvas();
+}
+
+void MainWindow::on_FillAllButton_clicked()
+{
+    emit fill_canvas();
 }

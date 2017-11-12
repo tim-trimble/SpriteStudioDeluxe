@@ -72,7 +72,7 @@ void Project::change_color(QColor c)
 
 void Project::add_frame()
 {
-    frames->append(new Frame(frames->at(0)->getX(), frames->at(0)->getY()));
+    frames->append(new Frame(frames->at(0)->getX()-2, frames->at(0)->getY()-2));
     history[currentIndex+1] = * new std::stack<QImage*>;
     emit update_frame_label(currentIndex + 1, frames->size());
 }

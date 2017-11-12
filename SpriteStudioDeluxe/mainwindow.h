@@ -28,6 +28,8 @@ signals:
     void brush_tool_selected();
     void line_tool_selected();
     void eraser_tool_selected();
+    void clear_canvas();
+    void fill_canvas();
 
     // BRUSH SIGNALS
     // Intended Reciever: Tool Class
@@ -88,6 +90,14 @@ private slots:
     void on_ZoomOutButton_clicked();
 
     void on_StepBackButton_clicked();
+
+    void on_RectangleToolButton_clicked();
+
+    void on_FilledRectangleButton_clicked();
+
+    void on_ClearCanvasButton_clicked();
+
+    void on_FillAllButton_clicked();
 
 private:
     Ui::MainWindow *ui;

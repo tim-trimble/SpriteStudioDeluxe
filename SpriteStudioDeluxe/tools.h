@@ -44,6 +44,8 @@ public slots:
     void on_mouse_drag(int, int);
     void on_mouse_up(int, int);
     void change_color(QColor);
+    void clear_canvas();
+    void fill_canvas();
 
 };
 

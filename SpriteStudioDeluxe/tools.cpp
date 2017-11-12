@@ -62,16 +62,16 @@ void Tools::edit_pixel(int x, int y)
     QPainter painter(current_image);
     QPen pen;
     pen.setStyle(Qt::SolidLine);
-    if (tool_number == 1) {
+    if (tool_number == 1) { //pencil
         pen.setWidth(8);
         pen.setColor(temp_color);
         //pen.setStyle(Qt::SolidLine);
     }
-    else if(tool_number == 2) {
+    else if(tool_number == 2) { //brush
         pen.setWidth(brush_size * 8);
         pen.setColor(temp_color);
     }
-    else if(tool_number == 4) {
+    else if(tool_number == 4) { //eraser
         painter.setCompositionMode (QPainter::CompositionMode_Source);
         pen.setWidth(brush_size * 8);
         //pen.setColor(eraser);
@@ -87,7 +87,7 @@ void Tools::edit_pixel(int x, int y)
         emit update_can(current_image);
         return;
     }
-    else if(tool_number == 3) {
+    else if(tool_number == 3) { //line
         pen.setColor(temp_color);
         pen.setWidth(brush_size * 8);
         painter.setPen(pen);
@@ -101,7 +101,7 @@ void Tools::edit_pixel(int x, int y)
         emit update_can(current_image);
         return;
     }
-    else if(tool_number == 5 || tool_number == 6) {
+    else if(tool_number == 5 || tool_number == 6) { //mirror x, mirror y
        pen.setColor(temp_color);
        pen.setWidth(brush_size * 8);
        painter.setPen(pen);
@@ -117,6 +117,34 @@ void Tools::edit_pixel(int x, int y)
        emit update_can(current_image);
        return;
     }
+    else if (tool_number == 7){ //rectangle outline
+        pen.setColor(temp_color);
+        pen.setWidth(brush_size * 8);
+        painter.setPen(pen);
+        painter.scale(.125, .125);
+        painter.drawRect(line_startx, line_starty, line_endx-line_startx, line_endy-line_starty);
+        line_startx = 0;
+        line_starty = 0;
+        line_endx = 0;
+        line_endy = 0;
+        painter.end();
+        emit update_can(current_image);
+        return;
+    }
+    else if (tool_number == 8){ //filled rectangle
+        pen.setColor(temp_color);
+        pen.setWidth(brush_size * 8);
+        painter.setPen(pen);
+        painter.scale(.125, .125);
+        painter.fillRect(line_startx, line_starty, line_endx-line_startx, line_endy-line_starty, temp_color);
+        line_startx = 0;
+        line_starty = 0;
+        line_endx = 0;
+        line_endy = 0;
+        painter.end();
+        emit update_can(current_image);
+        return;
+    }
     painter.setPen(pen);
     painter.scale(.125, .125);
     std::cout << "Draw Point " << x << " " << y << std::endl;
@@ -129,19 +157,31 @@ void Tools::on_mouse_down(int x, int y)
 {
     line_startx = x;
     line_starty = y;
-    if(tool_number != 3) {
+    if(tool_number != 3 && tool_number != 7 && tool_number != 8) {
         edit_pixel(x, y);
     }
 }
 
 void Tools::on_mouse_drag(int x, int y)
 {
-    if(tool_number != 3) {
+    if(tool_number != 3 && tool_number != 7 && tool_number != 8) {
         edit_pixel(x, y);
     }
     emit update_can(current_image);
 }
+void Tools::clear_canvas()
+{
+    current_image->fill(Qt::transparent);
+    std::cout << "Clear" << std::endl;
+    emit update_can(current_image);
+}
 
+void Tools::fill_canvas()
+{
+    current_image->fill(temp_color);
+    std::cout << "fill" << std::endl;
+    emit update_can(current_image);
+}
 Tools::~Tools()
 {
 
