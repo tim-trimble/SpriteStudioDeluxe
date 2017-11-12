@@ -13,9 +13,3 @@ void PreviewObject::thread_start()
     emit thread_end(image);
 }
 
-void PreviewObject::set_speed(int fps)
-{
-    //std::cout << "set speed" << fps << std::endl;
-    //sleepTime = 1/fps;
-    //std::cout << "sleep time" << sleepTime << std::endl;
-}
