@@ -3,7 +3,7 @@
 Frame::Frame(int width, int height){
     image = new QImage(width+2, height+2, QImage::Format_ARGB32);
     image->fill(QColor(0,0,0,0));
-    image->setDevicePixelRatio(.125);
+    image->setDevicePixelRatio(Project::zoomLevel);
 }
 
 Frame::~Frame(){
@@ -27,7 +27,7 @@ int Frame::getY(){
 }
 
 void Frame::editPixel(int x, int y, QColor color){
-    image->setPixelColor(x*.125, y*.125, color);
+    image->setPixelColor(x, y, color);
 }
 
 void Frame::rotateImage(int angle){

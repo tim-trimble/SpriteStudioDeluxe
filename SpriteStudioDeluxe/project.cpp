@@ -191,7 +191,10 @@ void Project::load_project(QString filename)
                     str.clear();
                     in >> str;
                     color.setBlue(str.toInt());
-                    f->editPixel(j, k, color);
+                    str.clear();
+                    in >> str;
+                    color.setAlpha(str.toInt());
+                    f->editPixel(k, j, color);
                 }
             }
             frames->append(f);
