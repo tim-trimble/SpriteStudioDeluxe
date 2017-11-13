@@ -26,7 +26,7 @@ void Tools::tool_selected(int i)
 
     if (tool_number == 4)
     {
-        current_color = eraser;
+        //current_color = eraser;
         eraser_active = true;
     }
     else
@@ -55,33 +55,42 @@ void Tools::on_mouse_up(int x, int y)
 {
     line_endx = x;
     line_endy = y;
+    if (tool_number == 7 || tool_number == 8 )
+    {
+        current_image = base_image;
+        if (!(line_endx == line_startx && line_endy == line_starty))
+        {
+            QImage * archived_image = new QImage(*current_image);
+            Project::history[Project::currentIndex].push(archived_image);
+        }
+    }
     edit_pixel(x, y);
+    line_startx = 0;
+    line_starty = 0;
+    line_endx = 0;
+    line_endy = 0;
 }
 
 void Tools::edit_pixel(int x, int y)
 {
+    current_image->setDevicePixelRatio(Project::zoomLevel);
     QPainter painter(current_image);
+    painter.scale(Project::zoomLevel, Project::zoomLevel);
     QPen pen;
     pen.setStyle(Qt::SolidLine);
+    pen.setWidth(brush_size * 1/Project::zoomLevel);
+    pen.setColor(temp_color);
+
     if (tool_number == 1) { //pencil
         pen.setWidth(1/Project::zoomLevel);
-        pen.setColor(temp_color);
-        //pen.setStyle(Qt::SolidLine);
     }
     else if(tool_number == 2) { //brush
-        pen.setWidth(brush_size * 1/Project::zoomLevel);
-        pen.setColor(temp_color);
+
     }
     else if(tool_number == 4) { //eraser
         painter.setCompositionMode (QPainter::CompositionMode_Source);
-        pen.setWidth(brush_size * 1/Project::zoomLevel);
-        //pen.setColor(eraser);
-        //pen.setStyle(Qt::SolidLine);
-        //painter.drawPoint(x, y);
         pen.setColor(Qt::transparent);
         painter.setPen(pen);
-        painter.scale(Project::zoomLevel, Project::zoomLevel);
-
         painter.drawPoint(x, y);
         painter.setCompositionMode (QPainter::CompositionMode_SourceOver);
         painter.end();
@@ -89,10 +98,7 @@ void Tools::edit_pixel(int x, int y)
         return;
     }
     else if(tool_number == 3) { //line
-        pen.setColor(temp_color);
-        pen.setWidth(brush_size * 1/Project::zoomLevel);
         painter.setPen(pen);
-        painter.scale(Project::zoomLevel, Project::zoomLevel);
         painter.drawLine(line_startx, line_starty, line_endx, line_endy);
         line_startx = 0;
         line_starty = 0;
@@ -103,10 +109,7 @@ void Tools::edit_pixel(int x, int y)
         return;
     }
     else if(tool_number == 5 || tool_number == 6) { //mirror x, mirror y
-       pen.setColor(temp_color);
-       pen.setWidth(brush_size * 1/Project::zoomLevel);
        painter.setPen(pen);
-       painter.scale(Project::zoomLevel, Project::zoomLevel);
        painter.drawPoint(x, y);
        if(tool_number == 5) {
             painter.drawPoint(current_image->width()/Project::zoomLevel - x - 1, y);
@@ -119,36 +122,22 @@ void Tools::edit_pixel(int x, int y)
        return;
     }
     else if (tool_number == 7){ //rectangle outline
-        pen.setColor(temp_color);
-        pen.setWidth(brush_size * 1/Project::zoomLevel);
         painter.setPen(pen);
-        painter.scale(Project::zoomLevel, Project::zoomLevel);
         painter.drawRect(line_startx, line_starty, line_endx-line_startx, line_endy-line_starty);
-        line_startx = 0;
-        line_starty = 0;
-        line_endx = 0;
-        line_endy = 0;
         painter.end();
+        //active_frame->setImage(current_image);
         emit update_can(current_image);
         return;
     }
     else if (tool_number == 8){ //filled rectangle
-        pen.setColor(temp_color);
-        pen.setWidth(brush_size * 1/Project::zoomLevel);
         painter.setPen(pen);
-        painter.scale(Project::zoomLevel, Project::zoomLevel);
         painter.fillRect(line_startx, line_starty, line_endx-line_startx, line_endy-line_starty, temp_color);
-        line_startx = 0;
-        line_starty = 0;
-        line_endx = 0;
-        line_endy = 0;
         painter.end();
+        //active_frame->setImage(current_image);
         emit update_can(current_image);
         return;
     }
     painter.setPen(pen);
-    painter.scale(Project::zoomLevel, Project::zoomLevel);
-    std::cout << "Draw Point " << x << " " << y << std::endl;
     painter.drawPoint(x, y);
     painter.end();
     emit update_can(current_image);
@@ -156,26 +145,42 @@ void Tools::edit_pixel(int x, int y)
 
 void Tools::on_mouse_down(int x, int y)
 {
-    //archive the current frame in history
-    QImage * archived_image = new QImage(*current_image);
-    Project::history[Project::currentIndex].push(archived_image);
+    if (tool_number == 7 || tool_number == 8 )
+    {
+        base_image = current_image;
+
+    }
+    else
+    {
+        //archive the current frame in history
+        QImage * archived_image = new QImage(*current_image);
+        Project::history[Project::currentIndex].push(archived_image);
+    }
 
     line_startx = x;
     line_starty = y;
     if(tool_number != 3 && tool_number != 7 && tool_number != 8) {
-        edit_pixel(x, y);       
+        edit_pixel(x, y);
     }
 }
 
 void Tools::on_mouse_drag(int x, int y)
 {
-    if(tool_number != 3 && tool_number != 7 && tool_number != 8) {
+    if (tool_number == 7 || tool_number == 8)
+    {
+        line_endx = x;
+        line_endy = y;
+        current_image = new QImage(*base_image);
+        edit_pixel(x, y);
+        delete current_image;
+    }
+    else if(tool_number != 3) {
         edit_pixel(x, y);
     }
-    emit update_can(current_image);
 }
+
 void Tools::clear_canvas()
-{   
+{
     //archive the current frame in history
     QImage * archived_image = new QImage(*current_image);
     Project::history[Project::currentIndex].push(archived_image);

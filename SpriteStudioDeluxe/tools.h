@@ -18,6 +18,8 @@ private:
     bool eraser_active;
     Frame* active_frame;
     QImage* current_image;
+    QImage* base_image;
+    QImage* temp_image;
     QColor current_color;
     QColor eraser;
     QColor temp_color;
