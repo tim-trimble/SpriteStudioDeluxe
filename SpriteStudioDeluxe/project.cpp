@@ -1,5 +1,6 @@
 #include "project.h"
 #include <iostream>
+#include <QTextStream>
 #include <stack>
 
 Project::Project(int x, int y)
@@ -122,67 +123,85 @@ void Project::get_all_frames()
 
 void Project::save_project(QString filename)
 {
-    /*
-    if(filename.isEmpty())
+    QFile file(filename);
+    if(!file.open(QIODevice::WriteOnly))
     {
         return;
     }
     else
     {
-        QFile file(filename);
-        if(!file.open(QIODevice::WriteOnly))
+        QTextStream out(&file);
+        int x = frames->at(0)->getX();
+        int y = frames->at(0)->getY();
+        out << QString::number(x) << QString(" ") << QString::number(y) << QString("\n");
+        out << QString::number(frames->size()) << QString("\n");
+        for(int i = 0; i < frames->size(); i++)
         {
-            return;
-        }
-        else
-        {
-            QImage image;
-            QDataStream out(&file);
-            out.setVersion(QDataStream::Qt_5_9);
-            for(auto iter=frames.begin();iter!=frames.end();iter++)
+            QImage img = *frames->at(i)->getImage();
+            img.setDevicePixelRatio(1);
+            for(int j = 0; j < y; j++)
             {
-                //image = iter->getImage();
-                //out << image;
+                for (int k = 0; k < x; k++)
+                {
+                    QColor color= img.pixelColor(k, j);
+                    out << color.red() << " " << color.green() << " " << color.blue() << " " << color.alpha() << " ";
+                }
+                out << QString("\n");
             }
-            file.close();
         }
+        file.close();
     }
-    */
 }
 
 void Project::load_project(QString filename)
 {
-    /*
-    if(filename.isEmpty())
+    QFile file(filename);
+    if(!file.open(QIODevice::ReadOnly))
     {
         return;
     }
     else
     {
-        QFile file(filename);
-        if(!file.open(QIODevice::ReadOnly))
+        QTextStream in(&file);
+        frames->clear();
+        QString str;
+        in >> str;
+        int x = str.toInt();
+        str.clear();
+        in >> str;
+        int y = str.toInt();
+        str.clear();
+        in >> str;
+        int frame_count = str.toInt();
+        for(int i = 0; i< frame_count; i++)
         {
-            return;
-        }
-        else
-        {
-            QDataStream in(&file);
-            in.setVersion(QDataStream::Qt_5_9);
-            frames.clear();
-            int numFrames;
-            in >> numFrames;
-            QImage image;
-            for(unsigned i = 0; i<numFrames; i++)
+            Frame * f = new Frame(x, y);
+            f->setDevicePixelRatio(1);
+            for(int j = 0; j < y - 1; j++)
             {
-                in >> image;
-                Frame f(image);
-                frames.append(f);
+                for(int k = 0; k < x; k++)
+                {
+                    QColor color;
+                    str.clear();
+                    in >> str;
+                    color.setRed(str.toInt());
+                    str.clear();
+                    in >> str;
+                    color.setGreen(str.toInt());
+                    str.clear();
+                    in >> str;
+                    color.setBlue(str.toInt());
+                    f->editPixel(j, k, color);
+                }
             }
+            frames->append(f);
         }
+        file.close();
+        currentFrame = frames->at(0);
+        currentIndex = 0;
+        update_canvas();
     }
-    */
 }
-
 void Project::export_project(QString export_type)
 {
 

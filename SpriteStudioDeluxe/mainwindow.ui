@@ -618,6 +618,7 @@ color: rgb(255, 255, 255);</string>
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
     <addaction name="actionExport"/>
+    <addaction name="actionOpen"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -647,6 +648,11 @@ color: rgb(255, 255, 255);</string>
   <action name="actionRotate_90">
    <property name="text">
     <string>Rotate 90</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
    </property>
   </action>
  </widget>

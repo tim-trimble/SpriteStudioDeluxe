@@ -4,6 +4,7 @@
 #include <QPixmap>
 #include <iostream>
 #include <QListWidgetItem>
+#include <QFileDialog>
 #include <string>
 #include "tools.h"
 
@@ -51,7 +52,9 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(this, SIGNAL(zoom_in_requested()), &project, SLOT(zoom_in()));
     connect(this, SIGNAL(zoom_out_requested()), &project, SLOT(zoom_out()));
 
-
+    // IO CONNECTIONS
+    connect(this, SIGNAL(save_sprite(QString)), &project, SLOT(save_project(QString)));
+    connect(this, SIGNAL(load_sprite(QString)), &project, SLOT(load_project(QString)));
 
     // UI IMAGE INITIALIZATION
     float iconScale = .5;
@@ -269,4 +272,16 @@ void MainWindow::on_ClearCanvasButton_clicked()
 void MainWindow::on_FillAllButton_clicked()
 {
     emit fill_canvas();
+}
+
+void MainWindow::on_actionOpen_triggered()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Open Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
+    emit load_sprite(filename);
+}
+
+void MainWindow::on_actionSave_As_triggered()
+{
+    QString filename = QFileDialog::getSaveFileName(this, tr("Save Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
+    emit save_sprite(filename);
 }

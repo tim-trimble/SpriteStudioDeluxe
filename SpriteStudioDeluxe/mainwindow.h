@@ -59,6 +59,11 @@ signals:
     void mouse_up(int x, int y);            // mouse has been released
     void mouse_left();                      // indicates the mouse has left the canvas
 
+    // IO
+    // Intended Reciever: Project Class
+    void save_sprite(QString filename);
+    void load_sprite(QString filename);
+
 public slots:
 
     // FROM PROJECT
@@ -98,6 +103,10 @@ private slots:
     void on_ClearCanvasButton_clicked();
 
     void on_FillAllButton_clicked();
+
+    void on_actionOpen_triggered();
+
+    void on_actionSave_As_triggered();
 
 private:
     Ui::MainWindow *ui;

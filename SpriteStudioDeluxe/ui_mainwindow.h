@@ -38,6 +38,7 @@ public:
     QAction *actionSave_As;
     QAction *actionExport;
     QAction *actionRotate_90;
+    QAction *actionOpen;
     QWidget *centralWidget;
     QGridLayout *gridLayout_4;
     QGroupBox *groupBox_3;
@@ -97,6 +98,8 @@ public:
         actionExport->setObjectName(QStringLiteral("actionExport"));
         actionRotate_90 = new QAction(MainWindow);
         actionRotate_90->setObjectName(QStringLiteral("actionRotate_90"));
+        actionOpen = new QAction(MainWindow);
+        actionOpen->setObjectName(QStringLiteral("actionOpen"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout_4 = new QGridLayout(centralWidget);
@@ -335,6 +338,7 @@ public:
         menuFile->addAction(actionSave);
         menuFile->addAction(actionSave_As);
         menuFile->addAction(actionExport);
+        menuFile->addAction(actionOpen);
         menuEdit->addAction(actionRotate_90);
 
         retranslateUi(MainWindow);
@@ -349,6 +353,7 @@ public:
         actionSave_As->setText(QApplication::translate("MainWindow", "Save As", Q_NULLPTR));
         actionExport->setText(QApplication::translate("MainWindow", "Export", Q_NULLPTR));
         actionRotate_90->setText(QApplication::translate("MainWindow", "Rotate 90", Q_NULLPTR));
+        actionOpen->setText(QApplication::translate("MainWindow", "Open", Q_NULLPTR));
         groupBox_3->setTitle(QString());
         PreviewLabel->setText(QString());
         groupBox_5->setTitle(QString());
