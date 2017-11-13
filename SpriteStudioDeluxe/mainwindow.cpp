@@ -54,6 +54,48 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(this, SIGNAL(zoom_out_requested()), &project, SLOT(zoom_out()));
 
 
+
+    // UI IMAGE INITIALIZATION
+    QPixmap pencil("./resources/icons/pencil.png");
+    QPixmap eraser("./resources/icons/eraser.png");
+    QPixmap line("./resources/icons/line.png");
+    QPixmap brush("./resources/icons/brush.png");
+    QPixmap rectangle("./resources/icons/rectangle.png");
+    QPixmap rectangle_filled("./resources/icons/rectangle_filled.png");
+    QPixmap clear("./resources/icons/clear.png");
+    QPixmap mirror_x("./resources/icons/mirror_x.png");
+    QPixmap mirror_y("./resources/icons/mirror_y.png");
+
+    QIcon i_pencil(pencil);
+    QIcon i_eraser(eraser);
+    QIcon i_line(line);
+    QIcon i_brush(brush);
+    QIcon i_rectangle(rectangle);
+    QIcon i_rectangle_filled(rectangle_filled);
+    QIcon i_clear(clear);
+    QIcon i_mirror_x(mirror_x);
+    QIcon i_mirror_y(mirror_y);
+
+    ui->PencilToolButton->setIcon(i_pencil);
+    ui->EraserToolButton->setIcon(i_eraser);
+    ui->LineToolButton->setIcon(i_line);
+    ui->BrushToolButton->setIcon(i_brush);
+    ui->RectangleToolButton->setIcon(i_rectangle);
+    ui->FilledRectangleButton->setIcon(i_rectangle_filled);
+    ui->ClearCanvasButton->setIcon(i_clear);
+    ui->MirrorXToolButton->setIcon(i_mirror_x);
+    ui->MirrorYToolButton->setIcon(i_mirror_y);
+
+    ui->PencilToolButton->setIconSize(pencil.rect().size());
+    ui->EraserToolButton->setIconSize(eraser.rect().size());
+    ui->LineToolButton->setIconSize(line.rect().size());
+    ui->BrushToolButton->setIconSize(brush.rect().size());
+    ui->RectangleToolButton->setIconSize(rectangle.rect().size());
+    ui->FilledRectangleButton->setIconSize(rectangle_filled.rect().size());
+    ui->ClearCanvasButton->setIconSize(clear.rect().size());
+    ui->MirrorXToolButton->setIconSize(mirror_x.rect().size());
+    ui->MirrorYToolButton->setIconSize(mirror_y.rect().size());
+
 }
 
 MainWindow::~MainWindow(){
