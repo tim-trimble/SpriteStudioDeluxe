@@ -5,7 +5,6 @@
 #include <iostream>
 #include <QListWidgetItem>
 #include <string>
-#include <QFileDialog>
 #include "tools.h"
 
 MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
@@ -52,9 +51,6 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(this, SIGNAL(clear_canvas()), &tools, SLOT(clear_canvas()));
     connect(this, SIGNAL(fill_canvas()), &tools, SLOT(fill_canvas()));
 
-    // IO CONNECTIONS
-    connect(this, SIGNAL(save_file(QString)), &project, SLOT(save_project(QString)));
-    connect(this, SIGNAL(load_file(QString)), &project, SLOT(load_project(QString)));
 }
 
 MainWindow::~MainWindow(){
@@ -228,19 +224,4 @@ void MainWindow::on_ClearCanvasButton_clicked()
 void MainWindow::on_FillAllButton_clicked()
 {
     emit fill_canvas();
-}
-
-
-void MainWindow::on_actionSave_triggered()
-{
-    QString filename = QFileDialog::getSaveFileName(this, tr("Save Sprite"), "",
-                                                    tr("Sprite (*.ssp);;All Files(*)"));
-    emit save_file(filename);
-}
-
-void MainWindow::on_actionLoad_triggered()
-{
-    QString filename = QFileDialog::getOpenFileName(this, tr("Sprite"), "",
-                                                    tr("Sprite (*ssp);;All Files(*)"));
-    emit load_file(filename);
 }

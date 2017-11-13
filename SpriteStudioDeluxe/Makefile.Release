@@ -254,7 +254,7 @@ release/moc_mainwindow.cpp: C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QMainWindow
 		mainwindow.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9.1/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"D:/School/University of Utah/Fall 2017/CS3505/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward mainwindow.h -o release\moc_mainwindow.cpp
+	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Patrick/Desktop/Homework Assignments/CS 3505 Assignments/A6/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward mainwindow.h -o release\moc_mainwindow.cpp
 
 release/moc_project.cpp: C:/Qt/5.9.1/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/qobject.h \
@@ -344,7 +344,7 @@ release/moc_project.cpp: C:/Qt/5.9.1/mingw53_32/include/QtCore/QObject \
 		project.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9.1/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"D:/School/University of Utah/Fall 2017/CS3505/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward project.h -o release\moc_project.cpp
+	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Patrick/Desktop/Homework Assignments/CS 3505 Assignments/A6/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward project.h -o release\moc_project.cpp
 
 release/moc_canvas.cpp: C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qwidget.h \
@@ -455,7 +455,7 @@ release/moc_canvas.cpp: C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QWidget \
 		canvas.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9.1/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"D:/School/University of Utah/Fall 2017/CS3505/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward canvas.h -o release\moc_canvas.cpp
+	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Patrick/Desktop/Homework Assignments/CS 3505 Assignments/A6/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward canvas.h -o release\moc_canvas.cpp
 
 release/moc_previewobject.cpp: C:/Qt/5.9.1/mingw53_32/include/QtCore/QObject \
 		C:/Qt/5.9.1/mingw53_32/include/QtCore/qobject.h \
@@ -533,7 +533,7 @@ release/moc_previewobject.cpp: C:/Qt/5.9.1/mingw53_32/include/QtCore/QObject \
 		previewobject.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9.1/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"D:/School/University of Utah/Fall 2017/CS3505/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward previewobject.h -o release\moc_previewobject.cpp
+	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Patrick/Desktop/Homework Assignments/CS 3505 Assignments/A6/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward previewobject.h -o release\moc_previewobject.cpp
 
 release/moc_tools.cpp: frame.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/QImage \
@@ -625,7 +625,7 @@ release/moc_tools.cpp: frame.h \
 		tools.h \
 		release/moc_predefs.h \
 		C:/Qt/5.9.1/mingw53_32/bin/moc.exe
-	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"D:/School/University of Utah/Fall 2017/CS3505/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward tools.h -o release\moc_tools.cpp
+	C:\Qt\5.9.1\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/5.9.1/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Patrick/Desktop/Homework Assignments/CS 3505 Assignments/A6/sprite-editor-a7-f17-cs3505-tim-trimble/SpriteStudioDeluxe" -IC:/Qt/5.9.1/mingw53_32/include -IC:/Qt/5.9.1/mingw53_32/include/QtWidgets -IC:/Qt/5.9.1/mingw53_32/include/QtGui -IC:/Qt/5.9.1/mingw53_32/include/QtANGLE -IC:/Qt/5.9.1/mingw53_32/include/QtCore -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward tools.h -o release\moc_tools.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -1072,11 +1072,7 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qdialog.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QListWidgetItem \
 		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qlistwidget.h \
-		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qlistview.h \
-		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/QFileDialog \
-		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qfiledialog.h \
-		C:/Qt/5.9.1/mingw53_32/include/QtCore/qdir.h \
-		C:/Qt/5.9.1/mingw53_32/include/QtCore/qfileinfo.h
+		C:/Qt/5.9.1/mingw53_32/include/QtWidgets/qlistview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o mainwindow.cpp
 
 release/project.o: project.cpp project.h \
@@ -1513,15 +1509,7 @@ release/tools.o: tools.cpp tools.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/qfontinfo.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/qfont.h \
 		C:/Qt/5.9.1/mingw53_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/5.9.1/mingw53_32/include/QtGui/QPen \
-		project.h \
-		C:/Qt/5.9.1/mingw53_32/include/QtGui/QPixmap \
-		C:/Qt/5.9.1/mingw53_32/include/QtCore/QFile \
-		C:/Qt/5.9.1/mingw53_32/include/QtCore/qfile.h \
-		C:/Qt/5.9.1/mingw53_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.9.1/mingw53_32/include/QtCore/QThread \
-		C:/Qt/5.9.1/mingw53_32/include/QtCore/qthread.h \
-		previewobject.h
+		C:/Qt/5.9.1/mingw53_32/include/QtGui/QPen
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tools.o tools.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 

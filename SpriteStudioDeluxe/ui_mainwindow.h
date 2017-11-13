@@ -39,7 +39,6 @@ public:
     QAction *actionSave_As;
     QAction *actionExport;
     QAction *actionRotate_90;
-    QAction *actionLoad;
     QWidget *centralWidget;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
@@ -95,8 +94,6 @@ public:
         actionExport->setObjectName(QStringLiteral("actionExport"));
         actionRotate_90 = new QAction(MainWindow);
         actionRotate_90->setObjectName(QStringLiteral("actionRotate_90"));
-        actionLoad = new QAction(MainWindow);
-        actionLoad->setObjectName(QStringLiteral("actionLoad"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         scrollArea = new QScrollArea(centralWidget);
@@ -229,7 +226,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 941, 20));
+        menuBar->setGeometry(QRect(0, 0, 941, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuEdit = new QMenu(menuBar);
@@ -247,7 +244,6 @@ public:
         menuFile->addAction(actionSave);
         menuFile->addAction(actionSave_As);
         menuFile->addAction(actionExport);
-        menuFile->addAction(actionLoad);
         menuEdit->addAction(actionRotate_90);
 
         retranslateUi(MainWindow);
@@ -262,7 +258,6 @@ public:
         actionSave_As->setText(QApplication::translate("MainWindow", "Save As", Q_NULLPTR));
         actionExport->setText(QApplication::translate("MainWindow", "Export", Q_NULLPTR));
         actionRotate_90->setText(QApplication::translate("MainWindow", "Rotate 90", Q_NULLPTR));
-        actionLoad->setText(QApplication::translate("MainWindow", "Load", Q_NULLPTR));
         canvas->setText(QString());
         PreviousFrameButton->setText(QApplication::translate("MainWindow", "Previous Frame", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
