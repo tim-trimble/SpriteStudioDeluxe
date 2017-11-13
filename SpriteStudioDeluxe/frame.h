@@ -8,7 +8,7 @@
 
 class Frame {
 private:
-    QImage *image;
+    QImage *image = Q_NULLPTR;
 
 public:
     Frame();

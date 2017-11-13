@@ -47,7 +47,9 @@ void Project::thread_end()
     } else{
         previewIndex += 1;
     }
+
     preview->image = frames->at(previewIndex)->getImage();
+
     emit send_preview_frame(currentFrame->getImage());
 }
 
@@ -266,13 +268,19 @@ void Project::zoom_out()
 }
 
 void Project::new_project(){
+    previewThread->quit();
+
     //INIT PROJECT
     currentIndex = 0;
     zoomLevel = .125;
     frames->clear();
     frames->append(new Frame(64, 64, zoomLevel));
     currentFrame = frames->at(0);
+
+    previewThread->start();
     update_canvas();
     emit frame_changed(frames->at(0));
+    emit update_frame_label(1, 1);
+
 }
 
