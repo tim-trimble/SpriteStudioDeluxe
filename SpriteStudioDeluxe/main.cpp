@@ -7,9 +7,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    Project p(256,256); //Not sure on default size
+    Project p(256,256);
     Tools t(p.get_frame());
     MainWindow w(p, t);
+
+    p.update_canvas();
 
     w.show();
 

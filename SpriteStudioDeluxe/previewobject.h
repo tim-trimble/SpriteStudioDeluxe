@@ -22,7 +22,6 @@ signals:
 
 public slots:
     void thread_start();
-    void set_speed(int fps);
 };
 
 #endif // PREVIEWOBJECT_H

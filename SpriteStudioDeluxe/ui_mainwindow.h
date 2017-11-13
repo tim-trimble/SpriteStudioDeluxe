@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.1
+** Created by: Qt User Interface Compiler version 5.9.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -39,7 +39,11 @@ public:
     QAction *actionSave_As;
     QAction *actionExport;
     QAction *actionRotate_90;
+<<<<<<< HEAD
     QAction *actionLoad;
+=======
+    QAction *actionNew;
+>>>>>>> 9bc48d4aa45faf5b9b786873156c1be8c0f89b0b
     QWidget *centralWidget;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
@@ -69,8 +73,6 @@ public:
     QFrame *line;
     QGroupBox *groupBox_3;
     QLabel *PreviewLabel;
-    QSpinBox *PreviewSpeedSpinBox;
-    QLabel *label_5;
     QPushButton *AddFrameButton;
     QPushButton *ZoomInButton;
     QPushButton *ZoomOutButton;
@@ -95,8 +97,13 @@ public:
         actionExport->setObjectName(QStringLiteral("actionExport"));
         actionRotate_90 = new QAction(MainWindow);
         actionRotate_90->setObjectName(QStringLiteral("actionRotate_90"));
+<<<<<<< HEAD
         actionLoad = new QAction(MainWindow);
         actionLoad->setObjectName(QStringLiteral("actionLoad"));
+=======
+        actionNew = new QAction(MainWindow);
+        actionNew->setObjectName(QStringLiteral("actionNew"));
+>>>>>>> 9bc48d4aa45faf5b9b786873156c1be8c0f89b0b
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         scrollArea = new QScrollArea(centralWidget);
@@ -199,18 +206,12 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         groupBox_3 = new QGroupBox(centralWidget);
         groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
-        groupBox_3->setGeometry(QRect(790, 280, 131, 211));
+        groupBox_3->setGeometry(QRect(770, 280, 151, 181));
         PreviewLabel = new QLabel(groupBox_3);
         PreviewLabel->setObjectName(QStringLiteral("PreviewLabel"));
-        PreviewLabel->setGeometry(QRect(14, 25, 101, 141));
+        PreviewLabel->setGeometry(QRect(14, 25, 121, 141));
         PreviewLabel->setFrameShape(QFrame::Box);
         PreviewLabel->setAlignment(Qt::AlignCenter);
-        PreviewSpeedSpinBox = new QSpinBox(groupBox_3);
-        PreviewSpeedSpinBox->setObjectName(QStringLiteral("PreviewSpeedSpinBox"));
-        PreviewSpeedSpinBox->setGeometry(QRect(60, 180, 42, 22));
-        label_5 = new QLabel(groupBox_3);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(20, 180, 31, 21));
         AddFrameButton = new QPushButton(centralWidget);
         AddFrameButton->setObjectName(QStringLiteral("AddFrameButton"));
         AddFrameButton->setGeometry(QRect(650, 20, 111, 51));
@@ -244,6 +245,7 @@ public:
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuEdit->menuAction());
+        menuFile->addAction(actionNew);
         menuFile->addAction(actionSave);
         menuFile->addAction(actionSave_As);
         menuFile->addAction(actionExport);
@@ -262,7 +264,11 @@ public:
         actionSave_As->setText(QApplication::translate("MainWindow", "Save As", Q_NULLPTR));
         actionExport->setText(QApplication::translate("MainWindow", "Export", Q_NULLPTR));
         actionRotate_90->setText(QApplication::translate("MainWindow", "Rotate 90", Q_NULLPTR));
+<<<<<<< HEAD
         actionLoad->setText(QApplication::translate("MainWindow", "Load", Q_NULLPTR));
+=======
+        actionNew->setText(QApplication::translate("MainWindow", "New", Q_NULLPTR));
+>>>>>>> 9bc48d4aa45faf5b9b786873156c1be8c0f89b0b
         canvas->setText(QString());
         PreviousFrameButton->setText(QApplication::translate("MainWindow", "Previous Frame", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
@@ -287,7 +293,6 @@ public:
         CurrentColorLabel->setText(QString());
         groupBox_3->setTitle(QApplication::translate("MainWindow", "Animation", Q_NULLPTR));
         PreviewLabel->setText(QString());
-        label_5->setText(QApplication::translate("MainWindow", "FPS", Q_NULLPTR));
         AddFrameButton->setText(QApplication::translate("MainWindow", "Add Frame", Q_NULLPTR));
         ZoomInButton->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
         ZoomOutButton->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));

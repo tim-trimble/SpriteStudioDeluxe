@@ -5,7 +5,6 @@
 #include "project.h"
 #include <iostream>
 #include "tools.h"
-
 #include <previewobject.h>
 
 namespace Ui {
@@ -48,7 +47,6 @@ signals:
 
     // PREVIEW MENU
     // Intended Reciever: (???)
-    void preview_fps_changed(int fps);
     void zoom_in_requested();
     void zoom_out_requested();
 
@@ -85,12 +83,11 @@ private slots:
     void on_EraserToolButton_clicked();
     void on_MirrorXToolButton_clicked();
     void on_MirrorYToolButton_clicked();
-    void on_DiameterSpinBox_editingFinished();
+    //void on_DiameterSpinBox_editingFinished();
     void on_ColorSelectButton_clicked();
     void on_PreviousFrameButton_clicked();
     void on_pushButton_2_clicked();
     void on_AddFrameButton_clicked();
-    void on_PreviewSpeedSpinBox_editingFinished();
     void on_ZoomInButton_clicked();
     void on_ZoomOutButton_clicked();
 
