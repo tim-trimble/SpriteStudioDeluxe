@@ -6,11 +6,11 @@
 Project::Project(int x, int y)
 {
     //INIT PROJECT
-    frames = new QVector<Frame*>();
-    frames->append(new Frame(x, y));
-    currentFrame = frames->at(0);
     currentIndex = 0;
-    zoomLevel = .125;
+    zoomLevel = .5;
+    frames = new QVector<Frame*>();
+    frames->append(new Frame(x, y, zoomLevel));
+    currentFrame = frames->at(0);
 
     //INIT PREVIEW ANIMATION
     previewThread = new QThread();
@@ -69,8 +69,7 @@ void Project::change_color(QColor c)
 
 void Project::add_frame()
 {
-    frames->append(new Frame(frames->at(0)->getX()-2, frames->at(0)->getY()-2));
-    frames->last()->setDevicePixelRatio(zoomLevel);
+    frames->append(new Frame(frames->at(0)->getX()-2, frames->at(0)->getY()-2, zoomLevel));
     history.append(* new std::stack<QImage*>);
     emit update_frame_label(currentIndex + 1, frames->size());
 }
@@ -155,6 +154,11 @@ void Project::save_project(QString filename)
 
 void Project::load_project(QString filename)
 {
+    zoomLevel = .5;
+
+    //clear frame history stacks from project we are loading over
+    history.clear();
+
     QFile file(filename);
     if(!file.open(QIODevice::ReadOnly))
     {
@@ -175,8 +179,10 @@ void Project::load_project(QString filename)
         int frame_count = str.toInt();
         for(int i = 0; i< frame_count; i++)
         {
-            Frame * f = new Frame(x, y);
-            f->setDevicePixelRatio(1);
+            //for each new frame added, add a history stack for it in our history vector
+            history.append(* new std::stack<QImage*>);
+
+            Frame * f = new Frame(x, y, zoomLevel);
             for(int j = 0; j < y - 1; j++)
             {
                 for(int k = 0; k < x; k++)
@@ -203,6 +209,7 @@ void Project::load_project(QString filename)
         currentFrame = frames->at(0);
         currentIndex = 0;
         update_canvas();
+        emit frame_changed(currentFrame);
     }
 }
 void Project::export_project(QString export_type)
