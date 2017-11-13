@@ -56,6 +56,8 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
 
 
     // UI IMAGE INITIALIZATION
+    float iconScale = .5;
+
     QPixmap pencil("./resources/icons/pencil.png");
     QPixmap eraser("./resources/icons/eraser.png");
     QPixmap line("./resources/icons/line.png");
@@ -86,15 +88,15 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     ui->MirrorXToolButton->setIcon(i_mirror_x);
     ui->MirrorYToolButton->setIcon(i_mirror_y);
 
-    ui->PencilToolButton->setIconSize(pencil.rect().size());
-    ui->EraserToolButton->setIconSize(eraser.rect().size());
-    ui->LineToolButton->setIconSize(line.rect().size());
-    ui->BrushToolButton->setIconSize(brush.rect().size());
-    ui->RectangleToolButton->setIconSize(rectangle.rect().size());
-    ui->FilledRectangleButton->setIconSize(rectangle_filled.rect().size());
-    ui->ClearCanvasButton->setIconSize(clear.rect().size());
-    ui->MirrorXToolButton->setIconSize(mirror_x.rect().size());
-    ui->MirrorYToolButton->setIconSize(mirror_y.rect().size());
+    ui->PencilToolButton->setIconSize(pencil.rect().size()*iconScale);
+    ui->EraserToolButton->setIconSize(eraser.rect().size()*iconScale);
+    ui->LineToolButton->setIconSize(line.rect().size()*iconScale);
+    ui->BrushToolButton->setIconSize(brush.rect().size()*iconScale);
+    ui->RectangleToolButton->setIconSize(rectangle.rect().size()*iconScale);
+    ui->FilledRectangleButton->setIconSize(rectangle_filled.rect().size()*iconScale);
+    ui->ClearCanvasButton->setIconSize(clear.rect().size()*iconScale);
+    ui->MirrorXToolButton->setIconSize(mirror_x.rect().size()*iconScale);
+    ui->MirrorYToolButton->setIconSize(mirror_y.rect().size()*iconScale);
 
 }
 
