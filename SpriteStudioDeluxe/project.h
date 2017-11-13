@@ -10,7 +10,6 @@
 #include "previewobject.h"
 #include <stack>
 //#include "QtGifImage-master/src/gifimage/qgifimage.h"
-#include <QAction>
 
 //model for mainwindow editor
 
@@ -42,9 +41,6 @@ public slots:
     void update_canvas();
     void mouse_down_pos(int x, int y);
     void change_color(QColor c);
-
-    void menu_action(QAction*);
-    void new_frames(int x, int y);
 
     void add_frame();
     Frame* get_frame();

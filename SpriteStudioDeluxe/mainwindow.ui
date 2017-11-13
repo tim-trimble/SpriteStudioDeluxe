@@ -368,10 +368,10 @@
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>790</x>
       <y>280</y>
-      <width>151</width>
-      <height>181</height>
+      <width>131</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="title">
@@ -382,7 +382,7 @@
       <rect>
        <x>14</x>
        <y>25</y>
-       <width>121</width>
+       <width>101</width>
        <height>141</height>
       </rect>
      </property>
@@ -394,6 +394,29 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="PreviewSpeedSpinBox">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>180</y>
+       <width>42</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>180</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>FPS</string>
      </property>
     </widget>
    </widget>
@@ -476,7 +499,6 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionNew"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
     <addaction name="actionExport"/>
@@ -520,15 +542,9 @@
     <string>Rotate 90</string>
    </property>
   </action>
-<<<<<<< HEAD
   <action name="actionLoad">
    <property name="text">
     <string>Load</string>
-=======
-  <action name="actionNew">
-   <property name="text">
-    <string>New</string>
->>>>>>> 9bc48d4aa45faf5b9b786873156c1be8c0f89b0b
    </property>
   </action>
  </widget>

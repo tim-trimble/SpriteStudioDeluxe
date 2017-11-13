@@ -16,16 +16,15 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     ui->setupUi(this);
     ui->canvas->setAlignment(Qt::AlignTop);
     ui->canvas->setAlignment(Qt::AlignLeft);
-    ui->CurrentColorLabel->setStyleSheet("QLabel { background-color : black; color : black; }");
-    project.update_frame_label(1,1);
     project.update_canvas();
+    project.update_frame_label(1,1);
+    ui->CurrentColorLabel->setStyleSheet("QLabel { background-color : black; color : black; }");
+
 
     // QIMAGE UPDATE CONNECTIONS
     connect(&tools, SIGNAL(update_can(QImage*)), this, SLOT(update_canvas(QImage*)));
     connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
     connect(project.preview, SIGNAL(thread_end(QImage*)), this, SLOT(update_preview(QImage*)));
-
-    connect(ui->menuBar, SIGNAL(triggered(QAction*)), &project, SLOT(menu_action(QAction*)));
 
     //MOUSE ACTION CONNECTIONS
     connect(ui->canvas, SIGNAL(c_mouse_down()), this, SLOT(c_mouse_down()));
@@ -68,15 +67,14 @@ MainWindow::~MainWindow(){
 void MainWindow::update_canvas(QImage *i)
 {
     ui->canvas->setPixmap(QPixmap::fromImage(*i));
-    ui->canvas->setMaximumSize(i->size() * 1/i->devicePixelRatio());
-    ui->canvas->setMinimumSize(i->size() * 1/i->devicePixelRatio());
+    ui->canvas->setMaximumSize(i->size());
+    ui->canvas->setMinimumSize(i->size());
     ui->canvas->show();
 }
 
 void MainWindow::update_preview(QImage *i)
 {
     ui->PreviewLabel->setPixmap(QPixmap::fromImage(*i));
-    ui->PreviewLabel->setScaledContents(true);
     ui->PreviewLabel->show();
 }
 
@@ -153,12 +151,12 @@ void MainWindow::on_MirrorYToolButton_clicked()
     emit tool_changed(6);
 }
 
-//void MainWindow::on_DiameterSpinBox_editingFinished()
-//{
-//    std::cout << "spinbox" << std::endl;
-//    int x = ui->DiameterSpinBox->value();
-//    emit brush_size_changed(x);
-//}
+void MainWindow::on_DiameterSpinBox_editingFinished()
+{
+    std::cout << "spinbox" << std::endl;
+    int x = ui->DiameterSpinBox->value();
+    emit brush_size_changed(x);
+}
 
 void MainWindow::on_ColorSelectButton_clicked()
 {
@@ -189,6 +187,12 @@ void MainWindow::on_AddFrameButton_clicked()
 {
     std::cout << "add frame" << std::endl;
     emit new_frame_requested();
+}
+
+void MainWindow::on_PreviewSpeedSpinBox_editingFinished()
+{
+    int x = ui->PreviewSpeedSpinBox->value();
+    emit preview_fps_changed(x);
 }
 
 void MainWindow::on_ZoomInButton_clicked()

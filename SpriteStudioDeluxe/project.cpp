@@ -1,7 +1,6 @@
 #include "project.h"
 #include <iostream>
 #include <stack>
-#include <QString>
 
 Project::Project(int x, int y)
 {
@@ -20,7 +19,6 @@ Project::Project(int x, int y)
     connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
     previewThread->start();
     emit send_preview_frame(currentFrame->getImage());
-    update_canvas();
 
     // HISTORY
     history = * new QVector<std::stack<QImage*>>(100);
@@ -48,7 +46,6 @@ void Project::thread_end()
         previewIndex += 1;
     }
     preview->image = frames->at(previewIndex)->getImage();
-
     emit send_preview_frame(currentFrame->getImage());
 }
 
@@ -66,24 +63,6 @@ void Project::mouse_down_pos(int x, int y)
 void Project::change_color(QColor c)
 {
     currentColor = c;
-}
-
-void Project::menu_action(QAction* a){
-    std::cout << "menu" << a->text().toStdString() << std::endl;
-}
-
-void Project::new_frames(int x, int y){
-    for(int i = 0; i < frames->size(); i++){
-        //delete frames->at(i);
-    }
-    delete frames;
-
-    frames = new QVector<Frame*>();
-    frames->append(new Frame(x, y));
-    currentFrame = frames->at(0);
-    currentIndex = 0;
-
-    emit update_frame_label(1, 1);
 }
 
 void Project::add_frame()
