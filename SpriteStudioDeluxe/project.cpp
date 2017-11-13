@@ -210,6 +210,7 @@ void Project::load_project(QString filename)
         currentIndex = 0;
         update_canvas();
         emit frame_changed(currentFrame);
+        emit update_frame_label(currentIndex + 1, frames->length());
     }
 }
 void Project::export_project(QString export_type)
