@@ -109,10 +109,10 @@ void Tools::edit_pixel(int x, int y)
        painter.scale(Project::zoomLevel, Project::zoomLevel);
        painter.drawPoint(x, y);
        if(tool_number == 5) {
-            painter.drawPoint(current_image->width() - x - 1, y);
+            painter.drawPoint(current_image->width()/Project::zoomLevel - x - 1, y);
        }
        else {
-            painter.drawPoint(x, current_image->height() - y - 1);
+            painter.drawPoint(x, current_image->height()/Project::zoomLevel - y - 1);
        }
        painter.end();
        emit update_can(current_image);
