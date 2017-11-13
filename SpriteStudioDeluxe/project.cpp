@@ -71,11 +71,14 @@ void Project::change_color(QColor c)
 
 void Project::add_frame()
 {
-    //previewThread->quit();
+    previewThread->quit();
+    QThread::sleep(0.75);
+
     frames->append(new Frame(frames->at(0)->getX()-2, frames->at(0)->getY()-2, zoomLevel));
     history.append(* new std::stack<QImage*>);
     emit update_frame_label(currentIndex + 1, frames->size());
-    //previewThread->start();
+
+    previewThread->start();
 }
 
 Frame* Project::get_frame(){
