@@ -106,6 +106,16 @@ void Project::previous_frame()
     update_canvas();
 }
 
+void Project::rotate_frame(){
+    Frame* newFrame = frames->at(currentIndex);
+    newFrame->rotateImage(90);
+    frames->replace(currentIndex, newFrame);
+    currentFrame = newFrame;
+
+    emit frame_changed(currentFrame);
+    update_canvas();
+}
+
 void Project::save_project(QString filename)
 {
     QFile file(filename);

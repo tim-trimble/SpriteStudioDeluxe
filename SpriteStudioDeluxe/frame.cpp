@@ -34,8 +34,10 @@ void Frame::rotateImage(int angle){
     QTransform transform;
     transform.translate(image->width()/2, image->height()/2);
     transform.rotate(angle);
+    qreal zoom = image->devicePixelRatio();
 
     image = new QImage(image->transformed(transform, Qt::FastTransformation));
+    image->setDevicePixelRatio(zoom);
 }
 
 QImage* Frame::getImage(){

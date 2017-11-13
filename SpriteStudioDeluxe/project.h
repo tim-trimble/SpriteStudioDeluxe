@@ -50,6 +50,7 @@ public slots:
     Frame* get_frame();
     void next_frame();
     void previous_frame();
+    void rotate_frame();
 
     void save_project(QString filename);
     void load_project(QString filename);
