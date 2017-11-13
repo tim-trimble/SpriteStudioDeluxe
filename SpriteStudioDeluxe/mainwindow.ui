@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Sprite Studio Deluxe</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>resources/icons/SSD_Icon.png</normaloff>resources/icons/SSD_Icon.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(61, 61, 61);
