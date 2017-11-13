@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[61];
-    char stringdata0[1111];
+    char stringdata0[1129];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -47,51 +47,51 @@ QT_MOC_LITERAL(12, 172, 1), // "c"
 QT_MOC_LITERAL(13, 174, 20), // "next_frame_requested"
 QT_MOC_LITERAL(14, 195, 24), // "previous_frame_requested"
 QT_MOC_LITERAL(15, 220, 19), // "new_frame_requested"
-QT_MOC_LITERAL(16, 240, 27), // "history_reversion_requested"
-QT_MOC_LITERAL(17, 268, 19), // "preview_fps_changed"
-QT_MOC_LITERAL(18, 288, 3), // "fps"
-QT_MOC_LITERAL(19, 292, 17), // "zoom_in_requested"
-QT_MOC_LITERAL(20, 310, 18), // "zoom_out_requested"
-QT_MOC_LITERAL(21, 329, 10), // "mouse_drag"
-QT_MOC_LITERAL(22, 340, 1), // "x"
-QT_MOC_LITERAL(23, 342, 1), // "y"
-QT_MOC_LITERAL(24, 344, 10), // "mouse_down"
-QT_MOC_LITERAL(25, 355, 8), // "mouse_up"
-QT_MOC_LITERAL(26, 364, 10), // "mouse_left"
-QT_MOC_LITERAL(27, 375, 11), // "save_sprite"
-QT_MOC_LITERAL(28, 387, 8), // "filename"
-QT_MOC_LITERAL(29, 396, 11), // "load_sprite"
-QT_MOC_LITERAL(30, 408, 13), // "update_canvas"
-QT_MOC_LITERAL(31, 422, 7), // "QImage*"
-QT_MOC_LITERAL(32, 430, 1), // "i"
-QT_MOC_LITERAL(33, 432, 14), // "update_preview"
-QT_MOC_LITERAL(34, 447, 26), // "update_current_frame_label"
-QT_MOC_LITERAL(35, 474, 13), // "current_frame"
-QT_MOC_LITERAL(36, 488, 12), // "total_frames"
-QT_MOC_LITERAL(37, 501, 16), // "c_mouse_down_pos"
-QT_MOC_LITERAL(38, 518, 12), // "c_mouse_down"
-QT_MOC_LITERAL(39, 531, 10), // "c_mouse_up"
-QT_MOC_LITERAL(40, 542, 12), // "c_mouse_left"
-QT_MOC_LITERAL(41, 555, 27), // "on_PencilToolButton_clicked"
-QT_MOC_LITERAL(42, 583, 26), // "on_BrushToolButton_clicked"
-QT_MOC_LITERAL(43, 610, 25), // "on_LineToolButton_clicked"
-QT_MOC_LITERAL(44, 636, 27), // "on_EraserToolButton_clicked"
-QT_MOC_LITERAL(45, 664, 28), // "on_MirrorXToolButton_clicked"
-QT_MOC_LITERAL(46, 693, 28), // "on_MirrorYToolButton_clicked"
-QT_MOC_LITERAL(47, 722, 34), // "on_DiameterSpinBox_editingFin..."
-QT_MOC_LITERAL(48, 757, 28), // "on_ColorSelectButton_clicked"
-QT_MOC_LITERAL(49, 786, 30), // "on_PreviousFrameButton_clicked"
-QT_MOC_LITERAL(50, 817, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(51, 841, 25), // "on_AddFrameButton_clicked"
-QT_MOC_LITERAL(52, 867, 23), // "on_ZoomInButton_clicked"
-QT_MOC_LITERAL(53, 891, 24), // "on_ZoomOutButton_clicked"
-QT_MOC_LITERAL(54, 916, 25), // "on_StepBackButton_clicked"
-QT_MOC_LITERAL(55, 942, 30), // "on_RectangleToolButton_clicked"
-QT_MOC_LITERAL(56, 973, 32), // "on_FilledRectangleButton_clicked"
-QT_MOC_LITERAL(57, 1006, 28), // "on_ClearCanvasButton_clicked"
-QT_MOC_LITERAL(58, 1035, 24), // "on_FillAllButton_clicked"
-QT_MOC_LITERAL(59, 1060, 23), // "on_actionOpen_triggered"
-QT_MOC_LITERAL(60, 1084, 26) // "on_actionSave_As_triggered"
+QT_MOC_LITERAL(16, 240, 12), // "rotate_frame"
+QT_MOC_LITERAL(17, 253, 27), // "history_reversion_requested"
+QT_MOC_LITERAL(18, 281, 17), // "zoom_in_requested"
+QT_MOC_LITERAL(19, 299, 18), // "zoom_out_requested"
+QT_MOC_LITERAL(20, 318, 10), // "mouse_drag"
+QT_MOC_LITERAL(21, 329, 1), // "x"
+QT_MOC_LITERAL(22, 331, 1), // "y"
+QT_MOC_LITERAL(23, 333, 10), // "mouse_down"
+QT_MOC_LITERAL(24, 344, 8), // "mouse_up"
+QT_MOC_LITERAL(25, 353, 10), // "mouse_left"
+QT_MOC_LITERAL(26, 364, 11), // "save_sprite"
+QT_MOC_LITERAL(27, 376, 8), // "filename"
+QT_MOC_LITERAL(28, 385, 11), // "load_sprite"
+QT_MOC_LITERAL(29, 397, 13), // "update_canvas"
+QT_MOC_LITERAL(30, 411, 7), // "QImage*"
+QT_MOC_LITERAL(31, 419, 1), // "i"
+QT_MOC_LITERAL(32, 421, 14), // "update_preview"
+QT_MOC_LITERAL(33, 436, 26), // "update_current_frame_label"
+QT_MOC_LITERAL(34, 463, 13), // "current_frame"
+QT_MOC_LITERAL(35, 477, 12), // "total_frames"
+QT_MOC_LITERAL(36, 490, 16), // "c_mouse_down_pos"
+QT_MOC_LITERAL(37, 507, 12), // "c_mouse_down"
+QT_MOC_LITERAL(38, 520, 10), // "c_mouse_up"
+QT_MOC_LITERAL(39, 531, 12), // "c_mouse_left"
+QT_MOC_LITERAL(40, 544, 27), // "on_PencilToolButton_clicked"
+QT_MOC_LITERAL(41, 572, 26), // "on_BrushToolButton_clicked"
+QT_MOC_LITERAL(42, 599, 25), // "on_LineToolButton_clicked"
+QT_MOC_LITERAL(43, 625, 27), // "on_EraserToolButton_clicked"
+QT_MOC_LITERAL(44, 653, 28), // "on_MirrorXToolButton_clicked"
+QT_MOC_LITERAL(45, 682, 28), // "on_MirrorYToolButton_clicked"
+QT_MOC_LITERAL(46, 711, 34), // "on_DiameterSpinBox_editingFin..."
+QT_MOC_LITERAL(47, 746, 28), // "on_ColorSelectButton_clicked"
+QT_MOC_LITERAL(48, 775, 30), // "on_PreviousFrameButton_clicked"
+QT_MOC_LITERAL(49, 806, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(50, 830, 25), // "on_AddFrameButton_clicked"
+QT_MOC_LITERAL(51, 856, 23), // "on_ZoomInButton_clicked"
+QT_MOC_LITERAL(52, 880, 24), // "on_ZoomOutButton_clicked"
+QT_MOC_LITERAL(53, 905, 25), // "on_StepBackButton_clicked"
+QT_MOC_LITERAL(54, 931, 30), // "on_RectangleToolButton_clicked"
+QT_MOC_LITERAL(55, 962, 32), // "on_FilledRectangleButton_clicked"
+QT_MOC_LITERAL(56, 995, 28), // "on_ClearCanvasButton_clicked"
+QT_MOC_LITERAL(57, 1024, 24), // "on_FillAllButton_clicked"
+QT_MOC_LITERAL(58, 1049, 23), // "on_actionOpen_triggered"
+QT_MOC_LITERAL(59, 1073, 26), // "on_actionSave_As_triggered"
+QT_MOC_LITERAL(60, 1100, 28) // "on_actionRotate_90_triggered"
 
     },
     "MainWindow\0tool_changed\0\0pencil_tool_selected\0"
@@ -100,14 +100,13 @@ QT_MOC_LITERAL(60, 1084, 26) // "on_actionSave_As_triggered"
     "fill_canvas\0brush_size_changed\0d\0"
     "brush_color_changed\0c\0next_frame_requested\0"
     "previous_frame_requested\0new_frame_requested\0"
-    "history_reversion_requested\0"
-    "preview_fps_changed\0fps\0zoom_in_requested\0"
-    "zoom_out_requested\0mouse_drag\0x\0y\0"
-    "mouse_down\0mouse_up\0mouse_left\0"
-    "save_sprite\0filename\0load_sprite\0"
-    "update_canvas\0QImage*\0i\0update_preview\0"
-    "update_current_frame_label\0current_frame\0"
-    "total_frames\0c_mouse_down_pos\0"
+    "rotate_frame\0history_reversion_requested\0"
+    "zoom_in_requested\0zoom_out_requested\0"
+    "mouse_drag\0x\0y\0mouse_down\0mouse_up\0"
+    "mouse_left\0save_sprite\0filename\0"
+    "load_sprite\0update_canvas\0QImage*\0i\0"
+    "update_preview\0update_current_frame_label\0"
+    "current_frame\0total_frames\0c_mouse_down_pos\0"
     "c_mouse_down\0c_mouse_up\0c_mouse_left\0"
     "on_PencilToolButton_clicked\0"
     "on_BrushToolButton_clicked\0"
@@ -128,7 +127,8 @@ QT_MOC_LITERAL(60, 1084, 26) // "on_actionSave_As_triggered"
     "on_ClearCanvasButton_clicked\0"
     "on_FillAllButton_clicked\0"
     "on_actionOpen_triggered\0"
-    "on_actionSave_As_triggered"
+    "on_actionSave_As_triggered\0"
+    "on_actionRotate_90_triggered"
 };
 #undef QT_MOC_LITERAL
 
@@ -138,7 +138,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      49,   14, // methods
+      50,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -146,57 +146,58 @@ static const uint qt_meta_data_MainWindow[] = {
       22,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  259,    2, 0x06 /* Public */,
-       3,    0,  262,    2, 0x06 /* Public */,
-       4,    0,  263,    2, 0x06 /* Public */,
-       5,    0,  264,    2, 0x06 /* Public */,
-       6,    0,  265,    2, 0x06 /* Public */,
-       7,    0,  266,    2, 0x06 /* Public */,
-       8,    0,  267,    2, 0x06 /* Public */,
-       9,    1,  268,    2, 0x06 /* Public */,
-      11,    1,  271,    2, 0x06 /* Public */,
-      13,    0,  274,    2, 0x06 /* Public */,
-      14,    0,  275,    2, 0x06 /* Public */,
-      15,    0,  276,    2, 0x06 /* Public */,
-      16,    0,  277,    2, 0x06 /* Public */,
-      17,    1,  278,    2, 0x06 /* Public */,
-      19,    0,  281,    2, 0x06 /* Public */,
-      20,    0,  282,    2, 0x06 /* Public */,
-      21,    2,  283,    2, 0x06 /* Public */,
-      24,    2,  288,    2, 0x06 /* Public */,
-      25,    2,  293,    2, 0x06 /* Public */,
-      26,    0,  298,    2, 0x06 /* Public */,
-      27,    1,  299,    2, 0x06 /* Public */,
-      29,    1,  302,    2, 0x06 /* Public */,
+       1,    1,  264,    2, 0x06 /* Public */,
+       3,    0,  267,    2, 0x06 /* Public */,
+       4,    0,  268,    2, 0x06 /* Public */,
+       5,    0,  269,    2, 0x06 /* Public */,
+       6,    0,  270,    2, 0x06 /* Public */,
+       7,    0,  271,    2, 0x06 /* Public */,
+       8,    0,  272,    2, 0x06 /* Public */,
+       9,    1,  273,    2, 0x06 /* Public */,
+      11,    1,  276,    2, 0x06 /* Public */,
+      13,    0,  279,    2, 0x06 /* Public */,
+      14,    0,  280,    2, 0x06 /* Public */,
+      15,    0,  281,    2, 0x06 /* Public */,
+      16,    0,  282,    2, 0x06 /* Public */,
+      17,    0,  283,    2, 0x06 /* Public */,
+      18,    0,  284,    2, 0x06 /* Public */,
+      19,    0,  285,    2, 0x06 /* Public */,
+      20,    2,  286,    2, 0x06 /* Public */,
+      23,    2,  291,    2, 0x06 /* Public */,
+      24,    2,  296,    2, 0x06 /* Public */,
+      25,    0,  301,    2, 0x06 /* Public */,
+      26,    1,  302,    2, 0x06 /* Public */,
+      28,    1,  305,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      30,    1,  305,    2, 0x0a /* Public */,
-      33,    1,  308,    2, 0x0a /* Public */,
-      34,    2,  311,    2, 0x0a /* Public */,
-      37,    0,  316,    2, 0x0a /* Public */,
-      38,    0,  317,    2, 0x0a /* Public */,
-      39,    0,  318,    2, 0x0a /* Public */,
-      40,    0,  319,    2, 0x0a /* Public */,
-      41,    0,  320,    2, 0x08 /* Private */,
-      42,    0,  321,    2, 0x08 /* Private */,
-      43,    0,  322,    2, 0x08 /* Private */,
-      44,    0,  323,    2, 0x08 /* Private */,
-      45,    0,  324,    2, 0x08 /* Private */,
-      46,    0,  325,    2, 0x08 /* Private */,
-      47,    0,  326,    2, 0x08 /* Private */,
-      48,    0,  327,    2, 0x08 /* Private */,
-      49,    0,  328,    2, 0x08 /* Private */,
-      50,    0,  329,    2, 0x08 /* Private */,
-      51,    0,  330,    2, 0x08 /* Private */,
-      52,    0,  331,    2, 0x08 /* Private */,
-      53,    0,  332,    2, 0x08 /* Private */,
-      54,    0,  333,    2, 0x08 /* Private */,
-      55,    0,  334,    2, 0x08 /* Private */,
-      56,    0,  335,    2, 0x08 /* Private */,
-      57,    0,  336,    2, 0x08 /* Private */,
-      58,    0,  337,    2, 0x08 /* Private */,
-      59,    0,  338,    2, 0x08 /* Private */,
-      60,    0,  339,    2, 0x08 /* Private */,
+      29,    1,  308,    2, 0x0a /* Public */,
+      32,    1,  311,    2, 0x0a /* Public */,
+      33,    2,  314,    2, 0x0a /* Public */,
+      36,    0,  319,    2, 0x0a /* Public */,
+      37,    0,  320,    2, 0x0a /* Public */,
+      38,    0,  321,    2, 0x0a /* Public */,
+      39,    0,  322,    2, 0x0a /* Public */,
+      40,    0,  323,    2, 0x08 /* Private */,
+      41,    0,  324,    2, 0x08 /* Private */,
+      42,    0,  325,    2, 0x08 /* Private */,
+      43,    0,  326,    2, 0x08 /* Private */,
+      44,    0,  327,    2, 0x08 /* Private */,
+      45,    0,  328,    2, 0x08 /* Private */,
+      46,    0,  329,    2, 0x08 /* Private */,
+      47,    0,  330,    2, 0x08 /* Private */,
+      48,    0,  331,    2, 0x08 /* Private */,
+      49,    0,  332,    2, 0x08 /* Private */,
+      50,    0,  333,    2, 0x08 /* Private */,
+      51,    0,  334,    2, 0x08 /* Private */,
+      52,    0,  335,    2, 0x08 /* Private */,
+      53,    0,  336,    2, 0x08 /* Private */,
+      54,    0,  337,    2, 0x08 /* Private */,
+      55,    0,  338,    2, 0x08 /* Private */,
+      56,    0,  339,    2, 0x08 /* Private */,
+      57,    0,  340,    2, 0x08 /* Private */,
+      58,    0,  341,    2, 0x08 /* Private */,
+      59,    0,  342,    2, 0x08 /* Private */,
+      60,    0,  343,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -212,20 +213,21 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   18,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   22,   23,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   22,   23,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   22,   23,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   28,
-    QMetaType::Void, QMetaType::QString,   28,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   21,   22,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   21,   22,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   21,   22,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   27,
+    QMetaType::Void, QMetaType::QString,   27,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 31,   32,
-    QMetaType::Void, 0x80000000 | 31,   32,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   35,   36,
+    QMetaType::Void, 0x80000000 | 30,   31,
+    QMetaType::Void, 0x80000000 | 30,   31,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   34,   35,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -272,8 +274,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->next_frame_requested(); break;
         case 10: _t->previous_frame_requested(); break;
         case 11: _t->new_frame_requested(); break;
-        case 12: _t->history_reversion_requested(); break;
-        case 13: _t->preview_fps_changed((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: _t->rotate_frame(); break;
+        case 13: _t->history_reversion_requested(); break;
         case 14: _t->zoom_in_requested(); break;
         case 15: _t->zoom_out_requested(); break;
         case 16: _t->mouse_drag((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
@@ -309,6 +311,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 46: _t->on_FillAllButton_clicked(); break;
         case 47: _t->on_actionOpen_triggered(); break;
         case 48: _t->on_actionSave_As_triggered(); break;
+        case 49: _t->on_actionRotate_90_triggered(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -400,14 +403,14 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::history_reversion_requested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::rotate_frame)) {
                 *result = 12;
                 return;
             }
         }
         {
-            typedef void (MainWindow::*_t)(int );
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::preview_fps_changed)) {
+            typedef void (MainWindow::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::history_reversion_requested)) {
                 *result = 13;
                 return;
             }
@@ -496,13 +499,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 49)
+        if (_id < 50)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 49;
+        _id -= 50;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 49)
+        if (_id < 50)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 49;
+        _id -= 50;
     }
     return _id;
 }
@@ -583,16 +586,15 @@ void MainWindow::new_frame_requested()
 }
 
 // SIGNAL 12
-void MainWindow::history_reversion_requested()
+void MainWindow::rotate_frame()
 {
     QMetaObject::activate(this, &staticMetaObject, 12, nullptr);
 }
 
 // SIGNAL 13
-void MainWindow::preview_fps_changed(int _t1)
+void MainWindow::history_reversion_requested()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
-    QMetaObject::activate(this, &staticMetaObject, 13, _a);
+    QMetaObject::activate(this, &staticMetaObject, 13, nullptr);
 }
 
 // SIGNAL 14

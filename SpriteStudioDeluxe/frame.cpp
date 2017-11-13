@@ -35,9 +35,7 @@ void Frame::rotateImage(int angle){
     transform.translate(image->width()/2, image->height()/2);
     transform.rotate(angle);
 
-    QImage* temp = image;
     image = new QImage(image->transformed(transform, Qt::FastTransformation));
-    delete temp;
 }
 
 QImage* Frame::getImage(){
@@ -50,22 +48,17 @@ void Frame::setImage(QImage * newImage)
 }
 
 void Frame::scaleImage(int x, int y){
-    QImage* temp = image;
     image = new QImage(image->scaled(x, y, Qt::KeepAspectRatio, Qt::FastTransformation));
-    delete temp;
 }
 
 void Frame::resizeWorkspace(int x, int y){
-    QImage* temp = image;
     image = new QImage(image->copy(0, 0, x, y));
-    delete temp;
 }
 
 void Frame::setDevicePixelRatio(float newRatio)
 {
     image->setDevicePixelRatio(newRatio);
 }
-
 
 /*Mirror
 *myImage = myImage->mirrored(); defaults to x-axis

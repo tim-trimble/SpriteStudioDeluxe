@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Project_t {
-    QByteArrayData data[34];
-    char stringdata0[369];
+    QByteArrayData data[33];
+    char stringdata0[354];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -56,15 +56,14 @@ QT_MOC_LITERAL(21, 211, 9), // "add_frame"
 QT_MOC_LITERAL(22, 221, 9), // "get_frame"
 QT_MOC_LITERAL(23, 231, 10), // "next_frame"
 QT_MOC_LITERAL(24, 242, 14), // "previous_frame"
-QT_MOC_LITERAL(25, 257, 14), // "get_all_frames"
-QT_MOC_LITERAL(26, 272, 12), // "save_project"
-QT_MOC_LITERAL(27, 285, 8), // "filename"
-QT_MOC_LITERAL(28, 294, 12), // "load_project"
-QT_MOC_LITERAL(29, 307, 14), // "export_project"
-QT_MOC_LITERAL(30, 322, 11), // "export_type"
-QT_MOC_LITERAL(31, 334, 17), // "history_step_back"
-QT_MOC_LITERAL(32, 352, 7), // "zoom_in"
-QT_MOC_LITERAL(33, 360, 8) // "zoom_out"
+QT_MOC_LITERAL(25, 257, 12), // "save_project"
+QT_MOC_LITERAL(26, 270, 8), // "filename"
+QT_MOC_LITERAL(27, 279, 12), // "load_project"
+QT_MOC_LITERAL(28, 292, 14), // "export_project"
+QT_MOC_LITERAL(29, 307, 11), // "export_type"
+QT_MOC_LITERAL(30, 319, 17), // "history_step_back"
+QT_MOC_LITERAL(31, 337, 7), // "zoom_in"
+QT_MOC_LITERAL(32, 345, 8) // "zoom_out"
 
     },
     "Project\0send_update\0\0QImage*\0image\0"
@@ -74,10 +73,9 @@ QT_MOC_LITERAL(33, 360, 8) // "zoom_out"
     "current\0total\0thread_end\0update_canvas\0"
     "mouse_down_pos\0x\0y\0change_color\0c\0"
     "add_frame\0get_frame\0next_frame\0"
-    "previous_frame\0get_all_frames\0"
-    "save_project\0filename\0load_project\0"
-    "export_project\0export_type\0history_step_back\0"
-    "zoom_in\0zoom_out"
+    "previous_frame\0save_project\0filename\0"
+    "load_project\0export_project\0export_type\0"
+    "history_step_back\0zoom_in\0zoom_out"
 };
 #undef QT_MOC_LITERAL
 
@@ -87,7 +85,7 @@ static const uint qt_meta_data_Project[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      20,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -95,28 +93,27 @@ static const uint qt_meta_data_Project[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  114,    2, 0x06 /* Public */,
-       5,    1,  117,    2, 0x06 /* Public */,
-       8,    1,  120,    2, 0x06 /* Public */,
-      10,    1,  123,    2, 0x06 /* Public */,
-      11,    2,  126,    2, 0x06 /* Public */,
+       1,    1,  109,    2, 0x06 /* Public */,
+       5,    1,  112,    2, 0x06 /* Public */,
+       8,    1,  115,    2, 0x06 /* Public */,
+      10,    1,  118,    2, 0x06 /* Public */,
+      11,    2,  121,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      14,    0,  131,    2, 0x0a /* Public */,
-      15,    0,  132,    2, 0x0a /* Public */,
-      16,    2,  133,    2, 0x0a /* Public */,
-      19,    1,  138,    2, 0x0a /* Public */,
-      21,    0,  141,    2, 0x0a /* Public */,
-      22,    0,  142,    2, 0x0a /* Public */,
-      23,    0,  143,    2, 0x0a /* Public */,
-      24,    0,  144,    2, 0x0a /* Public */,
-      25,    0,  145,    2, 0x0a /* Public */,
-      26,    1,  146,    2, 0x0a /* Public */,
-      28,    1,  149,    2, 0x0a /* Public */,
-      29,    1,  152,    2, 0x0a /* Public */,
-      31,    0,  155,    2, 0x0a /* Public */,
-      32,    0,  156,    2, 0x0a /* Public */,
-      33,    0,  157,    2, 0x0a /* Public */,
+      14,    0,  126,    2, 0x0a /* Public */,
+      15,    0,  127,    2, 0x0a /* Public */,
+      16,    2,  128,    2, 0x0a /* Public */,
+      19,    1,  133,    2, 0x0a /* Public */,
+      21,    0,  136,    2, 0x0a /* Public */,
+      22,    0,  137,    2, 0x0a /* Public */,
+      23,    0,  138,    2, 0x0a /* Public */,
+      24,    0,  139,    2, 0x0a /* Public */,
+      25,    1,  140,    2, 0x0a /* Public */,
+      27,    1,  143,    2, 0x0a /* Public */,
+      28,    1,  146,    2, 0x0a /* Public */,
+      30,    0,  149,    2, 0x0a /* Public */,
+      31,    0,  150,    2, 0x0a /* Public */,
+      32,    0,  151,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -134,10 +131,9 @@ static const uint qt_meta_data_Project[] = {
     0x80000000 | 9,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   27,
-    QMetaType::Void, QMetaType::QString,   27,
-    QMetaType::Void, QMetaType::QString,   30,
+    QMetaType::Void, QMetaType::QString,   26,
+    QMetaType::Void, QMetaType::QString,   26,
+    QMetaType::Void, QMetaType::QString,   29,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -165,13 +161,12 @@ void Project::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             if (_a[0]) *reinterpret_cast< Frame**>(_a[0]) = std::move(_r); }  break;
         case 11: _t->next_frame(); break;
         case 12: _t->previous_frame(); break;
-        case 13: _t->get_all_frames(); break;
-        case 14: _t->save_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 15: _t->load_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 16: _t->export_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 17: _t->history_step_back(); break;
-        case 18: _t->zoom_in(); break;
-        case 19: _t->zoom_out(); break;
+        case 13: _t->save_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 14: _t->load_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 15: _t->export_project((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 16: _t->history_step_back(); break;
+        case 17: _t->zoom_in(); break;
+        case 18: _t->zoom_out(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -240,13 +235,13 @@ int Project::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 20)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 20;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 20)
+        if (_id < 19)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 20;
+        _id -= 19;
     }
     return _id;
 }

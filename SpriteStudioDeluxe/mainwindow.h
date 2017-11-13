@@ -41,6 +41,7 @@ signals:
     void next_frame_requested();
     void previous_frame_requested();
     void new_frame_requested();
+    void rotate_frame();
 
     // HISTORY MENU
     // Intended Reciever: Project Class
@@ -48,7 +49,6 @@ signals:
 
     // PREVIEW MENU
     // Intended Reciever: (???)
-    void preview_fps_changed(int fps);
     void zoom_in_requested();
     void zoom_out_requested();
 
@@ -106,6 +106,8 @@ private slots:
     void on_actionOpen_triggered();
 
     void on_actionSave_As_triggered();
+
+    void on_actionRotate_90_triggered();
 
 private:
     Ui::MainWindow *ui;

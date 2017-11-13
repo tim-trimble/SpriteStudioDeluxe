@@ -106,20 +106,6 @@ void Project::previous_frame()
     update_canvas();
 }
 
-void Project::get_all_frames()
-{
-    /*
-    std::vector<QPixmap> tempVec;
-    for(auto iter = frames.begin(); iter != frames.end();
-        iter++)
-    {
-        QPixmap pixmap = QPixmap::fromImage(*iter);
-        tempVec.push_back(pixmap);
-    }
-    emit send_all_frames(tempVec);
-    */
-}
-
 void Project::save_project(QString filename)
 {
     QFile file(filename);
@@ -213,6 +199,7 @@ void Project::load_project(QString filename)
         emit update_frame_label(currentIndex + 1, frames->length());
     }
 }
+
 void Project::export_project(QString export_type)
 {
 

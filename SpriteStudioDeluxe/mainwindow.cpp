@@ -285,3 +285,8 @@ void MainWindow::on_actionSave_As_triggered()
     QString filename = QFileDialog::getSaveFileName(this, tr("Save Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
     emit save_sprite(filename);
 }
+
+void MainWindow::on_actionRotate_90_triggered(){
+    std::cout << "rotate" << std::endl;
+    emit rotate_frame();
+}
