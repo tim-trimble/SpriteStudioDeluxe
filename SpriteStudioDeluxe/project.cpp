@@ -120,7 +120,6 @@ void Project::get_all_frames()
 
 void Project::save_project(QString filename)
 {
-    /*
     if(filename.isEmpty())
     {
         return;
@@ -128,29 +127,22 @@ void Project::save_project(QString filename)
     else
     {
         QFile file(filename);
-        if(!file.open(QIODevice::WriteOnly))
+        file.open(QIODevice::WriteOnly);
+        QDataStream out(&file);
+        out.setVersion(QDataStream::Qt_5_9);
+        QVector<QImage> img_vect;
+        for(int i = 0; i < frames->size(); i++)
         {
-            return;
+            img_vect.append(*frames->at(i)->getImage());
         }
-        else
-        {
-            QImage image;
-            QDataStream out(&file);
-            out.setVersion(QDataStream::Qt_5_9);
-            for(auto iter=frames.begin();iter!=frames.end();iter++)
-            {
-                //image = iter->getImage();
-                //out << image;
-            }
-            file.close();
-        }
+        out << img_vect;
+        file.flush();
+        file.close();
     }
-    */
 }
 
 void Project::load_project(QString filename)
 {
-    /*
     if(filename.isEmpty())
     {
         return;
@@ -158,27 +150,24 @@ void Project::load_project(QString filename)
     else
     {
         QFile file(filename);
-        if(!file.open(QIODevice::ReadOnly))
+        file.open(QIODevice::ReadOnly);
+        QDataStream in(&file);
+        in.setVersion(QDataStream::Qt_5_9);
+        frames->clear();
+        QVector<QImage> img_vect;
+        std::cout << "1" << std::endl;
+        in >> img_vect;
+        std::cout << "2" << std::endl;
+        for(int i = 0; i < img_vect.size();i++)
         {
-            return;
+            std::cout <<"1 --" << i << std::endl;
+            frames->append(new Frame(img_vect.at(i)));
+            std::cout << "2 --" << i << std::endl;
         }
-        else
-        {
-            QDataStream in(&file);
-            in.setVersion(QDataStream::Qt_5_9);
-            frames.clear();
-            int numFrames;
-            in >> numFrames;
-            QImage image;
-            for(unsigned i = 0; i<numFrames; i++)
-            {
-                in >> image;
-                Frame f(image);
-                frames.append(f);
-            }
-        }
+        file.close();
+        currentFrame = frames->at(0);
+        update_canvas();
     }
-    */
 }
 
 void Project::export_project(QString export_type)
