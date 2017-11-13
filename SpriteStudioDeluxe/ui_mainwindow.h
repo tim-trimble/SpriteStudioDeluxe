@@ -40,31 +40,6 @@ public:
     QAction *actionRotate_90;
     QWidget *centralWidget;
     QGridLayout *gridLayout_4;
-    QPushButton *AddFrameButton;
-    QGroupBox *groupBox;
-    QGridLayout *gridLayout_2;
-    QToolButton *LineToolButton;
-    QToolButton *EraserToolButton;
-    QToolButton *FilledRectangleButton;
-    QToolButton *RectangleToolButton;
-    QToolButton *FillAllButton;
-    QToolButton *PencilToolButton;
-    QToolButton *BrushToolButton;
-    QToolButton *MirrorXToolButton;
-    QToolButton *MirrorYToolButton;
-    QToolButton *ClearCanvasButton;
-    QGroupBox *groupBox_4;
-    QGridLayout *gridLayout_3;
-    QPushButton *PreviousFrameButton;
-    QLabel *CurrentFrameLabel;
-    QPushButton *pushButton_2;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QGridLayout *gridLayout;
-    Canvas *canvas;
-    QPushButton *ZoomInButton;
-    QPushButton *StepBackButton;
-    QPushButton *ZoomOutButton;
     QGroupBox *groupBox_2;
     QLabel *label_3;
     QSpinBox *DiameterSpinBox;
@@ -77,6 +52,29 @@ public:
     QGroupBox *groupBox_5;
     QLabel *label_5;
     QSpinBox *PreviewSpeedSpinBox;
+    QPushButton *AddFrameButton;
+    QPushButton *ZoomInButton;
+    QGroupBox *groupBox;
+    QGridLayout *gridLayout_2;
+    QToolButton *LineToolButton;
+    QToolButton *EraserToolButton;
+    QToolButton *FilledRectangleButton;
+    QToolButton *RectangleToolButton;
+    QToolButton *FillAllButton;
+    QToolButton *PencilToolButton;
+    QToolButton *BrushToolButton;
+    QToolButton *MirrorXToolButton;
+    QToolButton *MirrorYToolButton;
+    QToolButton *ClearCanvasButton;
+    QPushButton *StepBackButton;
+    QPushButton *ZoomOutButton;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
+    QGridLayout *gridLayout;
+    Canvas *canvas;
+    QPushButton *pushButton_2;
+    QPushButton *PreviousFrameButton;
+    QLabel *CurrentFrameLabel;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -86,7 +84,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(941, 627);
+        MainWindow->resize(941, 648);
         MainWindow->setStyleSheet(QLatin1String("background-color: rgb(61, 61, 61);\n"
 "color: rgb(255, 255, 255);\n"
 "border-color: rgb(33, 33, 33);\n"
@@ -105,10 +103,68 @@ public:
         gridLayout_4->setSpacing(6);
         gridLayout_4->setContentsMargins(11, 11, 11, 11);
         gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
+        groupBox_2 = new QGroupBox(centralWidget);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        groupBox_2->setMinimumSize(QSize(140, 140));
+        groupBox_2->setStyleSheet(QStringLiteral("border: 0;"));
+        label_3 = new QLabel(groupBox_2);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(25, 30, 51, 21));
+        DiameterSpinBox = new QSpinBox(groupBox_2);
+        DiameterSpinBox->setObjectName(QStringLiteral("DiameterSpinBox"));
+        DiameterSpinBox->setGeometry(QRect(75, 29, 42, 22));
+        DiameterSpinBox->setMinimum(1);
+        ColorSelectButton = new QPushButton(groupBox_2);
+        ColorSelectButton->setObjectName(QStringLiteral("ColorSelectButton"));
+        ColorSelectButton->setGeometry(QRect(15, 90, 111, 28));
+        label_4 = new QLabel(groupBox_2);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(20, 70, 81, 16));
+        CurrentColorLabel = new QLabel(groupBox_2);
+        CurrentColorLabel->setObjectName(QStringLiteral("CurrentColorLabel"));
+        CurrentColorLabel->setGeometry(QRect(90, 70, 31, 16));
+        CurrentColorLabel->setFrameShape(QFrame::Box);
+        CurrentColorLabel->setAlignment(Qt::AlignCenter);
+        line = new QFrame(groupBox_2);
+        line->setObjectName(QStringLiteral("line"));
+        line->setGeometry(QRect(10, 50, 111, 20));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        gridLayout_4->addWidget(groupBox_2, 5, 4, 1, 1);
+
+        groupBox_3 = new QGroupBox(centralWidget);
+        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        groupBox_3->setMinimumSize(QSize(140, 161));
+        groupBox_3->setMaximumSize(QSize(121, 161));
+        groupBox_3->setStyleSheet(QStringLiteral("border:0;"));
+        PreviewLabel = new QLabel(groupBox_3);
+        PreviewLabel->setObjectName(QStringLiteral("PreviewLabel"));
+        PreviewLabel->setGeometry(QRect(10, 40, 120, 120));
+        PreviewLabel->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
+        PreviewLabel->setFrameShape(QFrame::Box);
+        PreviewLabel->setAlignment(Qt::AlignCenter);
+        groupBox_5 = new QGroupBox(groupBox_3);
+        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
+        groupBox_5->setGeometry(QRect(10, 0, 71, 31));
+        label_5 = new QLabel(groupBox_5);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(10, 10, 21, 21));
+        PreviewSpeedSpinBox = new QSpinBox(groupBox_5);
+        PreviewSpeedSpinBox->setObjectName(QStringLiteral("PreviewSpeedSpinBox"));
+        PreviewSpeedSpinBox->setGeometry(QRect(30, 10, 33, 21));
+
+        gridLayout_4->addWidget(groupBox_3, 6, 4, 1, 1);
+
         AddFrameButton = new QPushButton(centralWidget);
         AddFrameButton->setObjectName(QStringLiteral("AddFrameButton"));
 
-        gridLayout_4->addWidget(AddFrameButton, 1, 2, 1, 1);
+        gridLayout_4->addWidget(AddFrameButton, 3, 4, 1, 1);
+
+        ZoomInButton = new QPushButton(centralWidget);
+        ZoomInButton->setObjectName(QStringLiteral("ZoomInButton"));
+
+        gridLayout_4->addWidget(ZoomInButton, 3, 0, 1, 1);
 
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
@@ -200,36 +256,17 @@ public:
         gridLayout_2->addWidget(ClearCanvasButton, 10, 1, 1, 1);
 
 
-        gridLayout_4->addWidget(groupBox, 4, 0, 8, 1);
+        gridLayout_4->addWidget(groupBox, 5, 0, 8, 1);
 
-        groupBox_4 = new QGroupBox(centralWidget);
-        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
-        groupBox_4->setMaximumSize(QSize(16777215, 70));
-        groupBox_4->setToolTipDuration(2);
-        groupBox_4->setStyleSheet(QStringLiteral(""));
-        gridLayout_3 = new QGridLayout(groupBox_4);
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        PreviousFrameButton = new QPushButton(groupBox_4);
-        PreviousFrameButton->setObjectName(QStringLiteral("PreviousFrameButton"));
-        PreviousFrameButton->setStyleSheet(QStringLiteral(""));
+        StepBackButton = new QPushButton(centralWidget);
+        StepBackButton->setObjectName(QStringLiteral("StepBackButton"));
 
-        gridLayout_3->addWidget(PreviousFrameButton, 0, 0, 1, 1);
+        gridLayout_4->addWidget(StepBackButton, 4, 4, 1, 1);
 
-        CurrentFrameLabel = new QLabel(groupBox_4);
-        CurrentFrameLabel->setObjectName(QStringLiteral("CurrentFrameLabel"));
-        CurrentFrameLabel->setAlignment(Qt::AlignCenter);
+        ZoomOutButton = new QPushButton(centralWidget);
+        ZoomOutButton->setObjectName(QStringLiteral("ZoomOutButton"));
 
-        gridLayout_3->addWidget(CurrentFrameLabel, 0, 1, 1, 1);
-
-        pushButton_2 = new QPushButton(groupBox_4);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        gridLayout_3->addWidget(pushButton_2, 0, 2, 1, 1);
-
-
-        gridLayout_4->addWidget(groupBox_4, 0, 1, 4, 1);
+        gridLayout_4->addWidget(ZoomOutButton, 4, 0, 1, 1);
 
         scrollArea = new QScrollArea(centralWidget);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
@@ -238,7 +275,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 689, 497));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 689, 532));
         gridLayout = new QGridLayout(scrollAreaWidgetContents);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -256,75 +293,24 @@ public:
 
         scrollArea->setWidget(scrollAreaWidgetContents);
 
-        gridLayout_4->addWidget(scrollArea, 4, 1, 8, 1);
+        gridLayout_4->addWidget(scrollArea, 5, 1, 8, 3);
 
-        ZoomInButton = new QPushButton(centralWidget);
-        ZoomInButton->setObjectName(QStringLiteral("ZoomInButton"));
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
 
-        gridLayout_4->addWidget(ZoomInButton, 1, 0, 1, 1);
+        gridLayout_4->addWidget(pushButton_2, 3, 3, 2, 1);
 
-        StepBackButton = new QPushButton(centralWidget);
-        StepBackButton->setObjectName(QStringLiteral("StepBackButton"));
+        PreviousFrameButton = new QPushButton(centralWidget);
+        PreviousFrameButton->setObjectName(QStringLiteral("PreviousFrameButton"));
+        PreviousFrameButton->setStyleSheet(QStringLiteral(""));
 
-        gridLayout_4->addWidget(StepBackButton, 2, 2, 1, 1);
+        gridLayout_4->addWidget(PreviousFrameButton, 3, 1, 2, 1);
 
-        ZoomOutButton = new QPushButton(centralWidget);
-        ZoomOutButton->setObjectName(QStringLiteral("ZoomOutButton"));
+        CurrentFrameLabel = new QLabel(centralWidget);
+        CurrentFrameLabel->setObjectName(QStringLiteral("CurrentFrameLabel"));
+        CurrentFrameLabel->setAlignment(Qt::AlignCenter);
 
-        gridLayout_4->addWidget(ZoomOutButton, 2, 0, 1, 1);
-
-        groupBox_2 = new QGroupBox(centralWidget);
-        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        groupBox_2->setMinimumSize(QSize(140, 140));
-        groupBox_2->setStyleSheet(QStringLiteral(""));
-        label_3 = new QLabel(groupBox_2);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(25, 30, 51, 21));
-        DiameterSpinBox = new QSpinBox(groupBox_2);
-        DiameterSpinBox->setObjectName(QStringLiteral("DiameterSpinBox"));
-        DiameterSpinBox->setGeometry(QRect(75, 29, 42, 22));
-        DiameterSpinBox->setMinimum(1);
-        ColorSelectButton = new QPushButton(groupBox_2);
-        ColorSelectButton->setObjectName(QStringLiteral("ColorSelectButton"));
-        ColorSelectButton->setGeometry(QRect(15, 90, 111, 28));
-        label_4 = new QLabel(groupBox_2);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(20, 70, 81, 16));
-        CurrentColorLabel = new QLabel(groupBox_2);
-        CurrentColorLabel->setObjectName(QStringLiteral("CurrentColorLabel"));
-        CurrentColorLabel->setGeometry(QRect(90, 70, 31, 16));
-        CurrentColorLabel->setFrameShape(QFrame::Box);
-        CurrentColorLabel->setAlignment(Qt::AlignCenter);
-        line = new QFrame(groupBox_2);
-        line->setObjectName(QStringLiteral("line"));
-        line->setGeometry(QRect(10, 50, 111, 20));
-        line->setFrameShape(QFrame::HLine);
-        line->setFrameShadow(QFrame::Sunken);
-
-        gridLayout_4->addWidget(groupBox_2, 4, 2, 1, 1);
-
-        groupBox_3 = new QGroupBox(centralWidget);
-        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
-        groupBox_3->setMinimumSize(QSize(140, 161));
-        groupBox_3->setMaximumSize(QSize(121, 161));
-        groupBox_3->setStyleSheet(QStringLiteral("border:0;"));
-        PreviewLabel = new QLabel(groupBox_3);
-        PreviewLabel->setObjectName(QStringLiteral("PreviewLabel"));
-        PreviewLabel->setGeometry(QRect(10, 40, 120, 120));
-        PreviewLabel->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
-        PreviewLabel->setFrameShape(QFrame::Box);
-        PreviewLabel->setAlignment(Qt::AlignCenter);
-        groupBox_5 = new QGroupBox(groupBox_3);
-        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
-        groupBox_5->setGeometry(QRect(10, 0, 71, 31));
-        label_5 = new QLabel(groupBox_5);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(10, 10, 21, 21));
-        PreviewSpeedSpinBox = new QSpinBox(groupBox_5);
-        PreviewSpeedSpinBox->setObjectName(QStringLiteral("PreviewSpeedSpinBox"));
-        PreviewSpeedSpinBox->setGeometry(QRect(30, 10, 33, 21));
-
-        gridLayout_4->addWidget(groupBox_3, 5, 2, 1, 1);
+        gridLayout_4->addWidget(CurrentFrameLabel, 3, 2, 2, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -358,7 +344,17 @@ public:
         actionSave_As->setText(QApplication::translate("MainWindow", "Save As", Q_NULLPTR));
         actionExport->setText(QApplication::translate("MainWindow", "Export", Q_NULLPTR));
         actionRotate_90->setText(QApplication::translate("MainWindow", "Rotate 90", Q_NULLPTR));
+        groupBox_2->setTitle(QString());
+        label_3->setText(QApplication::translate("MainWindow", "Diameter", Q_NULLPTR));
+        ColorSelectButton->setText(QApplication::translate("MainWindow", "Color Select", Q_NULLPTR));
+        label_4->setText(QApplication::translate("MainWindow", "Current Color", Q_NULLPTR));
+        CurrentColorLabel->setText(QString());
+        groupBox_3->setTitle(QString());
+        PreviewLabel->setText(QString());
+        groupBox_5->setTitle(QString());
+        label_5->setText(QApplication::translate("MainWindow", "FPS", Q_NULLPTR));
         AddFrameButton->setText(QApplication::translate("MainWindow", "Add Frame", Q_NULLPTR));
+        ZoomInButton->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
         groupBox->setTitle(QString());
         LineToolButton->setText(QApplication::translate("MainWindow", "Line", Q_NULLPTR));
         EraserToolButton->setText(QApplication::translate("MainWindow", "Eraser", Q_NULLPTR));
@@ -371,23 +367,12 @@ public:
         MirrorXToolButton->setText(QApplication::translate("MainWindow", "Mirror X", Q_NULLPTR));
         MirrorYToolButton->setText(QApplication::translate("MainWindow", "Mirror Y", Q_NULLPTR));
         ClearCanvasButton->setText(QApplication::translate("MainWindow", "Clear All", Q_NULLPTR));
-        groupBox_4->setTitle(QString());
-        PreviousFrameButton->setText(QApplication::translate("MainWindow", "Previous Frame", Q_NULLPTR));
-        CurrentFrameLabel->setText(QApplication::translate("MainWindow", "Current Frame Label", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
-        canvas->setText(QString());
-        ZoomInButton->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
         StepBackButton->setText(QApplication::translate("MainWindow", "Step Back", Q_NULLPTR));
         ZoomOutButton->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));
-        groupBox_2->setTitle(QString());
-        label_3->setText(QApplication::translate("MainWindow", "Diameter", Q_NULLPTR));
-        ColorSelectButton->setText(QApplication::translate("MainWindow", "Color Select", Q_NULLPTR));
-        label_4->setText(QApplication::translate("MainWindow", "Current Color", Q_NULLPTR));
-        CurrentColorLabel->setText(QString());
-        groupBox_3->setTitle(QString());
-        PreviewLabel->setText(QString());
-        groupBox_5->setTitle(QString());
-        label_5->setText(QApplication::translate("MainWindow", "FPS", Q_NULLPTR));
+        canvas->setText(QString());
+        pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
+        PreviousFrameButton->setText(QApplication::translate("MainWindow", "Previous Frame", Q_NULLPTR));
+        CurrentFrameLabel->setText(QApplication::translate("MainWindow", "Current Frame Label", Q_NULLPTR));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", Q_NULLPTR));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", Q_NULLPTR));
     } // retranslateUi
