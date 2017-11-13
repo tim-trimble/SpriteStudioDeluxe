@@ -69,7 +69,8 @@ void Project::change_color(QColor c)
 void Project::add_frame()
 {
     frames->append(new Frame(frames->at(0)->getX()-2, frames->at(0)->getY()-2));
-    history[currentIndex+1] = * new std::stack<QImage*>;
+    frames->last()->setDevicePixelRatio(zoomLevel);
+    history.append(* new std::stack<QImage*>);
     emit update_frame_label(currentIndex + 1, frames->size());
 }
 
@@ -197,6 +198,7 @@ void Project::history_step_back()
     }
 
     currentFrame->setImage(history[currentIndex].top());
+    history[currentIndex].top()->setDevicePixelRatio(zoomLevel);
     history[currentIndex].pop();
     update_canvas();
     emit frame_changed(currentFrame);
