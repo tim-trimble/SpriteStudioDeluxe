@@ -90,7 +90,6 @@ private slots:
     void on_PreviousFrameButton_clicked();
     void on_pushButton_2_clicked();
     void on_AddFrameButton_clicked();
-    void on_PreviewSpeedSpinBox_editingFinished();
     void on_ZoomInButton_clicked();
     void on_ZoomOutButton_clicked();
 

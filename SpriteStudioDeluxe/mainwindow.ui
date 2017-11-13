@@ -60,10 +60,10 @@ border-color: rgb(33, 33, 33);
       <widget class="QLabel" name="PreviewLabel">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>40</y>
-         <width>120</width>
-         <height>120</height>
+         <x>0</x>
+         <y>10</y>
+         <width>141</width>
+         <height>141</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -78,42 +78,6 @@ border-color: rgb(33, 33, 33);
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
-      </widget>
-      <widget class="QGroupBox" name="groupBox_5">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>0</y>
-         <width>71</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="title">
-        <string/>
-       </property>
-       <widget class="QLabel" name="label_5">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>21</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>FPS</string>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="PreviewSpeedSpinBox">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>10</y>
-          <width>33</width>
-          <height>21</height>
-         </rect>
-        </property>
-       </widget>
       </widget>
      </widget>
     </item>
@@ -551,8 +515,8 @@ border-color: rgb(33, 33, 33);
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>689</width>
-         <height>532</height>
+         <width>694</width>
+         <height>529</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -632,7 +596,7 @@ border:0;</string>
      <x>0</x>
      <y>0</y>
      <width>941</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

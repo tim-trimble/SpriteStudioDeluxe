@@ -43,9 +43,6 @@ public:
     QPushButton *ColorSelectButton;
     QGroupBox *groupBox_3;
     QLabel *PreviewLabel;
-    QGroupBox *groupBox_5;
-    QLabel *label_5;
-    QSpinBox *PreviewSpeedSpinBox;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_2;
     QToolButton *LineToolButton;
@@ -121,19 +118,10 @@ public:
         groupBox_3->setStyleSheet(QStringLiteral("border:0;"));
         PreviewLabel = new QLabel(groupBox_3);
         PreviewLabel->setObjectName(QStringLiteral("PreviewLabel"));
-        PreviewLabel->setGeometry(QRect(10, 40, 120, 120));
+        PreviewLabel->setGeometry(QRect(0, 10, 141, 141));
         PreviewLabel->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
         PreviewLabel->setFrameShape(QFrame::Box);
         PreviewLabel->setAlignment(Qt::AlignCenter);
-        groupBox_5 = new QGroupBox(groupBox_3);
-        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
-        groupBox_5->setGeometry(QRect(10, 0, 71, 31));
-        label_5 = new QLabel(groupBox_5);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(10, 10, 21, 21));
-        PreviewSpeedSpinBox = new QSpinBox(groupBox_5);
-        PreviewSpeedSpinBox->setObjectName(QStringLiteral("PreviewSpeedSpinBox"));
-        PreviewSpeedSpinBox->setGeometry(QRect(30, 10, 33, 21));
 
         gridLayout_4->addWidget(groupBox_3, 7, 4, 1, 1);
 
@@ -286,7 +274,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 689, 532));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 694, 529));
         scrollAreaWidgetContents->setStyleSheet(QStringLiteral("border-color: rgb(65, 65, 65);"));
         gridLayout = new QGridLayout(scrollAreaWidgetContents);
         gridLayout->setSpacing(6);
@@ -329,7 +317,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 941, 20));
+        menuBar->setGeometry(QRect(0, 0, 941, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuEdit = new QMenu(menuBar);
@@ -366,8 +354,6 @@ public:
         ColorSelectButton->setText(QApplication::translate("MainWindow", "Color Select", Q_NULLPTR));
         groupBox_3->setTitle(QString());
         PreviewLabel->setText(QString());
-        groupBox_5->setTitle(QString());
-        label_5->setText(QApplication::translate("MainWindow", "FPS", Q_NULLPTR));
         groupBox->setTitle(QString());
 #ifndef QT_NO_TOOLTIP
         LineToolButton->setToolTip(QApplication::translate("MainWindow", "Line tool", Q_NULLPTR));

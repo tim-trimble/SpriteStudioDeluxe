@@ -124,6 +124,7 @@ void MainWindow::update_canvas(QImage *i)
 void MainWindow::update_preview(QImage *i)
 {
     ui->PreviewLabel->setPixmap(QPixmap::fromImage(*i));
+    ui->PreviewLabel->setScaledContents(true);
     ui->PreviewLabel->show();
 }
 
@@ -236,12 +237,6 @@ void MainWindow::on_AddFrameButton_clicked()
 {
     std::cout << "add frame" << std::endl;
     emit new_frame_requested();
-}
-
-void MainWindow::on_PreviewSpeedSpinBox_editingFinished()
-{
-    int x = ui->PreviewSpeedSpinBox->value();
-    emit preview_fps_changed(x);
 }
 
 void MainWindow::on_ZoomInButton_clicked()
