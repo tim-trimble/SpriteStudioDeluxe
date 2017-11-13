@@ -26,8 +26,6 @@ public:
     void scaleImage(int x, int y);
     void resizeWorkspace(int x, int y);
     void setDevicePixelRatio(float newRatio);
-
-    //mirror
 };
 
 #endif // FRAME_H

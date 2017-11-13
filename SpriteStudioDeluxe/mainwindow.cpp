@@ -57,6 +57,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     // IO CONNECTIONS
     connect(this, SIGNAL(save_sprite(QString)), &project, SLOT(save_project(QString)));
     connect(this, SIGNAL(load_sprite(QString)), &project, SLOT(load_project(QString)));
+    connect(this, SIGNAL(new_sprite()), &project, SLOT(new_project()));
 
     // UI IMAGE INITIALIZATION
     float iconScale = .5;
@@ -287,6 +288,12 @@ void MainWindow::on_actionSave_As_triggered()
     emit save_sprite(filename);
 }
 
-void MainWindow::on_actionRotate_90_triggered(){
+void MainWindow::on_actionRotate_90_triggered()
+{
     emit rotate_frame();
+}
+
+void MainWindow::on_actionNew_triggered()
+{
+    emit new_sprite();
 }

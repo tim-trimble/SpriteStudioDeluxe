@@ -19,7 +19,6 @@ public:
     explicit MainWindow(Project& project, Tools& tools, QWidget *parent = 0);
     ~MainWindow();
 
-
 signals:
     // TOOL SIGNALS
     // Intended Reciever: Tool Class
@@ -63,6 +62,7 @@ signals:
     // Intended Reciever: Project Class
     void save_sprite(QString filename);
     void load_sprite(QString filename);
+    void new_sprite();
 
 public slots:
 
@@ -108,6 +108,8 @@ private slots:
     void on_actionSave_As_triggered();
 
     void on_actionRotate_90_triggered();
+
+    void on_actionNew_triggered();
 
 private:
     Ui::MainWindow *ui;

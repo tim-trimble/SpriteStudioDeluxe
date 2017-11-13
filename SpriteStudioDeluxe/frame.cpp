@@ -61,9 +61,3 @@ void Frame::setDevicePixelRatio(float newRatio)
 {
     image->setDevicePixelRatio(newRatio);
 }
-
-/*Mirror
-*myImage = myImage->mirrored(); defaults to x-axis
-mirrored(true,false); y-axis
-mirrored(true,true); both
-*/

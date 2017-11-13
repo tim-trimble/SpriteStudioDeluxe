@@ -55,6 +55,7 @@ public slots:
     void save_project(QString filename);
     void load_project(QString filename);
     void export_project(QString export_type);
+    void new_project();
 
     void history_step_back();
 

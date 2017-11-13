@@ -265,3 +265,14 @@ void Project::zoom_out()
     update_canvas();
 }
 
+void Project::new_project(){
+    //INIT PROJECT
+    currentIndex = 0;
+    zoomLevel = .125;
+    frames->clear();
+    frames->append(new Frame(64, 64, zoomLevel));
+    currentFrame = frames->at(0);
+    update_canvas();
+    emit frame_changed(frames->at(0));
+}
+
