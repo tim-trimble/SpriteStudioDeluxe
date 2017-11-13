@@ -20,6 +20,7 @@ Project::Project(int x, int y)
     connect(preview, SIGNAL(thread_end(QImage*)), this, SLOT(thread_end()));
     previewThread->start();
     emit send_preview_frame(currentFrame->getImage());
+    update_canvas();
 
     // HISTORY
     history = * new QVector<std::stack<QImage*>>(100);

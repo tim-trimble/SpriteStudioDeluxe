@@ -64,8 +64,8 @@ MainWindow::~MainWindow(){
 void MainWindow::update_canvas(QImage *i)
 {
     ui->canvas->setPixmap(QPixmap::fromImage(*i));
-    ui->canvas->setMaximumSize(i->size());
-    ui->canvas->setMinimumSize(i->size());
+    ui->canvas->setMaximumSize(i->size() * 1/i->devicePixelRatio());
+    ui->canvas->setMinimumSize(i->size() * 1/i->devicePixelRatio());
     ui->canvas->show();
 }
 
@@ -149,12 +149,12 @@ void MainWindow::on_MirrorYToolButton_clicked()
     emit tool_changed(6);
 }
 
-void MainWindow::on_DiameterSpinBox_editingFinished()
-{
-    std::cout << "spinbox" << std::endl;
-    int x = ui->DiameterSpinBox->value();
-    emit brush_size_changed(x);
-}
+//void MainWindow::on_DiameterSpinBox_editingFinished()
+//{
+//    std::cout << "spinbox" << std::endl;
+//    int x = ui->DiameterSpinBox->value();
+//    emit brush_size_changed(x);
+//}
 
 void MainWindow::on_ColorSelectButton_clicked()
 {

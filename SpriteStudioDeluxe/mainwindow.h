@@ -78,7 +78,7 @@ private slots:
     void on_EraserToolButton_clicked();
     void on_MirrorXToolButton_clicked();
     void on_MirrorYToolButton_clicked();
-    void on_DiameterSpinBox_editingFinished();
+    //void on_DiameterSpinBox_editingFinished();
     void on_ColorSelectButton_clicked();
     void on_PreviousFrameButton_clicked();
     void on_pushButton_2_clicked();
