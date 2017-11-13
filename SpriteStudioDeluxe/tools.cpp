@@ -4,6 +4,7 @@
 
 QVector<std::stack<QImage*>> Project::history;
 int Project::currentIndex;
+float Project::zoomLevel;
 
 Tools::Tools(Frame* initial_frame)
 {
@@ -63,23 +64,23 @@ void Tools::edit_pixel(int x, int y)
     QPen pen;
     pen.setStyle(Qt::SolidLine);
     if (tool_number == 1) { //pencil
-        pen.setWidth(8);
+        pen.setWidth(1/Project::zoomLevel);
         pen.setColor(temp_color);
         //pen.setStyle(Qt::SolidLine);
     }
     else if(tool_number == 2) { //brush
-        pen.setWidth(brush_size * 8);
+        pen.setWidth(brush_size * 1/Project::zoomLevel);
         pen.setColor(temp_color);
     }
     else if(tool_number == 4) { //eraser
         painter.setCompositionMode (QPainter::CompositionMode_Source);
-        pen.setWidth(brush_size * 8);
+        pen.setWidth(brush_size * 1/Project::zoomLevel);
         //pen.setColor(eraser);
         //pen.setStyle(Qt::SolidLine);
         //painter.drawPoint(x, y);
         pen.setColor(Qt::transparent);
         painter.setPen(pen);
-        painter.scale(.125, .125);
+        painter.scale(Project::zoomLevel, Project::zoomLevel);
 
         painter.drawPoint(x, y);
         painter.setCompositionMode (QPainter::CompositionMode_SourceOver);
@@ -89,9 +90,9 @@ void Tools::edit_pixel(int x, int y)
     }
     else if(tool_number == 3) { //line
         pen.setColor(temp_color);
-        pen.setWidth(brush_size * 8);
+        pen.setWidth(brush_size * 1/Project::zoomLevel);
         painter.setPen(pen);
-        painter.scale(.125, .125);
+        painter.scale(Project::zoomLevel, Project::zoomLevel);
         painter.drawLine(line_startx, line_starty, line_endx, line_endy);
         line_startx = 0;
         line_starty = 0;
@@ -103,9 +104,9 @@ void Tools::edit_pixel(int x, int y)
     }
     else if(tool_number == 5 || tool_number == 6) { //mirror x, mirror y
        pen.setColor(temp_color);
-       pen.setWidth(brush_size * 8);
+       pen.setWidth(brush_size * 1/Project::zoomLevel);
        painter.setPen(pen);
-       painter.scale(.125, .125);
+       painter.scale(Project::zoomLevel, Project::zoomLevel);
        painter.drawPoint(x, y);
        if(tool_number == 5) {
             painter.drawPoint(current_image->width() - x - 1, y);
@@ -119,9 +120,9 @@ void Tools::edit_pixel(int x, int y)
     }
     else if (tool_number == 7){ //rectangle outline
         pen.setColor(temp_color);
-        pen.setWidth(brush_size * 8);
+        pen.setWidth(brush_size * 1/Project::zoomLevel);
         painter.setPen(pen);
-        painter.scale(.125, .125);
+        painter.scale(Project::zoomLevel, Project::zoomLevel);
         painter.drawRect(line_startx, line_starty, line_endx-line_startx, line_endy-line_starty);
         line_startx = 0;
         line_starty = 0;
@@ -133,9 +134,9 @@ void Tools::edit_pixel(int x, int y)
     }
     else if (tool_number == 8){ //filled rectangle
         pen.setColor(temp_color);
-        pen.setWidth(brush_size * 8);
+        pen.setWidth(brush_size * 1/Project::zoomLevel);
         painter.setPen(pen);
-        painter.scale(.125, .125);
+        painter.scale(Project::zoomLevel, Project::zoomLevel);
         painter.fillRect(line_startx, line_starty, line_endx-line_startx, line_endy-line_starty, temp_color);
         line_startx = 0;
         line_starty = 0;
@@ -146,7 +147,7 @@ void Tools::edit_pixel(int x, int y)
         return;
     }
     painter.setPen(pen);
-    painter.scale(.125, .125);
+    painter.scale(Project::zoomLevel, Project::zoomLevel);
     std::cout << "Draw Point " << x << " " << y << std::endl;
     painter.drawPoint(x, y);
     painter.end();

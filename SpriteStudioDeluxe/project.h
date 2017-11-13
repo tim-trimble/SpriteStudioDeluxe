@@ -24,11 +24,13 @@ private:
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
 
-    float zoomLevel = .125;
+
 
 public:
     static QVector<std::stack<QImage*>> history;
     static int currentIndex;
+    static float zoomLevel;
+
     int maxHistorySize = 50;
 
     PreviewObject *preview;

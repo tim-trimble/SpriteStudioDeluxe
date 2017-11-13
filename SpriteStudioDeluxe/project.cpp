@@ -9,6 +9,7 @@ Project::Project(int x, int y)
     frames->append(new Frame(x, y));
     currentFrame = frames->at(0);
     currentIndex = 0;
+    zoomLevel = .125;
 
     //INIT PREVIEW ANIMATION
     previewThread = new QThread();
