@@ -48,8 +48,6 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(this, SIGNAL(clear_canvas()), &tools, SLOT(clear_canvas()));
     connect(this, SIGNAL(fill_canvas()), &tools, SLOT(fill_canvas()));
     connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(history_step_back()));
-    connect(this, SIGNAL(clear_canvas()), &tools, SLOT(clear_canvas()));
-    connect(this, SIGNAL(fill_canvas()), &tools, SLOT(fill_canvas()));
     connect(this, SIGNAL(zoom_in_requested()), &project, SLOT(zoom_in()));
     connect(this, SIGNAL(zoom_out_requested()), &project, SLOT(zoom_out()));
 
