@@ -31,6 +31,8 @@ public:
 
     void resizeWorkspace(int x, int y);
 
+    void setDevicePixelRatio(float newRatio);
+
     //mirror
 };
 

@@ -11,6 +11,8 @@ int main(int argc, char *argv[])
     Tools t(p.get_frame());
     MainWindow w(p, t);
 
+    p.update_canvas();
+
     w.show();
 
     return a.exec();

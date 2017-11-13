@@ -24,6 +24,8 @@ private:
     Frame* currentFrame;
     QColor currentColor = QColor(0,0,0,255);
 
+    float zoomLevel = .125;
+
 public:
     static QVector<std::stack<QImage*>> history;
     static int currentIndex;
@@ -53,6 +55,10 @@ public slots:
     void export_project(QString export_type);
 
     void history_step_back();
+
+    void zoom_in();
+    void zoom_out();
+
 
 signals:
     void send_update(QImage *image);

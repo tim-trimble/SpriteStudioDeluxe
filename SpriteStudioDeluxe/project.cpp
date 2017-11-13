@@ -200,3 +200,38 @@ void Project::history_step_back()
     update_canvas();
     emit frame_changed(currentFrame);
 }
+
+void Project::zoom_in()
+{
+    if (zoomLevel == .0625)
+    {
+        return;
+    }
+
+    zoomLevel /= 2;
+
+    for(int i = 0; i < frames->count() ; i++)
+    {
+        frames->at(i)->setDevicePixelRatio(zoomLevel);
+    }
+
+    update_canvas();
+}
+
+void Project::zoom_out()
+{
+    if (zoomLevel == 1)
+    {
+        return;
+    }
+
+    zoomLevel *= 2;
+
+    for(int i = 0; i < frames->count() ; i++)
+    {
+        frames->at(i)->setDevicePixelRatio(zoomLevel);
+    }
+
+    update_canvas();
+}
+

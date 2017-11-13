@@ -50,6 +50,9 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect (this, SIGNAL(history_reversion_requested()), &project, SLOT(history_step_back()));
     connect(this, SIGNAL(clear_canvas()), &tools, SLOT(clear_canvas()));
     connect(this, SIGNAL(fill_canvas()), &tools, SLOT(fill_canvas()));
+    connect(this, SIGNAL(zoom_in_requested()), &project, SLOT(zoom_in()));
+    connect(this, SIGNAL(zoom_out_requested()), &project, SLOT(zoom_out()));
+
 
 }
 
@@ -63,8 +66,8 @@ MainWindow::~MainWindow(){
 void MainWindow::update_canvas(QImage *i)
 {
     ui->canvas->setPixmap(QPixmap::fromImage(*i));
-    ui->canvas->setMaximumSize(i->size());
-    ui->canvas->setMinimumSize(i->size());
+    ui->canvas->setMaximumSize(i->size() * 1/i->devicePixelRatio());
+    ui->canvas->setMinimumSize(i->size() * 1/i->devicePixelRatio());
     ui->canvas->show();
 }
 
