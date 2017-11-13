@@ -1,6 +1,7 @@
 #include "project.h"
 #include <iostream>
 #include <stack>
+#include <QString>
 
 Project::Project(int x, int y)
 {
@@ -66,8 +67,8 @@ void Project::change_color(QColor c)
     currentColor = c;
 }
 
-void Project::menu_action(){
-    std::cout << "menu" << std::endl;
+void Project::menu_action(QAction* a){
+    std::cout << "menu" << a->text().toStdString() << std::endl;
 }
 
 void Project::new_frames(int x, int y){

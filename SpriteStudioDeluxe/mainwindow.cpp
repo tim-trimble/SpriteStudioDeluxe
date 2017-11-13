@@ -24,7 +24,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(&project, SIGNAL(send_update(QImage*)), this, SLOT(update_canvas(QImage*)));
     connect(project.preview, SIGNAL(thread_end(QImage*)), this, SLOT(update_preview(QImage*)));
 
-    connect(ui->menuBar, SIGNAL(triggered(QAction*)), &project, SLOT(menu_action()));
+    connect(ui->menuBar, SIGNAL(triggered(QAction*)), &project, SLOT(menu_action(QAction*)));
 
     //MOUSE ACTION CONNECTIONS
     connect(ui->canvas, SIGNAL(c_mouse_down()), this, SLOT(c_mouse_down()));
