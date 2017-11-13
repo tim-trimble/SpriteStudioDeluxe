@@ -46,6 +46,7 @@ void Project::thread_end()
         previewIndex += 1;
     }
     preview->image = frames->at(previewIndex)->getImage();
+
     emit send_preview_frame(currentFrame->getImage());
 }
 
