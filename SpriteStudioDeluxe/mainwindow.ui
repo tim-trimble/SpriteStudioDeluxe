@@ -21,107 +21,7 @@ border-color: rgb(33, 33, 33);
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_4">
-    <item row="5" column="4">
-     <widget class="QGroupBox" name="groupBox_2">
-      <property name="minimumSize">
-       <size>
-        <width>140</width>
-        <height>140</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: 0;</string>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
-      <widget class="QLabel" name="label_3">
-       <property name="geometry">
-        <rect>
-         <x>25</x>
-         <y>30</y>
-         <width>51</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Diameter</string>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="DiameterSpinBox">
-       <property name="geometry">
-        <rect>
-         <x>75</x>
-         <y>29</y>
-         <width>42</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="minimum">
-        <number>1</number>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="ColorSelectButton">
-       <property name="geometry">
-        <rect>
-         <x>15</x>
-         <y>90</y>
-         <width>111</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Color Select</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_4">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>70</y>
-         <width>81</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Current Color</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="CurrentColorLabel">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>70</y>
-         <width>31</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::Box</enum>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="Line" name="line">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>50</y>
-         <width>111</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </widget>
-    </item>
-    <item row="6" column="4">
+    <item row="7" column="4">
      <widget class="QGroupBox" name="groupBox_3">
       <property name="minimumSize">
        <size>
@@ -203,6 +103,9 @@ border-color: rgb(33, 33, 33);
     </item>
     <item row="3" column="4">
      <widget class="QPushButton" name="AddFrameButton">
+      <property name="toolTip">
+       <string>Add a new frame</string>
+      </property>
       <property name="text">
        <string>Add Frame</string>
       </property>
@@ -210,12 +113,15 @@ border-color: rgb(33, 33, 33);
     </item>
     <item row="3" column="0">
      <widget class="QPushButton" name="ZoomInButton">
+      <property name="toolTip">
+       <string>Zoom in</string>
+      </property>
       <property name="text">
        <string>+</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="0" rowspan="8">
+    <item row="5" column="0" rowspan="9">
      <widget class="QGroupBox" name="groupBox">
       <property name="enabled">
        <bool>true</bool>
@@ -258,6 +164,9 @@ border-color: rgb(33, 33, 33);
            <height>40</height>
           </size>
          </property>
+         <property name="toolTip">
+          <string>Line tool</string>
+         </property>
          <property name="text">
           <string>Line</string>
          </property>
@@ -276,6 +185,9 @@ border-color: rgb(33, 33, 33);
            <width>40</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="toolTip">
+          <string>Eraser tool</string>
          </property>
          <property name="text">
           <string>Eraser</string>
@@ -300,6 +212,9 @@ border-color: rgb(33, 33, 33);
           <font>
            <pointsize>7</pointsize>
           </font>
+         </property>
+         <property name="toolTip">
+          <string>Filled rectangle tool</string>
          </property>
          <property name="text">
           <string>Filled
@@ -326,6 +241,9 @@ border-color: rgb(33, 33, 33);
            <pointsize>7</pointsize>
           </font>
          </property>
+         <property name="toolTip">
+          <string>Rectangle tool</string>
+         </property>
          <property name="text">
           <string>Rectangle</string>
          </property>
@@ -350,6 +268,9 @@ border-color: rgb(33, 33, 33);
            <pointsize>8</pointsize>
           </font>
          </property>
+         <property name="toolTip">
+          <string>Fill canvas</string>
+         </property>
          <property name="text">
           <string>Fill All</string>
          </property>
@@ -369,6 +290,12 @@ border-color: rgb(33, 33, 33);
            <height>40</height>
           </size>
          </property>
+         <property name="toolTip">
+          <string>Pencil tool</string>
+         </property>
+         <property name="toolTipDuration">
+          <number>-1</number>
+         </property>
          <property name="text">
           <string>Pencil</string>
          </property>
@@ -387,6 +314,9 @@ border-color: rgb(33, 33, 33);
            <width>40</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="toolTip">
+          <string>Brush tool</string>
          </property>
          <property name="styleSheet">
           <string notr="true"/>
@@ -410,6 +340,9 @@ border-color: rgb(33, 33, 33);
            <height>40</height>
           </size>
          </property>
+         <property name="toolTip">
+          <string>Pencil tool mirrored accross y-axis</string>
+         </property>
          <property name="text">
           <string>Mirror X</string>
          </property>
@@ -428,6 +361,9 @@ border-color: rgb(33, 33, 33);
            <width>40</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="toolTip">
+          <string>Pencil tool mirrored accross x-axis</string>
          </property>
          <property name="text">
           <string>Mirror Y</string>
@@ -448,6 +384,9 @@ border-color: rgb(33, 33, 33);
            <height>40</height>
           </size>
          </property>
+         <property name="toolTip">
+          <string>Clear canvas</string>
+         </property>
          <property name="text">
           <string>Clear All</string>
          </property>
@@ -458,6 +397,12 @@ border-color: rgb(33, 33, 33);
     </item>
     <item row="4" column="4">
      <widget class="QPushButton" name="StepBackButton">
+      <property name="toolTip">
+       <string>Undo last change on current frame</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">alternate-background-color: rgb(0, 0, 0);</string>
+      </property>
       <property name="text">
        <string>Step Back</string>
       </property>
@@ -465,12 +410,55 @@ border-color: rgb(33, 33, 33);
     </item>
     <item row="4" column="0">
      <widget class="QPushButton" name="ZoomOutButton">
+      <property name="toolTip">
+       <string>Zoom out</string>
+      </property>
       <property name="text">
        <string>-</string>
       </property>
      </widget>
     </item>
-    <item row="5" column="1" rowspan="8" colspan="3">
+    <item row="3" column="1" rowspan="2">
+     <widget class="QPushButton" name="PreviousFrameButton">
+      <property name="toolTip">
+       <string>Switch to previous frame</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Previous Frame</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2" rowspan="2">
+     <widget class="QLabel" name="CurrentFrameLabel">
+      <property name="text">
+       <string>Current Frame Label</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="4">
+     <widget class="QPushButton" name="ColorSelectButton">
+      <property name="text">
+       <string>Color Select</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3" rowspan="2">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="toolTip">
+       <string>Switch to next frame</string>
+      </property>
+      <property name="text">
+       <string>Next Frame</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1" rowspan="9" colspan="3">
      <widget class="QScrollArea" name="scrollArea">
       <property name="sizeIncrement">
        <size>
@@ -519,31 +507,97 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </widget>
     </item>
-    <item row="3" column="3" rowspan="2">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Next Frame</string>
+    <item row="5" column="4">
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="minimumSize">
+       <size>
+        <width>140</width>
+        <height>90</height>
+       </size>
       </property>
-     </widget>
-    </item>
-    <item row="3" column="1" rowspan="2">
-     <widget class="QPushButton" name="PreviousFrameButton">
+      <property name="maximumSize">
+       <size>
+        <width>140</width>
+        <height>100</height>
+       </size>
+      </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">border: 0;</string>
       </property>
-      <property name="text">
-       <string>Previous Frame</string>
+      <property name="title">
+       <string/>
       </property>
-     </widget>
-    </item>
-    <item row="3" column="2" rowspan="2">
-     <widget class="QLabel" name="CurrentFrameLabel">
-      <property name="text">
-       <string>Current Frame Label</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>30</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Diameter</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="DiameterSpinBox">
+       <property name="geometry">
+        <rect>
+         <x>75</x>
+         <y>29</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Current Color</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="CurrentColorLabel">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>70</y>
+         <width>31</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="Line" name="line">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>111</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
