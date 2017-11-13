@@ -49,19 +49,21 @@ public:
     QGroupBox *groupBox;
     QGridLayout *gridLayout_2;
     QToolButton *LineToolButton;
-    QToolButton *EraserToolButton;
     QToolButton *FilledRectangleButton;
     QToolButton *RectangleToolButton;
-    QToolButton *FillAllButton;
-    QToolButton *PencilToolButton;
+    QToolButton *EraserToolButton;
     QToolButton *BrushToolButton;
+    QToolButton *PencilToolButton;
     QToolButton *MirrorXToolButton;
     QToolButton *MirrorYToolButton;
     QToolButton *ClearCanvasButton;
+    QToolButton *FillAllButton;
+    QGroupBox *groupBox_2;
+    QLabel *label_3;
+    QSpinBox *DiameterSpinBox;
+    QLabel *label_4;
+    QLabel *CurrentColorLabel;
     QPushButton *pushButton_2;
-    QPushButton *AddFrameButton;
-    QPushButton *ZoomInButton;
-    QPushButton *ZoomOutButton;
     QPushButton *StepBackButton;
     QLabel *CurrentFrameLabel;
     QPushButton *PreviousFrameButton;
@@ -69,11 +71,9 @@ public:
     QWidget *scrollAreaWidgetContents;
     QGridLayout *gridLayout;
     Canvas *canvas;
-    QGroupBox *groupBox_2;
-    QLabel *label_3;
-    QSpinBox *DiameterSpinBox;
-    QLabel *label_4;
-    QLabel *CurrentColorLabel;
+    QPushButton *AddFrameButton;
+    QPushButton *ZoomOutButton;
+    QPushButton *ZoomInButton;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -87,9 +87,11 @@ public:
         QIcon icon;
         icon.addFile(QStringLiteral("resources/icons/SSD_Icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
-        MainWindow->setStyleSheet(QLatin1String("background-color: rgb(61, 61, 61);\n"
-"color: rgb(255, 255, 255);\n"
+        MainWindow->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
+"background-color: rgb(61, 61, 61);\n"
+"alternate-background-color: rgb(85, 85, 85);\n"
 "border-color: rgb(33, 33, 33);\n"
+"\n"
 ""));
         actionSave = new QAction(MainWindow);
         actionSave->setObjectName(QStringLiteral("actionSave"));
@@ -155,13 +157,6 @@ public:
 
         gridLayout_2->addWidget(LineToolButton, 4, 1, 1, 1);
 
-        EraserToolButton = new QToolButton(groupBox);
-        EraserToolButton->setObjectName(QStringLiteral("EraserToolButton"));
-        EraserToolButton->setMinimumSize(QSize(40, 40));
-        EraserToolButton->setMaximumSize(QSize(40, 40));
-
-        gridLayout_2->addWidget(EraserToolButton, 7, 1, 1, 1);
-
         FilledRectangleButton = new QToolButton(groupBox);
         FilledRectangleButton->setObjectName(QStringLiteral("FilledRectangleButton"));
         FilledRectangleButton->setMinimumSize(QSize(40, 40));
@@ -180,21 +175,12 @@ public:
 
         gridLayout_2->addWidget(RectangleToolButton, 8, 1, 1, 1);
 
-        FillAllButton = new QToolButton(groupBox);
-        FillAllButton->setObjectName(QStringLiteral("FillAllButton"));
-        FillAllButton->setMinimumSize(QSize(40, 40));
-        FillAllButton->setMaximumSize(QSize(40, 40));
-        FillAllButton->setFont(font);
+        EraserToolButton = new QToolButton(groupBox);
+        EraserToolButton->setObjectName(QStringLiteral("EraserToolButton"));
+        EraserToolButton->setMinimumSize(QSize(40, 40));
+        EraserToolButton->setMaximumSize(QSize(40, 40));
 
-        gridLayout_2->addWidget(FillAllButton, 11, 1, 1, 1);
-
-        PencilToolButton = new QToolButton(groupBox);
-        PencilToolButton->setObjectName(QStringLiteral("PencilToolButton"));
-        PencilToolButton->setMinimumSize(QSize(40, 40));
-        PencilToolButton->setMaximumSize(QSize(40, 40));
-        PencilToolButton->setToolTipDuration(-1);
-
-        gridLayout_2->addWidget(PencilToolButton, 0, 1, 1, 1);
+        gridLayout_2->addWidget(EraserToolButton, 7, 1, 1, 1);
 
         BrushToolButton = new QToolButton(groupBox);
         BrushToolButton->setObjectName(QStringLiteral("BrushToolButton"));
@@ -203,6 +189,14 @@ public:
         BrushToolButton->setStyleSheet(QStringLiteral(""));
 
         gridLayout_2->addWidget(BrushToolButton, 3, 1, 1, 1);
+
+        PencilToolButton = new QToolButton(groupBox);
+        PencilToolButton->setObjectName(QStringLiteral("PencilToolButton"));
+        PencilToolButton->setMinimumSize(QSize(40, 40));
+        PencilToolButton->setMaximumSize(QSize(40, 40));
+        PencilToolButton->setToolTipDuration(-1);
+
+        gridLayout_2->addWidget(PencilToolButton, 0, 1, 1, 1);
 
         MirrorXToolButton = new QToolButton(groupBox);
         MirrorXToolButton->setObjectName(QStringLiteral("MirrorXToolButton"));
@@ -223,10 +217,41 @@ public:
         ClearCanvasButton->setMinimumSize(QSize(40, 40));
         ClearCanvasButton->setMaximumSize(QSize(40, 40));
 
-        gridLayout_2->addWidget(ClearCanvasButton, 10, 1, 1, 1);
+        gridLayout_2->addWidget(ClearCanvasButton, 11, 1, 1, 1);
+
+        FillAllButton = new QToolButton(groupBox);
+        FillAllButton->setObjectName(QStringLiteral("FillAllButton"));
+        FillAllButton->setMinimumSize(QSize(40, 40));
+        FillAllButton->setMaximumSize(QSize(40, 40));
+        FillAllButton->setFont(font);
+
+        gridLayout_2->addWidget(FillAllButton, 10, 1, 1, 1);
 
 
         gridLayout_4->addWidget(groupBox, 5, 0, 9, 1);
+
+        groupBox_2 = new QGroupBox(centralWidget);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        groupBox_2->setMinimumSize(QSize(140, 60));
+        groupBox_2->setMaximumSize(QSize(140, 100));
+        groupBox_2->setStyleSheet(QStringLiteral("border: 0;"));
+        label_3 = new QLabel(groupBox_2);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(10, 10, 81, 21));
+        DiameterSpinBox = new QSpinBox(groupBox_2);
+        DiameterSpinBox->setObjectName(QStringLiteral("DiameterSpinBox"));
+        DiameterSpinBox->setGeometry(QRect(100, 9, 31, 22));
+        DiameterSpinBox->setMinimum(1);
+        label_4 = new QLabel(groupBox_2);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(20, 35, 81, 16));
+        CurrentColorLabel = new QLabel(groupBox_2);
+        CurrentColorLabel->setObjectName(QStringLiteral("CurrentColorLabel"));
+        CurrentColorLabel->setGeometry(QRect(90, 37, 31, 16));
+        CurrentColorLabel->setFrameShape(QFrame::Box);
+        CurrentColorLabel->setAlignment(Qt::AlignCenter);
+
+        gridLayout_4->addWidget(groupBox_2, 5, 4, 1, 1);
 
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
@@ -234,24 +259,6 @@ public:
         pushButton_2->setStyleSheet(QStringLiteral("background-color: rgb(79, 79, 79);"));
 
         gridLayout_4->addWidget(pushButton_2, 3, 3, 2, 1);
-
-        AddFrameButton = new QPushButton(centralWidget);
-        AddFrameButton->setObjectName(QStringLiteral("AddFrameButton"));
-        AddFrameButton->setStyleSheet(QStringLiteral("background-color: rgb(79, 79, 79);"));
-
-        gridLayout_4->addWidget(AddFrameButton, 3, 4, 1, 1);
-
-        ZoomInButton = new QPushButton(centralWidget);
-        ZoomInButton->setObjectName(QStringLiteral("ZoomInButton"));
-        ZoomInButton->setStyleSheet(QStringLiteral("background-color: rgb(79, 79, 79);"));
-
-        gridLayout_4->addWidget(ZoomInButton, 3, 0, 1, 1);
-
-        ZoomOutButton = new QPushButton(centralWidget);
-        ZoomOutButton->setObjectName(QStringLiteral("ZoomOutButton"));
-        ZoomOutButton->setStyleSheet(QStringLiteral("background-color: rgb(79, 79, 79);"));
-
-        gridLayout_4->addWidget(ZoomOutButton, 4, 0, 1, 1);
 
         StepBackButton = new QPushButton(centralWidget);
         StepBackButton->setObjectName(QStringLiteral("StepBackButton"));
@@ -280,6 +287,7 @@ public:
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 689, 532));
+        scrollAreaWidgetContents->setStyleSheet(QStringLiteral("border-color: rgb(65, 65, 65);"));
         gridLayout = new QGridLayout(scrollAreaWidgetContents);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -289,7 +297,8 @@ public:
         canvas->setCursor(QCursor(Qt::ArrowCursor));
         canvas->setStyleSheet(QLatin1String("alternate-background-color: rgb(255, 255, 255);\n"
 "background-color: rgb(255, 255, 255);\n"
-"color: rgb(255, 255, 255);"));
+"color: rgb(255, 255, 255);\n"
+"border:0;"));
         canvas->setFrameShape(QFrame::Box);
         canvas->setAlignment(Qt::AlignCenter);
 
@@ -299,28 +308,23 @@ public:
 
         gridLayout_4->addWidget(scrollArea, 5, 1, 9, 3);
 
-        groupBox_2 = new QGroupBox(centralWidget);
-        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        groupBox_2->setMinimumSize(QSize(140, 60));
-        groupBox_2->setMaximumSize(QSize(140, 100));
-        groupBox_2->setStyleSheet(QStringLiteral("border: 0;"));
-        label_3 = new QLabel(groupBox_2);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(10, 10, 81, 21));
-        DiameterSpinBox = new QSpinBox(groupBox_2);
-        DiameterSpinBox->setObjectName(QStringLiteral("DiameterSpinBox"));
-        DiameterSpinBox->setGeometry(QRect(100, 9, 31, 22));
-        DiameterSpinBox->setMinimum(1);
-        label_4 = new QLabel(groupBox_2);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(20, 35, 81, 16));
-        CurrentColorLabel = new QLabel(groupBox_2);
-        CurrentColorLabel->setObjectName(QStringLiteral("CurrentColorLabel"));
-        CurrentColorLabel->setGeometry(QRect(90, 37, 31, 16));
-        CurrentColorLabel->setFrameShape(QFrame::Box);
-        CurrentColorLabel->setAlignment(Qt::AlignCenter);
+        AddFrameButton = new QPushButton(centralWidget);
+        AddFrameButton->setObjectName(QStringLiteral("AddFrameButton"));
+        AddFrameButton->setStyleSheet(QStringLiteral("background-color: rgb(79, 79, 79);"));
 
-        gridLayout_4->addWidget(groupBox_2, 5, 4, 1, 1);
+        gridLayout_4->addWidget(AddFrameButton, 3, 4, 1, 1);
+
+        ZoomOutButton = new QPushButton(centralWidget);
+        ZoomOutButton->setObjectName(QStringLiteral("ZoomOutButton"));
+        ZoomOutButton->setStyleSheet(QStringLiteral("background-color: rgb(79, 79, 79);"));
+
+        gridLayout_4->addWidget(ZoomOutButton, 4, 0, 1, 1);
+
+        ZoomInButton = new QPushButton(centralWidget);
+        ZoomInButton->setObjectName(QStringLiteral("ZoomInButton"));
+        ZoomInButton->setStyleSheet(QStringLiteral("background-color: rgb(79, 79, 79);"));
+
+        gridLayout_4->addWidget(ZoomInButton, 3, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -356,6 +360,9 @@ public:
         actionExport->setText(QApplication::translate("MainWindow", "Export", Q_NULLPTR));
         actionRotate_90->setText(QApplication::translate("MainWindow", "Rotate 90", Q_NULLPTR));
         actionOpen->setText(QApplication::translate("MainWindow", "Open", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        ColorSelectButton->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
         ColorSelectButton->setText(QApplication::translate("MainWindow", "Color Select", Q_NULLPTR));
         groupBox_3->setTitle(QString());
         PreviewLabel->setText(QString());
@@ -367,10 +374,6 @@ public:
 #endif // QT_NO_TOOLTIP
         LineToolButton->setText(QApplication::translate("MainWindow", "Line", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        EraserToolButton->setToolTip(QApplication::translate("MainWindow", "Eraser tool", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        EraserToolButton->setText(QApplication::translate("MainWindow", "Eraser", Q_NULLPTR));
-#ifndef QT_NO_TOOLTIP
         FilledRectangleButton->setToolTip(QApplication::translate("MainWindow", "Filled rectangle tool", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         FilledRectangleButton->setText(QApplication::translate("MainWindow", "Filled\n"
@@ -380,17 +383,17 @@ public:
 #endif // QT_NO_TOOLTIP
         RectangleToolButton->setText(QApplication::translate("MainWindow", "Rectangle", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        FillAllButton->setToolTip(QApplication::translate("MainWindow", "Fill canvas", Q_NULLPTR));
+        EraserToolButton->setToolTip(QApplication::translate("MainWindow", "Eraser tool", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        FillAllButton->setText(QApplication::translate("MainWindow", "Fill All", Q_NULLPTR));
-#ifndef QT_NO_TOOLTIP
-        PencilToolButton->setToolTip(QApplication::translate("MainWindow", "Pencil tool", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        PencilToolButton->setText(QApplication::translate("MainWindow", "Pencil", Q_NULLPTR));
+        EraserToolButton->setText(QApplication::translate("MainWindow", "Eraser", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         BrushToolButton->setToolTip(QApplication::translate("MainWindow", "Brush tool", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         BrushToolButton->setText(QApplication::translate("MainWindow", "Brush", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        PencilToolButton->setToolTip(QApplication::translate("MainWindow", "Pencil tool", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        PencilToolButton->setText(QApplication::translate("MainWindow", "Pencil", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         MirrorXToolButton->setToolTip(QApplication::translate("MainWindow", "Pencil tool mirrored accross y-axis", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
@@ -400,39 +403,43 @@ public:
 #endif // QT_NO_TOOLTIP
         MirrorYToolButton->setText(QApplication::translate("MainWindow", "Mirror Y", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        ClearCanvasButton->setToolTip(QApplication::translate("MainWindow", "Clear canvas", Q_NULLPTR));
+        ClearCanvasButton->setToolTip(QApplication::translate("MainWindow", "Clear frame", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         ClearCanvasButton->setText(QApplication::translate("MainWindow", "Clear All", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
-        pushButton_2->setToolTip(QApplication::translate("MainWindow", "Switch to next frame", Q_NULLPTR));
+        FillAllButton->setToolTip(QApplication::translate("MainWindow", "Fill frame", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
-        pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
-#ifndef QT_NO_TOOLTIP
-        AddFrameButton->setToolTip(QApplication::translate("MainWindow", "Add a new frame", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        AddFrameButton->setText(QApplication::translate("MainWindow", "Add Frame", Q_NULLPTR));
-#ifndef QT_NO_TOOLTIP
-        ZoomInButton->setToolTip(QApplication::translate("MainWindow", "Zoom in", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        ZoomInButton->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
-#ifndef QT_NO_TOOLTIP
-        ZoomOutButton->setToolTip(QApplication::translate("MainWindow", "Zoom out", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        ZoomOutButton->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));
-#ifndef QT_NO_TOOLTIP
-        StepBackButton->setToolTip(QApplication::translate("MainWindow", "Undo last change on current frame", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        StepBackButton->setText(QApplication::translate("MainWindow", "Step Back", Q_NULLPTR));
-        CurrentFrameLabel->setText(QApplication::translate("MainWindow", "Current Frame: 1/1", Q_NULLPTR));
-#ifndef QT_NO_TOOLTIP
-        PreviousFrameButton->setToolTip(QApplication::translate("MainWindow", "Switch to previous frame", Q_NULLPTR));
-#endif // QT_NO_TOOLTIP
-        PreviousFrameButton->setText(QApplication::translate("MainWindow", "Previous Frame", Q_NULLPTR));
-        canvas->setText(QString());
+        FillAllButton->setText(QApplication::translate("MainWindow", "Fill All", Q_NULLPTR));
         groupBox_2->setTitle(QString());
         label_3->setText(QApplication::translate("MainWindow", "Stroke Diameter", Q_NULLPTR));
         label_4->setText(QApplication::translate("MainWindow", "Current Color", Q_NULLPTR));
         CurrentColorLabel->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        pushButton_2->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
+        pushButton_2->setText(QApplication::translate("MainWindow", "Next Frame", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        StepBackButton->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
+        StepBackButton->setText(QApplication::translate("MainWindow", "Step Back", Q_NULLPTR));
+        CurrentFrameLabel->setText(QApplication::translate("MainWindow", "Current Frame: 1/1", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        PreviousFrameButton->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
+        PreviousFrameButton->setText(QApplication::translate("MainWindow", "Previous Frame", Q_NULLPTR));
+        canvas->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        AddFrameButton->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
+        AddFrameButton->setText(QApplication::translate("MainWindow", "Add Frame", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        ZoomOutButton->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
+        ZoomOutButton->setText(QApplication::translate("MainWindow", "Zoom Out", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        ZoomInButton->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
+        ZoomInButton->setText(QApplication::translate("MainWindow", "Zoom In", Q_NULLPTR));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", Q_NULLPTR));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", Q_NULLPTR));
     } // retranslateUi

@@ -5,9 +5,9 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication a(argc, argv);    
 
-    Project p(200,200);
+    Project p(64,64);
     Tools t(p.get_frame());
     MainWindow w(p, t);
 

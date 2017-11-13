@@ -1,12 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "tools.h"
 #include <QColorDialog>
 #include <QPixmap>
-#include <iostream>
 #include <QListWidgetItem>
 #include <QFileDialog>
 #include <string>
-#include "tools.h"
+#include <iostream>
+
 
 MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     QMainWindow(parent),
@@ -68,6 +69,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     QPixmap clear("./resources/icons/clear.png");
     QPixmap mirror_x("./resources/icons/mirror_x.png");
     QPixmap mirror_y("./resources/icons/mirror_y.png");
+    QPixmap fill("./resources/icons/fill.png");
 
     QIcon i_pencil(pencil);
     QIcon i_eraser(eraser);
@@ -78,6 +80,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     QIcon i_clear(clear);
     QIcon i_mirror_x(mirror_x);
     QIcon i_mirror_y(mirror_y);
+    QIcon i_fill(fill);
 
     ui->PencilToolButton->setIcon(i_pencil);
     ui->EraserToolButton->setIcon(i_eraser);
@@ -88,6 +91,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     ui->ClearCanvasButton->setIcon(i_clear);
     ui->MirrorXToolButton->setIcon(i_mirror_x);
     ui->MirrorYToolButton->setIcon(i_mirror_y);
+    ui->FillAllButton->setIcon(i_fill);
 
     ui->PencilToolButton->setIconSize(pencil.rect().size()*iconScale);
     ui->EraserToolButton->setIconSize(eraser.rect().size()*iconScale);
@@ -98,6 +102,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     ui->ClearCanvasButton->setIconSize(clear.rect().size()*iconScale);
     ui->MirrorXToolButton->setIconSize(mirror_x.rect().size()*iconScale);
     ui->MirrorYToolButton->setIconSize(mirror_y.rect().size()*iconScale);
+    ui->FillAllButton->setIconSize(fill.rect().size()*iconScale);
 
 }
 

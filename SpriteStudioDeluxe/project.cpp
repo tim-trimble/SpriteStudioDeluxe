@@ -7,7 +7,7 @@ Project::Project(int x, int y)
 {
     //INIT PROJECT
     currentIndex = 0;
-    zoomLevel = .5;
+    zoomLevel = .125;
     frames = new QVector<Frame*>();
     frames->append(new Frame(x, y, zoomLevel));
     currentFrame = frames->at(0);
