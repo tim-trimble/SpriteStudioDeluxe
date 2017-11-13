@@ -64,6 +64,8 @@ public slots:
 
 
 signals:
+    void hide_window();
+    void show_window();
     void send_update(QImage *image);
 
     void send_all_frames(std::vector<QPixmap> images);

@@ -111,6 +111,9 @@ private slots:
 
     void on_actionNew_triggered();
 
+    void hide_window();
+    void show_window();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -43,6 +43,8 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(&project, SIGNAL(frame_changed(Frame*)), &tools, SLOT(frame_changed(Frame*)));
     connect(&project, SIGNAL(update_frame_label(int,int)), this, SLOT(update_current_frame_label(int,int)));
     connect(this, SIGNAL(rotate_frame()), &project, SLOT(rotate_frame()));
+    connect(&project, SIGNAL(show_window()), this, SLOT(show_window()));
+    connect(&project, SIGNAL(hide_window()), this, SLOT(hide_window()));
 
     // TOOL CHANGE CONNECTIONS
     connect(this, SIGNAL(tool_changed(int)), &tools, SLOT(tool_selected(int)));
@@ -296,4 +298,12 @@ void MainWindow::on_actionRotate_90_triggered()
 void MainWindow::on_actionNew_triggered()
 {
     emit new_sprite();
+}
+
+void MainWindow::show_window(){
+    this->show();
+}
+
+void MainWindow::hide_window(){
+    this->hide();
 }

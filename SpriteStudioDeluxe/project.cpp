@@ -71,9 +71,11 @@ void Project::change_color(QColor c)
 
 void Project::add_frame()
 {
+    //previewThread->quit();
     frames->append(new Frame(frames->at(0)->getX()-2, frames->at(0)->getY()-2, zoomLevel));
     history.append(* new std::stack<QImage*>);
     emit update_frame_label(currentIndex + 1, frames->size());
+    //previewThread->start();
 }
 
 Frame* Project::get_frame(){
@@ -268,7 +270,9 @@ void Project::zoom_out()
 }
 
 void Project::new_project(){
+    emit hide_window();
     previewThread->quit();
+    QThread::sleep(1);
 
     //INIT PROJECT
     currentIndex = 0;
@@ -281,6 +285,6 @@ void Project::new_project(){
     update_canvas();
     emit frame_changed(frames->at(0));
     emit update_frame_label(1, 1);
-
+    emit show_window();
 }
 
