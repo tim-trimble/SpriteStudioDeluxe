@@ -55,7 +55,7 @@ void Tools::on_mouse_up(int x, int y)
 {
     line_endx = x;
     line_endy = y;
-    if (tool_number == 7 || tool_number == 8 )
+    if (tool_number == 7 || tool_number == 8 || tool_number == 3 )
     {
         current_image = base_image;
         if (!(line_endx == line_startx && line_endy == line_starty))
@@ -100,10 +100,6 @@ void Tools::edit_pixel(int x, int y)
     else if(tool_number == 3) { //line
         painter.setPen(pen);
         painter.drawLine(line_startx, line_starty, line_endx, line_endy);
-        line_startx = 0;
-        line_starty = 0;
-        line_endx = 0;
-        line_endy = 0;
         painter.end();
         emit update_can(current_image);
         return;
@@ -145,7 +141,7 @@ void Tools::edit_pixel(int x, int y)
 
 void Tools::on_mouse_down(int x, int y)
 {
-    if (tool_number == 7 || tool_number == 8 )
+    if (tool_number == 7 || tool_number == 8 || tool_number == 3)
     {
         base_image = current_image;
 
@@ -166,7 +162,7 @@ void Tools::on_mouse_down(int x, int y)
 
 void Tools::on_mouse_drag(int x, int y)
 {
-    if (tool_number == 7 || tool_number == 8)
+    if (tool_number == 7 || tool_number == 8 || tool_number == 3)
     {
         line_endx = x;
         line_endy = y;
