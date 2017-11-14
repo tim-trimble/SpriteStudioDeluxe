@@ -1,7 +1,7 @@
 #include "frame.h"
 
 Frame::Frame(int width, int height, float zoom_level){
-    image = new QImage(width+2, height+2, QImage::Format_ARGB32);
+    image = new QImage(width, height, QImage::Format_ARGB32);
     image->fill(QColor(0,0,0,0));
     image->setDevicePixelRatio(zoom_level);
 }
@@ -11,7 +11,7 @@ Frame::~Frame(){
 }
 
 Frame::Frame(QImage img){
-    image = &img;
+    image = new QImage(img);
 }
 
 Frame::Frame(){
