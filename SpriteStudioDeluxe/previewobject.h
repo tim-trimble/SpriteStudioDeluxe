@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QImage>
 #include <QThread>
+#include <QTime>
 
 //project puts this on a different thread to run preview animation
 
