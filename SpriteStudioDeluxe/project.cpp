@@ -229,11 +229,22 @@ void Project::export_project(QString filename)
            << qRgb(0, 0, 255)
            << qRgb(255, 255, 0)
            << qRgb(0, 255, 255)
-           << qRgb(255, 0, 255);
+           << qRgb(255, 0, 255)
+           << qRgb (16, 16, 16);
+    for(int r = 42; r < 256; r+= 42)
+    {
+        for(int g = 42; g < 256; g+= 42)
+        {
+            for(int b = 42; b < 256; b+= 42)
+            {
+                ctable << qRgb(r, g, b);
+            }
+        }
+    }
 
-    gif.setGlobalColorTable(ctable, Qt::black);
-    gif.setDefaultTransparentColor(Qt::red);
-    gif.setDefaultDelay(100);
+    gif.setGlobalColorTable(ctable, Qt::white);
+    gif.setDefaultTransparentColor(QColor(16, 16, 16));
+    gif.setDefaultDelay(1000);
     for(int i=0; i < frames->size(); i++)
     {
         QImage img(*frames->at(i)->getImage());
