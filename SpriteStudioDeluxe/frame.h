@@ -9,7 +9,7 @@
 class Frame {
 private:
 
-    QImage *image = Q_NULLPTR;
+    QImage *image;
 
 public:
 
@@ -20,9 +20,10 @@ public:
 
     int get_x();
     int get_y();
+    QImage* get_image();
+
     void edit_pixel(int x, int y, QColor color);
     void rotate_image(int angle);
-    QImage* get_image();
     void set_image(QImage * new_image);
     void scale_image(int x, int y);
     void resize_workspace(int x, int y);

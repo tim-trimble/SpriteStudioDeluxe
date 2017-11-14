@@ -1,5 +1,4 @@
 #include "previewobject.h"
-#include <QTime>
 
 PreviewObject::PreviewObject(QImage *i, QObject *parent) : QObject(parent)
 {

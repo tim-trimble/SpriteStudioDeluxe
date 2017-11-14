@@ -1,8 +1,5 @@
 #include "project.h"
 #include "qgifimage.h"
-#include <iostream>
-#include <QTextStream>
-#include <stack>
 
 Project::Project(int x, int y)
 {
@@ -79,7 +76,8 @@ void Project::add_frame()
     QThread::sleep(0.5);
 }
 
-Frame* Project::get_frame(){
+Frame* Project::get_frame()
+{
     return current_frame;
 }
 
@@ -112,10 +110,10 @@ void Project::previous_frame()
 }
 
 void Project::rotate_frame(){
-    Frame* newFrame = frames->at(current_index);
-    newFrame->rotate_image(90);
-    frames->replace(current_index, newFrame);
-    current_frame = newFrame;
+    Frame* new_frame = frames->at(current_index);
+    new_frame->rotate_image(90);
+    frames->replace(current_index, new_frame);
+    current_frame = new_frame;
 
     emit frame_changed(current_frame);
     update_canvas();
@@ -287,7 +285,6 @@ void Project::history_step_back()
 {
     if (history[current_index].size() == 0)
     {
-        std::cout << "You have no history to revert to on this frame" << std::endl;
         return;
     }
 
@@ -332,7 +329,8 @@ void Project::zoom_out()
     update_canvas();
 }
 
-void Project::new_project(){
+void Project::new_project()
+{
     emit hide_window();
 
     //INIT PROJECT

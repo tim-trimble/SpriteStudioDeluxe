@@ -9,7 +9,7 @@
 #include <QThread>
 #include "previewobject.h"
 #include <stack>
-//#include "QtGifImage-master/src/gifimage/qgifimage.h"
+#include <QTextStream>
 
 //model for mainwindow editor
 
@@ -37,26 +37,33 @@ public:
 
 public slots:
 
+    //preview
     void thread_end();
+
+    //canvas
     void update_canvas();
     void mouse_down_pos(int x, int y);
     void change_color(QColor c);
+
+    //frame requests
     void add_frame();
     Frame* get_frame();
     void next_frame();
     void previous_frame();
     void rotate_frame();
+
+    //project functions
     void save_project(QString filename);
     void load_project(QString filename);
     void export_project(QString filename);
     void new_project();
+
+    //tools
     void history_step_back();
     void zoom_in();
     void zoom_out();
 
-
 signals:
-
     void hide_window();
     void show_window();
     void send_update(QImage *image);
