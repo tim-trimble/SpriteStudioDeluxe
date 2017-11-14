@@ -217,38 +217,69 @@ void Project::load_project(QString filename)
 
 void Project::export_project(QString filename)
 {
-    QGifImage gif(QSize(frames->at(0)->getX(), frames->at(0)->getY()));
-    QVector<QRgb> ctable;
-    ctable << qRgb(255, 255, 255)
-           << qRgb(0, 0, 0)
-           << qRgb(255, 0, 0)
-           << qRgb(0, 255, 0)
-           << qRgb(0, 0, 255)
-           << qRgb(255, 255, 0)
-           << qRgb(0, 255, 255)
-           << qRgb(255, 0, 255)
-           << qRgb (16, 16, 16);
-    for(int r = 42; r < 256; r+= 42)
+    if(filename.isEmpty())
     {
-        for(int g = 42; g < 256; g+= 42)
+        return;
+    }
+    if(filename.split(".").at(1) == "gif")
+    {
+        QGifImage gif(QSize(frames->at(0)->getX(), frames->at(0)->getY()));
+        QVector<QRgb> ctable;
+        ctable << qRgb(255, 255, 255)
+               << qRgb(0, 0, 0)
+               << qRgb(255, 0, 0)
+               << qRgb(0, 255, 0)
+               << qRgb(0, 0, 255)
+               << qRgb(255, 255, 0)
+               << qRgb(0, 255, 255)
+               << qRgb(255, 0, 255)
+               << qRgb (16, 16, 16);
+        for(int r = 42; r < 256; r+= 42)
         {
-            for(int b = 42; b < 256; b+= 42)
+            for(int g = 42; g < 256; g+= 42)
             {
-                ctable << qRgb(r, g, b);
+                for(int b = 42; b < 256; b+= 42)
+                {
+                    ctable << qRgb(r, g, b);
+                }
             }
         }
-    }
 
-    gif.setGlobalColorTable(ctable, Qt::white);
-    gif.setDefaultTransparentColor(QColor(16, 16, 16));
-    gif.setDefaultDelay(1000);
-    for(int i=0; i < frames->size(); i++)
-    {
-        QImage img(*frames->at(i)->getImage());
-        img.setDevicePixelRatio(1);
-        gif.addFrame(img);
+        gif.setGlobalColorTable(ctable, Qt::white);
+        gif.setDefaultTransparentColor(QColor(16, 16, 16));
+        gif.setDefaultDelay(1000);
+        for(int i=0; i < frames->size(); i++)
+        {
+            QImage img(*frames->at(i)->getImage());
+            img.setDevicePixelRatio(1);
+            gif.addFrame(img);
+        }
+        gif.save(filename);
     }
-    gif.save(filename);
+    else if (filename.split(".").at(1) == "png")
+    {
+        QFile file(filename);
+        if(file.open(QIODevice::WriteOnly | QIODevice:: Truncate))
+        {
+            QImage img(*frames->at(0)->getImage());
+            img.setDevicePixelRatio(1);
+            QImage export_image(img.width() * frames->size(), img.height(), QImage::Format_ARGB32);
+            for(int i = 0; i < frames->size(); i++)
+            {
+                img = QImage(*frames->at(i)->getImage());
+                img.setDevicePixelRatio(1);
+                for(int x = 0; x < img.width(); x++)
+                {
+                    for(int y = 0; y < img.height(); y++)
+                    {
+                        QColor color = img.pixelColor(x, y);
+                        export_image.setPixelColor(x + (i*img.width()), y, color);
+                    }
+                }
+            }
+            export_image.save(&file, "PNG");
+        }
+    }
 }
 
 // called when the UI requests to go back one frame of history
