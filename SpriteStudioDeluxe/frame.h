@@ -8,24 +8,25 @@
 
 class Frame {
 private:
+
     QImage *image = Q_NULLPTR;
 
 public:
+
     Frame();
     Frame(int x, int y, float zoom_level);
     Frame(QImage image);
     ~Frame();
 
-    int getX();
-    int getY();
-
-    void editPixel(int x, int y, QColor color);
-    void rotateImage(int angle);
-    QImage* getImage();
-    void setImage(QImage * newImage);
-    void scaleImage(int x, int y);
-    void resizeWorkspace(int x, int y);
-    void setDevicePixelRatio(float newRatio);
+    int get_x();
+    int get_y();
+    void edit_pixel(int x, int y, QColor color);
+    void rotate_image(int angle);
+    QImage* get_image();
+    void set_image(QImage * new_image);
+    void scale_image(int x, int y);
+    void resize_workspace(int x, int y);
+    void set_device_pixel_ratio(float new_ratio);
 };
 
 #endif // FRAME_H

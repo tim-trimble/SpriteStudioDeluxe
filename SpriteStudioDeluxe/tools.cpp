@@ -3,8 +3,8 @@
 #include <iostream>
 
 QVector<std::stack<QImage*>> Project::history;
-int Project::currentIndex;
-float Project::zoomLevel;
+int Project::current_index;
+float Project::zoom_level;
 
 Tools::Tools(Frame* initial_frame)
 {
@@ -15,7 +15,7 @@ Tools::Tools(Frame* initial_frame)
     eraser = QColor(255, 255, 255);
     current_color = QColor(Qt::black);
     temp_color = QColor(Qt::black);
-    current_image = active_frame->getImage();
+    current_image = active_frame->get_image();
 }
 
 void Tools::tool_selected(int i)
@@ -43,7 +43,7 @@ void Tools::brush_size_changed(int size)
 void Tools::frame_changed(Frame* frame)
 {
     active_frame = frame;
-    current_image = frame->getImage();
+    current_image = frame->get_image();
 }
 
 void Tools::change_color(QColor color)
@@ -61,7 +61,7 @@ void Tools::on_mouse_up(int x, int y)
         if (!(line_endx == line_startx && line_endy == line_starty))
         {
             QImage * archived_image = new QImage(*current_image);
-            Project::history[Project::currentIndex].push(archived_image);
+            Project::history[Project::current_index].push(archived_image);
         }
     }
     edit_pixel(x, y);
@@ -73,16 +73,16 @@ void Tools::on_mouse_up(int x, int y)
 
 void Tools::edit_pixel(int x, int y)
 {
-    current_image->setDevicePixelRatio(Project::zoomLevel);
+    current_image->setDevicePixelRatio(Project::zoom_level);
     QPainter painter(current_image);
-    painter.scale(Project::zoomLevel, Project::zoomLevel);
+    painter.scale(Project::zoom_level, Project::zoom_level);
     QPen pen;
     pen.setStyle(Qt::SolidLine);
-    pen.setWidth(brush_size * 1/Project::zoomLevel);
+    pen.setWidth(brush_size * 1/Project::zoom_level);
     pen.setColor(temp_color);
 
     if (tool_number == 1) { //pencil
-        pen.setWidth(1/Project::zoomLevel);
+        pen.setWidth(1/Project::zoom_level);
     }
     else if(tool_number == 2) { //brush
 
@@ -112,10 +112,10 @@ void Tools::edit_pixel(int x, int y)
        painter.setPen(pen);
        painter.drawPoint(x, y);
        if(tool_number == 5) {
-            painter.drawPoint(current_image->width()/Project::zoomLevel - x - 1, y);
+            painter.drawPoint(current_image->width()/Project::zoom_level - x - 1, y);
        }
        else {
-            painter.drawPoint(x, current_image->height()/Project::zoomLevel - y - 1);
+            painter.drawPoint(x, current_image->height()/Project::zoom_level - y - 1);
        }
        painter.end();
        emit update_can(current_image);
@@ -125,7 +125,7 @@ void Tools::edit_pixel(int x, int y)
         painter.setPen(pen);
         painter.drawRect(line_startx, line_starty, line_endx-line_startx, line_endy-line_starty);
         painter.end();
-        //active_frame->setImage(current_image);
+        //active_frame->set_image(current_image);
         emit update_can(current_image);
         return;
     }
@@ -133,7 +133,7 @@ void Tools::edit_pixel(int x, int y)
         painter.setPen(pen);
         painter.fillRect(line_startx, line_starty, line_endx-line_startx, line_endy-line_starty, temp_color);
         painter.end();
-        //active_frame->setImage(current_image);
+        //active_frame->set_image(current_image);
         emit update_can(current_image);
         return;
     }
@@ -154,7 +154,7 @@ void Tools::on_mouse_down(int x, int y)
     {
         //archive the current frame in history
         QImage * archived_image = new QImage(*current_image);
-        Project::history[Project::currentIndex].push(archived_image);
+        Project::history[Project::current_index].push(archived_image);
     }
 
     line_startx = x;
@@ -183,7 +183,7 @@ void Tools::clear_canvas()
 {
     //archive the current frame in history
     QImage * archived_image = new QImage(*current_image);
-    Project::history[Project::currentIndex].push(archived_image);
+    Project::history[Project::current_index].push(archived_image);
 
     current_image->fill(Qt::transparent);
     std::cout << "Clear" << std::endl;
@@ -194,7 +194,7 @@ void Tools::fill_canvas()
 {
     //archive the current frame in history
     QImage * archived_image = new QImage(*current_image);
-    Project::history[Project::currentIndex].push(archived_image);
+    Project::history[Project::current_index].push(archived_image);
 
     current_image->fill(temp_color);
     std::cout << "fill" << std::endl;

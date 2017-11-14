@@ -13,6 +13,7 @@ class Tools : public QObject
     Q_OBJECT
 
 private:
+
     int tool_number;
     int brush_size;
     bool eraser_active;
@@ -27,17 +28,19 @@ private:
     int line_starty;
     int line_endx;
     int line_endy;
-
     void edit_pixel(int, int);
 
 public:
+
     Tools(Frame*);
     ~Tools();
 
 signals:
+
     void update_can(QImage*);
 
 public slots:
+
     void tool_selected(int);
     void brush_size_changed(int);
     void frame_changed(Frame*);

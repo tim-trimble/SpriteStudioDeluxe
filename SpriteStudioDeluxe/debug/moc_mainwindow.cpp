@@ -48,9 +48,9 @@ QT_MOC_LITERAL(13, 174, 20), // "next_frame_requested"
 QT_MOC_LITERAL(14, 195, 24), // "previous_frame_requested"
 QT_MOC_LITERAL(15, 220, 19), // "new_frame_requested"
 QT_MOC_LITERAL(16, 240, 12), // "rotate_frame"
-QT_MOC_LITERAL(17, 253, 27), // "history_reversion_requested"
-QT_MOC_LITERAL(18, 281, 17), // "zoom_in_requested"
-QT_MOC_LITERAL(19, 299, 18), // "zoom_out_requested"
+QT_MOC_LITERAL(17, 253, 17), // "zoom_in_requested"
+QT_MOC_LITERAL(18, 271, 18), // "zoom_out_requested"
+QT_MOC_LITERAL(19, 290, 27), // "history_reversion_requested"
 QT_MOC_LITERAL(20, 318, 10), // "mouse_drag"
 QT_MOC_LITERAL(21, 329, 1), // "x"
 QT_MOC_LITERAL(22, 331, 1), // "y"
@@ -107,8 +107,8 @@ QT_MOC_LITERAL(67, 1225, 25) // "on_actionExport_triggered"
     "fill_canvas\0brush_size_changed\0d\0"
     "brush_color_changed\0c\0next_frame_requested\0"
     "previous_frame_requested\0new_frame_requested\0"
-    "rotate_frame\0history_reversion_requested\0"
-    "zoom_in_requested\0zoom_out_requested\0"
+    "rotate_frame\0zoom_in_requested\0"
+    "zoom_out_requested\0history_reversion_requested\0"
     "mouse_drag\0x\0y\0mouse_down\0mouse_up\0"
     "mouse_left\0save_sprite\0filename\0"
     "load_sprite\0new_sprite\0export_sprite\0"
@@ -300,9 +300,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 10: _t->previous_frame_requested(); break;
         case 11: _t->new_frame_requested(); break;
         case 12: _t->rotate_frame(); break;
-        case 13: _t->history_reversion_requested(); break;
-        case 14: _t->zoom_in_requested(); break;
-        case 15: _t->zoom_out_requested(); break;
+        case 13: _t->zoom_in_requested(); break;
+        case 14: _t->zoom_out_requested(); break;
+        case 15: _t->history_reversion_requested(); break;
         case 16: _t->mouse_drag((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 17: _t->mouse_down((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 18: _t->mouse_up((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
@@ -442,21 +442,21 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::history_reversion_requested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::zoom_in_requested)) {
                 *result = 13;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::zoom_in_requested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::zoom_out_requested)) {
                 *result = 14;
                 return;
             }
         }
         {
             typedef void (MainWindow::*_t)();
-            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::zoom_out_requested)) {
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::history_reversion_requested)) {
                 *result = 15;
                 return;
             }
@@ -638,19 +638,19 @@ void MainWindow::rotate_frame()
 }
 
 // SIGNAL 13
-void MainWindow::history_reversion_requested()
+void MainWindow::zoom_in_requested()
 {
     QMetaObject::activate(this, &staticMetaObject, 13, nullptr);
 }
 
 // SIGNAL 14
-void MainWindow::zoom_in_requested()
+void MainWindow::zoom_out_requested()
 {
     QMetaObject::activate(this, &staticMetaObject, 14, nullptr);
 }
 
 // SIGNAL 15
-void MainWindow::zoom_out_requested()
+void MainWindow::history_reversion_requested()
 {
     QMetaObject::activate(this, &staticMetaObject, 15, nullptr);
 }

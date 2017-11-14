@@ -8,19 +8,24 @@
 
 #include <previewobject.h>
 
-namespace Ui {
+namespace Ui
+{
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow{
+class MainWindow : public QMainWindow
+{
     Q_OBJECT
+
     QString project_filename;
 
 public:
+
     explicit MainWindow(Project& project, Tools& tools, QWidget *parent = 0);
     ~MainWindow();
 
 signals:
+
     // TOOL SIGNALS
     // Intended Reciever: Tool Class
     void tool_changed(int);
@@ -42,15 +47,13 @@ signals:
     void previous_frame_requested();
     void new_frame_requested();
     void rotate_frame();
+    void zoom_in_requested();
+    void zoom_out_requested();
 
     // HISTORY MENU
     // Intended Reciever: Project Class
     void history_reversion_requested();
 
-    // PREVIEW MENU
-    // Intended Reciever: (???)
-    void zoom_in_requested();
-    void zoom_out_requested();
 
     // CANVAS
     // Intended Reciever: Tool Class
@@ -80,6 +83,7 @@ public slots:
     void c_mouse_left();
 
 private slots:
+
     // QT GENERATED SLOTS FOR UI ACTIONS
     void on_PencilToolButton_clicked();
     void on_BrushToolButton_clicked();
@@ -94,33 +98,22 @@ private slots:
     void on_AddFrameButton_clicked();
     void on_ZoomInButton_clicked();
     void on_ZoomOutButton_clicked();
-
     void on_StepBackButton_clicked();
-
     void on_RectangleToolButton_clicked();
-
     void on_FilledRectangleButton_clicked();
-
     void on_ClearCanvasButton_clicked();
-
     void on_FillAllButton_clicked();
-
     void on_actionOpen_triggered();
-
     void on_actionSave_As_triggered();
-
     void on_actionRotate_90_triggered();
-
     void on_actionNew_triggered();
-
     void hide_window();
     void show_window();
-
     void on_actionSave_triggered();
-
     void on_actionExport_triggered();
 
 private:
+
     Ui::MainWindow *ui;
 };
 

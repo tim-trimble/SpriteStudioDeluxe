@@ -19,7 +19,6 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     ui->canvas->setAlignment(Qt::AlignLeft);
     project.update_canvas();
     project.update_frame_label(1,1);
-    ui->CurrentColorLabel->setStyleSheet("QLabel { background-color : black; color : black; }");
 
 
     // QIMAGE UPDATE CONNECTIONS
@@ -63,8 +62,8 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(this, SIGNAL(export_sprite(QString)), &project, SLOT(export_project(QString)));
 
     // UI IMAGE INITIALIZATION
-    float iconScale = .5;
 
+    float icon_scale = .5;
     QPixmap pencil("./resources/icons/pencil.png");
     QPixmap eraser("./resources/icons/eraser.png");
     QPixmap line("./resources/icons/line.png");
@@ -98,16 +97,16 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     ui->MirrorYToolButton->setIcon(i_mirror_y);
     ui->FillAllButton->setIcon(i_fill);
 
-    ui->PencilToolButton->setIconSize(pencil.rect().size()*iconScale);
-    ui->EraserToolButton->setIconSize(eraser.rect().size()*iconScale);
-    ui->LineToolButton->setIconSize(line.rect().size()*iconScale);
-    ui->BrushToolButton->setIconSize(brush.rect().size()*iconScale);
-    ui->RectangleToolButton->setIconSize(rectangle.rect().size()*iconScale);
-    ui->FilledRectangleButton->setIconSize(rectangle_filled.rect().size()*iconScale);
-    ui->ClearCanvasButton->setIconSize(clear.rect().size()*iconScale);
-    ui->MirrorXToolButton->setIconSize(mirror_x.rect().size()*iconScale);
-    ui->MirrorYToolButton->setIconSize(mirror_y.rect().size()*iconScale);
-    ui->FillAllButton->setIconSize(fill.rect().size()*iconScale);
+    ui->PencilToolButton->setIconSize(pencil.rect().size()*icon_scale);
+    ui->EraserToolButton->setIconSize(eraser.rect().size()*icon_scale);
+    ui->LineToolButton->setIconSize(line.rect().size()*icon_scale);
+    ui->BrushToolButton->setIconSize(brush.rect().size()*icon_scale);
+    ui->RectangleToolButton->setIconSize(rectangle.rect().size()*icon_scale);
+    ui->FilledRectangleButton->setIconSize(rectangle_filled.rect().size()*icon_scale);
+    ui->ClearCanvasButton->setIconSize(clear.rect().size()*icon_scale);
+    ui->MirrorXToolButton->setIconSize(mirror_x.rect().size()*icon_scale);
+    ui->MirrorYToolButton->setIconSize(mirror_y.rect().size()*icon_scale);
+    ui->FillAllButton->setIconSize(fill.rect().size()*icon_scale);
 
 }
 
@@ -219,9 +218,9 @@ void MainWindow::on_ColorSelectButton_clicked()
     QColor color = QColorDialog::getColor(Qt::white, this);
 
     // assign the current color label that selected color
-    QImage newColorSwatch(40, 40, QImage::Format_ARGB32);
-    newColorSwatch.fill(color);
-    ui->CurrentColorLabel->setPixmap(QPixmap::fromImage(newColorSwatch));
+    QImage new_color_swatch(40, 40, QImage::Format_ARGB32);
+    new_color_swatch.fill(color);
+    ui->CurrentColorLabel->setPixmap(QPixmap::fromImage(new_color_swatch));
     ui->CurrentColorLabel->show();
 
     // emit Brush color change event so the model knows
@@ -300,17 +299,19 @@ void MainWindow::on_actionNew_triggered()
     emit new_sprite();
 }
 
-void MainWindow::show_window(){
+void MainWindow::show_window()
+{
     this->show();
 }
 
-void MainWindow::hide_window(){
+void MainWindow::hide_window()
+{
     this->hide();
 }
 
 void MainWindow::on_actionSave_triggered()
 {
-    if(project_filename.isEmpty());
+    if(project_filename.isEmpty())
     {
         project_filename = QFileDialog::getSaveFileName(this, tr("Save Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
     }

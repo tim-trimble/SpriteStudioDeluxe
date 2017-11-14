@@ -11,8 +11,10 @@ class Canvas : public QLabel
 {
     Q_OBJECT
 
-public:   
+public:
+
     explicit Canvas(QWidget *parent = nullptr);
+
     // QT AUTO GENERATED EVENT HANDLERS
     void mousePressEvent(QMouseEvent *ev);
     void mouseMoveEvent(QMouseEvent *ev);
@@ -25,12 +27,12 @@ public:
     int y;
 
 signals:
+
     void c_mouse_down_pos(int x, int y);
     void c_mouse_down();
     void c_mouse_up();
     void c_mouse_left();
 
-public slots:
 };
 
 #endif // CANVAS_H
