@@ -240,7 +240,6 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_AddFrameButton_clicked()
 {
-    std::cout << "add frame" << std::endl;
     emit new_frame_requested();
 }
 
