@@ -184,7 +184,7 @@ void Project::load_project(QString filename)
             history.append(* new std::stack<QImage*>);
 
             Frame * f = new Frame(x, y, zoom_level);
-            for(int j = 0; j < y - 1; j++)
+            for(int j = 0; j < y; j++)
             {
                 for(int k = 0; k < x; k++)
                 {
