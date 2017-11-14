@@ -14,6 +14,7 @@ class MainWindow;
 
 class MainWindow : public QMainWindow{
     Q_OBJECT
+    QString project_filename;
 
 public:
     explicit MainWindow(Project& project, Tools& tools, QWidget *parent = 0);
@@ -63,6 +64,7 @@ signals:
     void save_sprite(QString filename);
     void load_sprite(QString filename);
     void new_sprite();
+    void export_sprite(QString filename);
 
 public slots:
 
@@ -113,6 +115,10 @@ private slots:
 
     void hide_window();
     void show_window();
+
+    void on_actionSave_triggered();
+
+    void on_actionExport_triggered();
 
 private:
     Ui::MainWindow *ui;

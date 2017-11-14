@@ -1,4 +1,5 @@
 #include "project.h"
+#include "qgifimage.h"
 #include <iostream>
 #include <QTextStream>
 #include <stack>
@@ -217,9 +218,29 @@ void Project::load_project(QString filename)
     }
 }
 
-void Project::export_project(QString export_type)
+void Project::export_project(QString filename)
 {
+    QGifImage gif(QSize(frames->at(0)->getX(), frames->at(0)->getY()));
+    QVector<QRgb> ctable;
+    ctable << qRgb(255, 255, 255)
+           << qRgb(0, 0, 0)
+           << qRgb(255, 0, 0)
+           << qRgb(0, 255, 0)
+           << qRgb(0, 0, 255)
+           << qRgb(255, 255, 0)
+           << qRgb(0, 255, 255)
+           << qRgb(255, 0, 255);
 
+    gif.setGlobalColorTable(ctable, Qt::black);
+    gif.setDefaultTransparentColor(Qt::red);
+    gif.setDefaultDelay(100);
+    for(int i=0; i < frames->size(); i++)
+    {
+        QImage img(*frames->at(i)->getImage());
+        img.setDevicePixelRatio(1);
+        gif.addFrame(img);
+    }
+    gif.save(filename);
 }
 
 // called when the UI requests to go back one frame of history

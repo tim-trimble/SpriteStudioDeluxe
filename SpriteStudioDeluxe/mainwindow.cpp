@@ -60,6 +60,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     connect(this, SIGNAL(save_sprite(QString)), &project, SLOT(save_project(QString)));
     connect(this, SIGNAL(load_sprite(QString)), &project, SLOT(load_project(QString)));
     connect(this, SIGNAL(new_sprite()), &project, SLOT(new_project()));
+    connect(this, SIGNAL(export_sprite(QString)), &project, SLOT(export_project(QString)));
 
     // UI IMAGE INITIALIZATION
     float iconScale = .5;
@@ -280,14 +281,14 @@ void MainWindow::on_FillAllButton_clicked()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    QString filename = QFileDialog::getOpenFileName(this, tr("Open Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
-    emit load_sprite(filename);
+    project_filename = QFileDialog::getOpenFileName(this, tr("Open Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
+    emit load_sprite(project_filename);
 }
 
 void MainWindow::on_actionSave_As_triggered()
 {
-    QString filename = QFileDialog::getSaveFileName(this, tr("Save Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
-    emit save_sprite(filename);
+    project_filename = QFileDialog::getSaveFileName(this, tr("Save Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
+    emit save_sprite(project_filename);
 }
 
 void MainWindow::on_actionRotate_90_triggered()
@@ -306,4 +307,19 @@ void MainWindow::show_window(){
 
 void MainWindow::hide_window(){
     this->hide();
+}
+
+void MainWindow::on_actionSave_triggered()
+{
+    if(project_filename.isEmpty());
+    {
+        project_filename = QFileDialog::getSaveFileName(this, tr("Save Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
+    }
+    emit save_sprite(project_filename);
+}
+
+void MainWindow::on_actionExport_triggered()
+{
+    QString filename = QFileDialog::getSaveFileName(this, tr("Export Sprite"), " ", tr("GIF (*.gif)"));
+    emit export_sprite(filename);
 }
