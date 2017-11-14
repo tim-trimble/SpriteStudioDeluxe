@@ -17,6 +17,7 @@ MainWindow::MainWindow(Project& project, Tools& tools, QWidget *parent) :
     ui->setupUi(this);
     ui->canvas->setAlignment(Qt::AlignTop);
     ui->canvas->setAlignment(Qt::AlignLeft);
+    ui->CurrentColorLabel->setStyleSheet("QLabel { background-color : black; color : black; }");
     project.update_canvas();
     project.update_frame_label(1,1);
 
