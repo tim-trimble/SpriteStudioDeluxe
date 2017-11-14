@@ -43,7 +43,7 @@ Project::~Project()
 
 void Project::thread_end()
 {
-    if(previewIndex == frames->size() - 1){
+    if(previewIndex >= frames->size() - 1){
         previewIndex = 0;
     } else{
         previewIndex += 1;
@@ -72,14 +72,11 @@ void Project::change_color(QColor c)
 
 void Project::add_frame()
 {
-    previewThread->quit();
-    QThread::sleep(0.75);
-
+    emit update_frame_label(currentIndex + 1, frames->size() + 1);
     frames->append(new Frame(frames->at(0)->getX()-2, frames->at(0)->getY()-2, zoomLevel));
     history.append(* new std::stack<QImage*>);
-    emit update_frame_label(currentIndex + 1, frames->size());
 
-    previewThread->start();
+    QThread::sleep(0.5);
 }
 
 Frame* Project::get_frame(){
@@ -333,20 +330,18 @@ void Project::zoom_out()
 
 void Project::new_project(){
     emit hide_window();
-    previewThread->quit();
-    QThread::sleep(1);
 
     //INIT PROJECT
     currentIndex = 0;
     zoomLevel = .125;
     frames->clear();
     frames->append(new Frame(64, 64, zoomLevel));
-    currentFrame = frames->at(0);
-
-    previewThread->start();
+    currentFrame = frames->at(0);    
     update_canvas();
     emit frame_changed(frames->at(0));
     emit update_frame_label(1, 1);
+
+    QThread::sleep(0.5);
     emit show_window();
 }
 
