@@ -60,7 +60,6 @@ void Tools::brush_size_changed(int size)
 */
 void Tools::frame_changed(Frame* frame)
 {
-    //active_frame = frame;
     current_image = frame->get_image();
 }
 

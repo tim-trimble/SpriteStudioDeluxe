@@ -173,42 +173,35 @@ void MainWindow::c_mouse_left()
 
 void MainWindow::on_PencilToolButton_clicked()
 {
-    std::cout << "pencil" << std::endl;
     emit tool_changed(1);
 }
 
 void MainWindow::on_BrushToolButton_clicked()
 {
-    std::cout << "brush" << std::endl;
     emit tool_changed(2);
 }
 
 void MainWindow::on_LineToolButton_clicked()
 {
-    std::cout << "line" << std::endl;
     emit tool_changed(3);
 }
 
 void MainWindow::on_EraserToolButton_clicked()
 {
-    std::cout << "eraser" << std::endl;
     emit tool_changed(4);
 }
 
 void MainWindow::on_MirrorXToolButton_clicked()
 {
-    std::cout << "mirrorx" << std::endl;
     emit tool_changed(5);
 }
 void MainWindow::on_MirrorYToolButton_clicked()
 {
-    std::cout << "mirrory" << std::endl;
     emit tool_changed(6);
 }
 
 void MainWindow::on_DiameterSpinBox_editingFinished()
 {
-    std::cout << "spinbox" << std::endl;
     int x = ui->DiameterSpinBox->value();
     emit brush_size_changed(x);
 }
