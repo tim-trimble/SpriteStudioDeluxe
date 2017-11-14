@@ -9,9 +9,6 @@
 
 class PreviewObject : public QObject {
     Q_OBJECT
-private:
-    double sleepTime;
-
 public:
     QImage* image;
     explicit PreviewObject(QImage* image, QObject *parent = Q_NULLPTR);
@@ -22,7 +19,6 @@ signals:
 
 public slots:
     void thread_start();
-    void set_speed(int fps);
 };
 
 #endif // PREVIEWOBJECT_H

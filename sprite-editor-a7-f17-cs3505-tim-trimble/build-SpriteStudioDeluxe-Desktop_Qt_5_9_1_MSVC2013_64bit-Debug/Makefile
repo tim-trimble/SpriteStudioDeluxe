@@ -227,6 +227,8 @@ Makefile: ..\..\SpriteStudioDeluxe\SpriteStudioDeluxe.pro C:\Qt\5.9.1\msvc2013_6
 		C:\Qt\5.9.1\msvc2013_64\mkspecs\features\toolchain.prf \
 		C:\Qt\5.9.1\msvc2013_64\mkspecs\features\default_pre.prf \
 		C:\Qt\5.9.1\msvc2013_64\mkspecs\features\win32\default_pre.prf \
+		..\..\SpriteStudioDeluxe\QtGifImage-master\src\3rdParty\giflib.pri \
+		..\..\SpriteStudioDeluxe\QtGifImage-master\src\gifimage\qtgifimage.pri \
 		C:\Qt\5.9.1\msvc2013_64\mkspecs\features\resolve_config.prf \
 		C:\Qt\5.9.1\msvc2013_64\mkspecs\features\exclusive_builds_post.prf \
 		C:\Qt\5.9.1\msvc2013_64\mkspecs\features\default_post.prf \
@@ -403,6 +405,8 @@ C:\Qt\5.9.1\msvc2013_64\mkspecs\common\msvc-version.conf:
 C:\Qt\5.9.1\msvc2013_64\mkspecs\features\toolchain.prf:
 C:\Qt\5.9.1\msvc2013_64\mkspecs\features\default_pre.prf:
 C:\Qt\5.9.1\msvc2013_64\mkspecs\features\win32\default_pre.prf:
+..\..\SpriteStudioDeluxe\QtGifImage-master\src\3rdParty\giflib.pri:
+..\..\SpriteStudioDeluxe\QtGifImage-master\src\gifimage\qtgifimage.pri:
 C:\Qt\5.9.1\msvc2013_64\mkspecs\features\resolve_config.prf:
 C:\Qt\5.9.1\msvc2013_64\mkspecs\features\exclusive_builds_post.prf:
 C:\Qt\5.9.1\msvc2013_64\mkspecs\features\default_post.prf:
