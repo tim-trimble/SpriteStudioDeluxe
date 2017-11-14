@@ -240,7 +240,6 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_AddFrameButton_clicked()
 {
-    std::cout << "add frame" << std::endl;
     emit new_frame_requested();
 }
 
@@ -320,6 +319,6 @@ void MainWindow::on_actionSave_triggered()
 
 void MainWindow::on_actionExport_triggered()
 {
-    QString filename = QFileDialog::getSaveFileName(this, tr("Export Sprite"), " ", tr("GIF (*.gif)"));
+    QString filename = QFileDialog::getSaveFileName(this, tr("Export Sprite"), " ", tr("GIF (*.gif);;PNG (*.png)"));
     emit export_sprite(filename);
 }

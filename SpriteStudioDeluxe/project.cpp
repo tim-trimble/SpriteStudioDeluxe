@@ -43,7 +43,7 @@ Project::~Project()
 
 void Project::thread_end()
 {
-    if(previewIndex == frames->size() - 1){
+    if(previewIndex >= frames->size() - 1){
         previewIndex = 0;
     } else{
         previewIndex += 1;
@@ -72,14 +72,11 @@ void Project::change_color(QColor c)
 
 void Project::add_frame()
 {
-    previewThread->quit();
-    QThread::sleep(0.75);
-
-    frames->append(new Frame(frames->at(0)->getX()-2, frames->at(0)->getY()-2, zoomLevel));
+    emit update_frame_label(currentIndex + 1, frames->size() + 1);
+    frames->append(new Frame(*currentFrame->getImage()));
     history.append(* new std::stack<QImage*>);
-    emit update_frame_label(currentIndex + 1, frames->size());
 
-    previewThread->start();
+    QThread::sleep(0.5);
 }
 
 Frame* Project::get_frame(){
@@ -220,27 +217,69 @@ void Project::load_project(QString filename)
 
 void Project::export_project(QString filename)
 {
-    QGifImage gif(QSize(frames->at(0)->getX(), frames->at(0)->getY()));
-    QVector<QRgb> ctable;
-    ctable << qRgb(255, 255, 255)
-           << qRgb(0, 0, 0)
-           << qRgb(255, 0, 0)
-           << qRgb(0, 255, 0)
-           << qRgb(0, 0, 255)
-           << qRgb(255, 255, 0)
-           << qRgb(0, 255, 255)
-           << qRgb(255, 0, 255);
-
-    gif.setGlobalColorTable(ctable, Qt::black);
-    gif.setDefaultTransparentColor(Qt::red);
-    gif.setDefaultDelay(100);
-    for(int i=0; i < frames->size(); i++)
+    if(filename.isEmpty())
     {
-        QImage img(*frames->at(i)->getImage());
-        img.setDevicePixelRatio(1);
-        gif.addFrame(img);
+        return;
     }
-    gif.save(filename);
+    if(filename.split(".").at(1) == "gif")
+    {
+        QGifImage gif(QSize(frames->at(0)->getX(), frames->at(0)->getY()));
+        QVector<QRgb> ctable;
+        ctable << qRgb(255, 255, 255)
+               << qRgb(0, 0, 0)
+               << qRgb(255, 0, 0)
+               << qRgb(0, 255, 0)
+               << qRgb(0, 0, 255)
+               << qRgb(255, 255, 0)
+               << qRgb(0, 255, 255)
+               << qRgb(255, 0, 255)
+               << qRgb (16, 16, 16);
+        for(int r = 42; r < 256; r+= 42)
+        {
+            for(int g = 42; g < 256; g+= 42)
+            {
+                for(int b = 42; b < 256; b+= 42)
+                {
+                    ctable << qRgb(r, g, b);
+                }
+            }
+        }
+
+        gif.setGlobalColorTable(ctable, Qt::white);
+        gif.setDefaultTransparentColor(QColor(16, 16, 16));
+        gif.setDefaultDelay(100);
+        for(int i=0; i < frames->size(); i++)
+        {
+            QImage img(*frames->at(i)->getImage());
+            img.setDevicePixelRatio(1);
+            gif.addFrame(img);
+        }
+        gif.save(filename);
+    }
+    else if (filename.split(".").at(1) == "png")
+    {
+        QFile file(filename);
+        if(file.open(QIODevice::WriteOnly | QIODevice:: Truncate))
+        {
+            QImage img(*frames->at(0)->getImage());
+            img.setDevicePixelRatio(1);
+            QImage export_image(img.width() * frames->size(), img.height(), QImage::Format_ARGB32);
+            for(int i = 0; i < frames->size(); i++)
+            {
+                img = QImage(*frames->at(i)->getImage());
+                img.setDevicePixelRatio(1);
+                for(int x = 0; x < img.width(); x++)
+                {
+                    for(int y = 0; y < img.height(); y++)
+                    {
+                        QColor color = img.pixelColor(x, y);
+                        export_image.setPixelColor(x + (i*img.width()), y, color);
+                    }
+                }
+            }
+            export_image.save(&file, "PNG");
+        }
+    }
 }
 
 // called when the UI requests to go back one frame of history
@@ -295,20 +334,18 @@ void Project::zoom_out()
 
 void Project::new_project(){
     emit hide_window();
-    previewThread->quit();
-    QThread::sleep(1);
 
     //INIT PROJECT
     currentIndex = 0;
     zoomLevel = .125;
     frames->clear();
     frames->append(new Frame(64, 64, zoomLevel));
-    currentFrame = frames->at(0);
-
-    previewThread->start();
+    currentFrame = frames->at(0);    
     update_canvas();
     emit frame_changed(frames->at(0));
     emit update_frame_label(1, 1);
+
+    QThread::sleep(0.5);
     emit show_window();
 }
 

@@ -38,6 +38,7 @@ public:
     QAction *actionExport;
     QAction *actionRotate_90;
     QAction *actionOpen;
+    QAction *actionNew;
     QWidget *centralWidget;
     QGridLayout *gridLayout_4;
     QPushButton *ColorSelectButton;
@@ -100,6 +101,8 @@ public:
         actionRotate_90->setObjectName(QStringLiteral("actionRotate_90"));
         actionOpen = new QAction(MainWindow);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
+        actionNew = new QAction(MainWindow);
+        actionNew->setObjectName(QStringLiteral("actionNew"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout_4 = new QGridLayout(centralWidget);
@@ -329,6 +332,7 @@ public:
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuEdit->menuAction());
+        menuFile->addAction(actionNew);
         menuFile->addAction(actionSave);
         menuFile->addAction(actionSave_As);
         menuFile->addAction(actionExport);
@@ -348,6 +352,7 @@ public:
         actionExport->setText(QApplication::translate("MainWindow", "Export", Q_NULLPTR));
         actionRotate_90->setText(QApplication::translate("MainWindow", "Rotate 90", Q_NULLPTR));
         actionOpen->setText(QApplication::translate("MainWindow", "Open", Q_NULLPTR));
+        actionNew->setText(QApplication::translate("MainWindow", "New", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         ColorSelectButton->setToolTip(QString());
 #endif // QT_NO_TOOLTIP

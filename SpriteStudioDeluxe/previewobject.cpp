@@ -1,18 +1,18 @@
 #include "previewobject.h"
+#include <QTime>
 
 PreviewObject::PreviewObject(QImage *i, QObject *parent) : QObject(parent)
 {
-    sleepTime = 1;
     image = i;
 }
 
 void PreviewObject::thread_start()
 {
-    QThread::sleep(sleepTime);
+    QTime interval = QTime::currentTime().addSecs(1);
+    while(QTime::currentTime() < interval){
+
+    }
+
     emit thread_end(image);
 }
 
-void PreviewObject::set_speed(int fps)
-{
-    sleepTime = 1/fps;
-}

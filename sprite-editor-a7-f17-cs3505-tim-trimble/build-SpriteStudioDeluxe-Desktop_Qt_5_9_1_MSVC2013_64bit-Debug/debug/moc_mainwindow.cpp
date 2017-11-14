@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[61];
-    char stringdata0[1129];
+    QByteArrayData data[68];
+    char stringdata0[1251];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -60,38 +60,45 @@ QT_MOC_LITERAL(25, 353, 10), // "mouse_left"
 QT_MOC_LITERAL(26, 364, 11), // "save_sprite"
 QT_MOC_LITERAL(27, 376, 8), // "filename"
 QT_MOC_LITERAL(28, 385, 11), // "load_sprite"
-QT_MOC_LITERAL(29, 397, 13), // "update_canvas"
-QT_MOC_LITERAL(30, 411, 7), // "QImage*"
-QT_MOC_LITERAL(31, 419, 1), // "i"
-QT_MOC_LITERAL(32, 421, 14), // "update_preview"
-QT_MOC_LITERAL(33, 436, 26), // "update_current_frame_label"
-QT_MOC_LITERAL(34, 463, 13), // "current_frame"
-QT_MOC_LITERAL(35, 477, 12), // "total_frames"
-QT_MOC_LITERAL(36, 490, 16), // "c_mouse_down_pos"
-QT_MOC_LITERAL(37, 507, 12), // "c_mouse_down"
-QT_MOC_LITERAL(38, 520, 10), // "c_mouse_up"
-QT_MOC_LITERAL(39, 531, 12), // "c_mouse_left"
-QT_MOC_LITERAL(40, 544, 27), // "on_PencilToolButton_clicked"
-QT_MOC_LITERAL(41, 572, 26), // "on_BrushToolButton_clicked"
-QT_MOC_LITERAL(42, 599, 25), // "on_LineToolButton_clicked"
-QT_MOC_LITERAL(43, 625, 27), // "on_EraserToolButton_clicked"
-QT_MOC_LITERAL(44, 653, 28), // "on_MirrorXToolButton_clicked"
-QT_MOC_LITERAL(45, 682, 28), // "on_MirrorYToolButton_clicked"
-QT_MOC_LITERAL(46, 711, 34), // "on_DiameterSpinBox_editingFin..."
-QT_MOC_LITERAL(47, 746, 28), // "on_ColorSelectButton_clicked"
-QT_MOC_LITERAL(48, 775, 30), // "on_PreviousFrameButton_clicked"
-QT_MOC_LITERAL(49, 806, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(50, 830, 25), // "on_AddFrameButton_clicked"
-QT_MOC_LITERAL(51, 856, 23), // "on_ZoomInButton_clicked"
-QT_MOC_LITERAL(52, 880, 24), // "on_ZoomOutButton_clicked"
-QT_MOC_LITERAL(53, 905, 25), // "on_StepBackButton_clicked"
-QT_MOC_LITERAL(54, 931, 30), // "on_RectangleToolButton_clicked"
-QT_MOC_LITERAL(55, 962, 32), // "on_FilledRectangleButton_clicked"
-QT_MOC_LITERAL(56, 995, 28), // "on_ClearCanvasButton_clicked"
-QT_MOC_LITERAL(57, 1024, 24), // "on_FillAllButton_clicked"
-QT_MOC_LITERAL(58, 1049, 23), // "on_actionOpen_triggered"
-QT_MOC_LITERAL(59, 1073, 26), // "on_actionSave_As_triggered"
-QT_MOC_LITERAL(60, 1100, 28) // "on_actionRotate_90_triggered"
+QT_MOC_LITERAL(29, 397, 10), // "new_sprite"
+QT_MOC_LITERAL(30, 408, 13), // "export_sprite"
+QT_MOC_LITERAL(31, 422, 13), // "update_canvas"
+QT_MOC_LITERAL(32, 436, 7), // "QImage*"
+QT_MOC_LITERAL(33, 444, 1), // "i"
+QT_MOC_LITERAL(34, 446, 14), // "update_preview"
+QT_MOC_LITERAL(35, 461, 26), // "update_current_frame_label"
+QT_MOC_LITERAL(36, 488, 13), // "current_frame"
+QT_MOC_LITERAL(37, 502, 12), // "total_frames"
+QT_MOC_LITERAL(38, 515, 16), // "c_mouse_down_pos"
+QT_MOC_LITERAL(39, 532, 12), // "c_mouse_down"
+QT_MOC_LITERAL(40, 545, 10), // "c_mouse_up"
+QT_MOC_LITERAL(41, 556, 12), // "c_mouse_left"
+QT_MOC_LITERAL(42, 569, 27), // "on_PencilToolButton_clicked"
+QT_MOC_LITERAL(43, 597, 26), // "on_BrushToolButton_clicked"
+QT_MOC_LITERAL(44, 624, 25), // "on_LineToolButton_clicked"
+QT_MOC_LITERAL(45, 650, 27), // "on_EraserToolButton_clicked"
+QT_MOC_LITERAL(46, 678, 28), // "on_MirrorXToolButton_clicked"
+QT_MOC_LITERAL(47, 707, 28), // "on_MirrorYToolButton_clicked"
+QT_MOC_LITERAL(48, 736, 34), // "on_DiameterSpinBox_editingFin..."
+QT_MOC_LITERAL(49, 771, 28), // "on_ColorSelectButton_clicked"
+QT_MOC_LITERAL(50, 800, 30), // "on_PreviousFrameButton_clicked"
+QT_MOC_LITERAL(51, 831, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(52, 855, 25), // "on_AddFrameButton_clicked"
+QT_MOC_LITERAL(53, 881, 23), // "on_ZoomInButton_clicked"
+QT_MOC_LITERAL(54, 905, 24), // "on_ZoomOutButton_clicked"
+QT_MOC_LITERAL(55, 930, 25), // "on_StepBackButton_clicked"
+QT_MOC_LITERAL(56, 956, 30), // "on_RectangleToolButton_clicked"
+QT_MOC_LITERAL(57, 987, 32), // "on_FilledRectangleButton_clicked"
+QT_MOC_LITERAL(58, 1020, 28), // "on_ClearCanvasButton_clicked"
+QT_MOC_LITERAL(59, 1049, 24), // "on_FillAllButton_clicked"
+QT_MOC_LITERAL(60, 1074, 23), // "on_actionOpen_triggered"
+QT_MOC_LITERAL(61, 1098, 26), // "on_actionSave_As_triggered"
+QT_MOC_LITERAL(62, 1125, 28), // "on_actionRotate_90_triggered"
+QT_MOC_LITERAL(63, 1154, 22), // "on_actionNew_triggered"
+QT_MOC_LITERAL(64, 1177, 11), // "hide_window"
+QT_MOC_LITERAL(65, 1189, 11), // "show_window"
+QT_MOC_LITERAL(66, 1201, 23), // "on_actionSave_triggered"
+QT_MOC_LITERAL(67, 1225, 25) // "on_actionExport_triggered"
 
     },
     "MainWindow\0tool_changed\0\0pencil_tool_selected\0"
@@ -104,9 +111,10 @@ QT_MOC_LITERAL(60, 1100, 28) // "on_actionRotate_90_triggered"
     "zoom_in_requested\0zoom_out_requested\0"
     "mouse_drag\0x\0y\0mouse_down\0mouse_up\0"
     "mouse_left\0save_sprite\0filename\0"
-    "load_sprite\0update_canvas\0QImage*\0i\0"
-    "update_preview\0update_current_frame_label\0"
-    "current_frame\0total_frames\0c_mouse_down_pos\0"
+    "load_sprite\0new_sprite\0export_sprite\0"
+    "update_canvas\0QImage*\0i\0update_preview\0"
+    "update_current_frame_label\0current_frame\0"
+    "total_frames\0c_mouse_down_pos\0"
     "c_mouse_down\0c_mouse_up\0c_mouse_left\0"
     "on_PencilToolButton_clicked\0"
     "on_BrushToolButton_clicked\0"
@@ -128,7 +136,10 @@ QT_MOC_LITERAL(60, 1100, 28) // "on_actionRotate_90_triggered"
     "on_FillAllButton_clicked\0"
     "on_actionOpen_triggered\0"
     "on_actionSave_As_triggered\0"
-    "on_actionRotate_90_triggered"
+    "on_actionRotate_90_triggered\0"
+    "on_actionNew_triggered\0hide_window\0"
+    "show_window\0on_actionSave_triggered\0"
+    "on_actionExport_triggered"
 };
 #undef QT_MOC_LITERAL
 
@@ -138,66 +149,73 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      50,   14, // methods
+      57,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      22,       // signalCount
+      24,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  264,    2, 0x06 /* Public */,
-       3,    0,  267,    2, 0x06 /* Public */,
-       4,    0,  268,    2, 0x06 /* Public */,
-       5,    0,  269,    2, 0x06 /* Public */,
-       6,    0,  270,    2, 0x06 /* Public */,
-       7,    0,  271,    2, 0x06 /* Public */,
-       8,    0,  272,    2, 0x06 /* Public */,
-       9,    1,  273,    2, 0x06 /* Public */,
-      11,    1,  276,    2, 0x06 /* Public */,
-      13,    0,  279,    2, 0x06 /* Public */,
-      14,    0,  280,    2, 0x06 /* Public */,
-      15,    0,  281,    2, 0x06 /* Public */,
-      16,    0,  282,    2, 0x06 /* Public */,
-      17,    0,  283,    2, 0x06 /* Public */,
-      18,    0,  284,    2, 0x06 /* Public */,
-      19,    0,  285,    2, 0x06 /* Public */,
-      20,    2,  286,    2, 0x06 /* Public */,
-      23,    2,  291,    2, 0x06 /* Public */,
-      24,    2,  296,    2, 0x06 /* Public */,
-      25,    0,  301,    2, 0x06 /* Public */,
-      26,    1,  302,    2, 0x06 /* Public */,
-      28,    1,  305,    2, 0x06 /* Public */,
+       1,    1,  299,    2, 0x06 /* Public */,
+       3,    0,  302,    2, 0x06 /* Public */,
+       4,    0,  303,    2, 0x06 /* Public */,
+       5,    0,  304,    2, 0x06 /* Public */,
+       6,    0,  305,    2, 0x06 /* Public */,
+       7,    0,  306,    2, 0x06 /* Public */,
+       8,    0,  307,    2, 0x06 /* Public */,
+       9,    1,  308,    2, 0x06 /* Public */,
+      11,    1,  311,    2, 0x06 /* Public */,
+      13,    0,  314,    2, 0x06 /* Public */,
+      14,    0,  315,    2, 0x06 /* Public */,
+      15,    0,  316,    2, 0x06 /* Public */,
+      16,    0,  317,    2, 0x06 /* Public */,
+      17,    0,  318,    2, 0x06 /* Public */,
+      18,    0,  319,    2, 0x06 /* Public */,
+      19,    0,  320,    2, 0x06 /* Public */,
+      20,    2,  321,    2, 0x06 /* Public */,
+      23,    2,  326,    2, 0x06 /* Public */,
+      24,    2,  331,    2, 0x06 /* Public */,
+      25,    0,  336,    2, 0x06 /* Public */,
+      26,    1,  337,    2, 0x06 /* Public */,
+      28,    1,  340,    2, 0x06 /* Public */,
+      29,    0,  343,    2, 0x06 /* Public */,
+      30,    1,  344,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      29,    1,  308,    2, 0x0a /* Public */,
-      32,    1,  311,    2, 0x0a /* Public */,
-      33,    2,  314,    2, 0x0a /* Public */,
-      36,    0,  319,    2, 0x0a /* Public */,
-      37,    0,  320,    2, 0x0a /* Public */,
-      38,    0,  321,    2, 0x0a /* Public */,
-      39,    0,  322,    2, 0x0a /* Public */,
-      40,    0,  323,    2, 0x08 /* Private */,
-      41,    0,  324,    2, 0x08 /* Private */,
-      42,    0,  325,    2, 0x08 /* Private */,
-      43,    0,  326,    2, 0x08 /* Private */,
-      44,    0,  327,    2, 0x08 /* Private */,
-      45,    0,  328,    2, 0x08 /* Private */,
-      46,    0,  329,    2, 0x08 /* Private */,
-      47,    0,  330,    2, 0x08 /* Private */,
-      48,    0,  331,    2, 0x08 /* Private */,
-      49,    0,  332,    2, 0x08 /* Private */,
-      50,    0,  333,    2, 0x08 /* Private */,
-      51,    0,  334,    2, 0x08 /* Private */,
-      52,    0,  335,    2, 0x08 /* Private */,
-      53,    0,  336,    2, 0x08 /* Private */,
-      54,    0,  337,    2, 0x08 /* Private */,
-      55,    0,  338,    2, 0x08 /* Private */,
-      56,    0,  339,    2, 0x08 /* Private */,
-      57,    0,  340,    2, 0x08 /* Private */,
-      58,    0,  341,    2, 0x08 /* Private */,
-      59,    0,  342,    2, 0x08 /* Private */,
-      60,    0,  343,    2, 0x08 /* Private */,
+      31,    1,  347,    2, 0x0a /* Public */,
+      34,    1,  350,    2, 0x0a /* Public */,
+      35,    2,  353,    2, 0x0a /* Public */,
+      38,    0,  358,    2, 0x0a /* Public */,
+      39,    0,  359,    2, 0x0a /* Public */,
+      40,    0,  360,    2, 0x0a /* Public */,
+      41,    0,  361,    2, 0x0a /* Public */,
+      42,    0,  362,    2, 0x08 /* Private */,
+      43,    0,  363,    2, 0x08 /* Private */,
+      44,    0,  364,    2, 0x08 /* Private */,
+      45,    0,  365,    2, 0x08 /* Private */,
+      46,    0,  366,    2, 0x08 /* Private */,
+      47,    0,  367,    2, 0x08 /* Private */,
+      48,    0,  368,    2, 0x08 /* Private */,
+      49,    0,  369,    2, 0x08 /* Private */,
+      50,    0,  370,    2, 0x08 /* Private */,
+      51,    0,  371,    2, 0x08 /* Private */,
+      52,    0,  372,    2, 0x08 /* Private */,
+      53,    0,  373,    2, 0x08 /* Private */,
+      54,    0,  374,    2, 0x08 /* Private */,
+      55,    0,  375,    2, 0x08 /* Private */,
+      56,    0,  376,    2, 0x08 /* Private */,
+      57,    0,  377,    2, 0x08 /* Private */,
+      58,    0,  378,    2, 0x08 /* Private */,
+      59,    0,  379,    2, 0x08 /* Private */,
+      60,    0,  380,    2, 0x08 /* Private */,
+      61,    0,  381,    2, 0x08 /* Private */,
+      62,    0,  382,    2, 0x08 /* Private */,
+      63,    0,  383,    2, 0x08 /* Private */,
+      64,    0,  384,    2, 0x08 /* Private */,
+      65,    0,  385,    2, 0x08 /* Private */,
+      66,    0,  386,    2, 0x08 /* Private */,
+      67,    0,  387,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -222,11 +240,18 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   27,
     QMetaType::Void, QMetaType::QString,   27,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   27,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 30,   31,
-    QMetaType::Void, 0x80000000 | 30,   31,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   34,   35,
+    QMetaType::Void, 0x80000000 | 32,   33,
+    QMetaType::Void, 0x80000000 | 32,   33,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   36,   37,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -284,34 +309,41 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 19: _t->mouse_left(); break;
         case 20: _t->save_sprite((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 21: _t->load_sprite((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 22: _t->update_canvas((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
-        case 23: _t->update_preview((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
-        case 24: _t->update_current_frame_label((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 25: _t->c_mouse_down_pos(); break;
-        case 26: _t->c_mouse_down(); break;
-        case 27: _t->c_mouse_up(); break;
-        case 28: _t->c_mouse_left(); break;
-        case 29: _t->on_PencilToolButton_clicked(); break;
-        case 30: _t->on_BrushToolButton_clicked(); break;
-        case 31: _t->on_LineToolButton_clicked(); break;
-        case 32: _t->on_EraserToolButton_clicked(); break;
-        case 33: _t->on_MirrorXToolButton_clicked(); break;
-        case 34: _t->on_MirrorYToolButton_clicked(); break;
-        case 35: _t->on_DiameterSpinBox_editingFinished(); break;
-        case 36: _t->on_ColorSelectButton_clicked(); break;
-        case 37: _t->on_PreviousFrameButton_clicked(); break;
-        case 38: _t->on_pushButton_2_clicked(); break;
-        case 39: _t->on_AddFrameButton_clicked(); break;
-        case 40: _t->on_ZoomInButton_clicked(); break;
-        case 41: _t->on_ZoomOutButton_clicked(); break;
-        case 42: _t->on_StepBackButton_clicked(); break;
-        case 43: _t->on_RectangleToolButton_clicked(); break;
-        case 44: _t->on_FilledRectangleButton_clicked(); break;
-        case 45: _t->on_ClearCanvasButton_clicked(); break;
-        case 46: _t->on_FillAllButton_clicked(); break;
-        case 47: _t->on_actionOpen_triggered(); break;
-        case 48: _t->on_actionSave_As_triggered(); break;
-        case 49: _t->on_actionRotate_90_triggered(); break;
+        case 22: _t->new_sprite(); break;
+        case 23: _t->export_sprite((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 24: _t->update_canvas((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
+        case 25: _t->update_preview((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
+        case 26: _t->update_current_frame_label((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 27: _t->c_mouse_down_pos(); break;
+        case 28: _t->c_mouse_down(); break;
+        case 29: _t->c_mouse_up(); break;
+        case 30: _t->c_mouse_left(); break;
+        case 31: _t->on_PencilToolButton_clicked(); break;
+        case 32: _t->on_BrushToolButton_clicked(); break;
+        case 33: _t->on_LineToolButton_clicked(); break;
+        case 34: _t->on_EraserToolButton_clicked(); break;
+        case 35: _t->on_MirrorXToolButton_clicked(); break;
+        case 36: _t->on_MirrorYToolButton_clicked(); break;
+        case 37: _t->on_DiameterSpinBox_editingFinished(); break;
+        case 38: _t->on_ColorSelectButton_clicked(); break;
+        case 39: _t->on_PreviousFrameButton_clicked(); break;
+        case 40: _t->on_pushButton_2_clicked(); break;
+        case 41: _t->on_AddFrameButton_clicked(); break;
+        case 42: _t->on_ZoomInButton_clicked(); break;
+        case 43: _t->on_ZoomOutButton_clicked(); break;
+        case 44: _t->on_StepBackButton_clicked(); break;
+        case 45: _t->on_RectangleToolButton_clicked(); break;
+        case 46: _t->on_FilledRectangleButton_clicked(); break;
+        case 47: _t->on_ClearCanvasButton_clicked(); break;
+        case 48: _t->on_FillAllButton_clicked(); break;
+        case 49: _t->on_actionOpen_triggered(); break;
+        case 50: _t->on_actionSave_As_triggered(); break;
+        case 51: _t->on_actionRotate_90_triggered(); break;
+        case 52: _t->on_actionNew_triggered(); break;
+        case 53: _t->hide_window(); break;
+        case 54: _t->show_window(); break;
+        case 55: _t->on_actionSave_triggered(); break;
+        case 56: _t->on_actionExport_triggered(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -471,6 +503,20 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
                 return;
             }
         }
+        {
+            typedef void (MainWindow::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::new_sprite)) {
+                *result = 22;
+                return;
+            }
+        }
+        {
+            typedef void (MainWindow::*_t)(QString );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::export_sprite)) {
+                *result = 23;
+                return;
+            }
+        }
     }
 }
 
@@ -499,13 +545,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 50)
+        if (_id < 57)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 50;
+        _id -= 57;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 50)
+        if (_id < 57)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 50;
+        _id -= 57;
     }
     return _id;
 }
@@ -648,6 +694,19 @@ void MainWindow::load_sprite(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 21, _a);
+}
+
+// SIGNAL 22
+void MainWindow::new_sprite()
+{
+    QMetaObject::activate(this, &staticMetaObject, 22, nullptr);
+}
+
+// SIGNAL 23
+void MainWindow::export_sprite(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 23, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE
