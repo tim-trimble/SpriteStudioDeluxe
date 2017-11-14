@@ -320,6 +320,6 @@ void MainWindow::on_actionSave_triggered()
 
 void MainWindow::on_actionExport_triggered()
 {
-    QString filename = QFileDialog::getSaveFileName(this, tr("Export Sprite"), " ", tr("GIF (*.gif)"));
+    QString filename = QFileDialog::getSaveFileName(this, tr("Export Sprite"), " ", tr("GIF (*.gif);;PNG (*.png)"));
     emit export_sprite(filename);
 }
