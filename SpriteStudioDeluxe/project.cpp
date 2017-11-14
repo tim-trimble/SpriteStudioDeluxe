@@ -111,7 +111,7 @@ void Project::previous_frame()
 
 void Project::rotate_frame(){
     Frame* new_frame = frames->at(current_index);
-    newFrame->rotate_image(90);
+    new_frame->rotate_image(90);
     frames->replace(current_index, new_frame);
     current_frame = new_frame;
 
@@ -285,7 +285,6 @@ void Project::history_step_back()
 {
     if (history[current_index].size() == 0)
     {
-        std::cout << "You have no history to revert to on this frame" << std::endl;
         return;
     }
 
