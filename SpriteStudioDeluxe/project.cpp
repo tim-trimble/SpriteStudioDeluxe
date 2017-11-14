@@ -247,7 +247,7 @@ void Project::export_project(QString filename)
 
         gif.setGlobalColorTable(ctable, Qt::white);
         gif.setDefaultTransparentColor(QColor(16, 16, 16));
-        gif.setDefaultDelay(1000);
+        gif.setDefaultDelay(100);
         for(int i=0; i < frames->size(); i++)
         {
             QImage img(*frames->at(i)->getImage());
