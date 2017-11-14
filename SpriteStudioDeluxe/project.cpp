@@ -217,6 +217,10 @@ void Project::load_project(QString filename)
 
 void Project::export_project(QString filename)
 {
+    if(filename.isEmpty())
+    {
+        return;
+    }
     if(filename.split(".").at(1) == "gif")
     {
         QGifImage gif(QSize(frames->at(0)->getX(), frames->at(0)->getY()));
