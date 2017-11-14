@@ -274,7 +274,10 @@ void MainWindow::on_FillAllButton_clicked()
 void MainWindow::on_actionOpen_triggered()
 {
     project_filename = QFileDialog::getOpenFileName(this, tr("Open Sprite"), " ", tr("Sprite (*.ssp);;All Files (*)"));
-    emit load_sprite(project_filename);
+    if (project_filename != NULL)
+    {
+        emit load_sprite(project_filename);
+    }
 }
 
 void MainWindow::on_actionSave_As_triggered()

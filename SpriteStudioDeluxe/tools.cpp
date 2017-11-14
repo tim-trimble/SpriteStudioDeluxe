@@ -229,7 +229,6 @@ void Tools::clear_canvas()
     Project::history[Project::current_index].push(archived_image);
 
     current_image->fill(Qt::transparent);
-    std::cout << "Clear" << std::endl;
     emit update_can(current_image);
 }
 
@@ -243,7 +242,6 @@ void Tools::fill_canvas()
     Project::history[Project::current_index].push(archived_image);
 
     current_image->fill(temp_color);
-    std::cout << "fill" << std::endl;
     emit update_can(current_image);
 }
 Tools::~Tools()
