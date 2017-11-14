@@ -165,6 +165,8 @@ void Project::load_project(QString filename)
     }
     else
     {
+        // QTextStream >> reads in 1 string at a time stopping at white space or end of line
+        // thus it must be read multiple times to get the correct data
         QTextStream in(&file);
         frames->clear();
         QString str;
@@ -221,6 +223,10 @@ void Project::export_project(QString filename)
     }
     if(filename.split(".").at(1) == "gif")
     {
+        // gif can only hold 256 colors in its pallete, this section here adds basic colors
+        // and also an equal spread of colors between different values of rgb
+        // 6^3 gives the number of colors in the triple loop which is 216. An additional 9 colors
+        // give our gifs a total of 225 colors in their pallette
         QGifImage gif(QSize(frames->at(0)->get_x(), frames->at(0)->get_y()));
         QVector<QRgb> ctable;
         ctable << qRgb(255, 255, 255)
@@ -261,6 +267,8 @@ void Project::export_project(QString filename)
         {
             QImage img(*frames->at(0)->get_image());
             img.setDevicePixelRatio(1);
+
+            // creates a new image to add each frame to from left to right
             QImage export_image(img.width() * frames->size(), img.height(), QImage::Format_ARGB32);
             for(int i = 0; i < frames->size(); i++)
             {
